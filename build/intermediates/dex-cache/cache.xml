@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c0fd7732a4aea9b479ba77aee6ecf45a9dff8bd9">
+        <dex dex="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1a55a23b0237766cb2aac8d3e5d030fac1a71c26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e240cba4bdf0aaab916feb313a9230ce48d68995\classes.dex" />
+    </item>
+
+</items>
