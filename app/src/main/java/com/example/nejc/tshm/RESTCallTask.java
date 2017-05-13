@@ -10,7 +10,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import android.view.View;
+
+import android.util.Log;
 import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,28 +22,41 @@ import java.io.IOException;
 class RESTCallTask extends AsyncTask<String,Void,String>{
     private String username;
     private String password;
+    private String password2;
     private String activityName;
+    private String name;
+    private String phone;
+    private String mail;
     private Activity activity;
-    //private View view;
-    //private String auth; // authentication username:geslo
 
     /*
      konstruktor za login določi username, geslo, activity(da lahko preidemo na drug)
-     in podatke za avdentikacijo(za enkrat ne potrebujemo)
+     za logIn
      */
-    RESTCallTask(Activity activity,View view, String activityName, String username, String passwd) {
+    RESTCallTask(Activity activity, String activityName, String username, String passwd) {
         this.activity = activity;
         this.activityName = activityName;
         this.username = username;
         this.password = passwd;
-        //this.auth = String.format("%s:%s", username, passwd);
-        //this.view=view;
     }
-
+    /*
+     konstruktor za registracijo določi username, geslo,ime in priimek, telefonsko in mail activity(da lahko preidemo na drug)
+     in podatke za avdentikacijo(za enkrat ne potrebujemo)
+     */
+    RESTCallTask(Activity activity, String activityName,  String name, String userName,
+                 String passwd1, String passwd2, String phone, String mail) {
+        this.activity = activity;
+        this.activityName = activityName;
+        this.name = name;
+        this.username = userName;
+        this.password = passwd1;
+        this.password2 = passwd2;
+        this.phone = phone;
+        this.mail = mail;
+    }
     protected String doInBackground(String... params) {
         String url="http://tshm.herokuapp.com/%s";
         String method="", parameter="", callURL="";//parametri ki jih potrebujemo za povezavo
-        boolean authorization = false;//nastavimo avdentikacijo na false
 
         if (params.length > 0)
             method = params[0];//POST, GET
@@ -51,7 +65,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
             parameter = params[1];// del url naslova
 
         callURL = String.format(url, parameter);// https://tshm.herokuapp.com/(Login)
-
+        Log.d("callURL",callURL);
         if (method.equals("POST"))//če je POST
             try {
                 return POST(callURL);
@@ -67,8 +81,13 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
             case "login":
                 jsonObject = LoginJson();
                 break;
+            case  "register":
+                jsonObject = RegistrationJson();
+                break;
+
             //TODO registracija, pridobi obleke, rezervacija,...
         }
+        Log.d("jsonObject",jsonObject.toString());
         String result = "";
         try {
             DefaultHttpClient httpclient = new DefaultHttpClient();
@@ -87,13 +106,21 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Log.d("result",result);
         return result;//vrne status_code@vrednost
     }
     protected void onPostExecute(String result) {
         switch (activityName) {
             case "login":
                 try {
-                    LogInResponse(result);
+                    LogInRegistrationResponse(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "register":
+                try {
+                    LogInRegistrationResponse(result);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -103,7 +130,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
 
     /*
     naredi JSON objekt ki vsebuje uporabniško ime in geslo
-    uporabi se v
+    uporabi se v requestu za prijavo
     */
     private JSONObject LoginJson() throws JSONException {
         JSONObject jsonObject = new JSONObject();
@@ -112,22 +139,39 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         return jsonObject;
     }
     /*
+    naredi JSON objekt ki vsebuje uporabniško ime geslo,....
+    uporabi se v requestu za registracijo
+    */
+    private JSONObject RegistrationJson() throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("UporabniskoIme", username);
+        jsonObject.put("Geslo1", password);
+        jsonObject.put("Geslo2", password2);
+        jsonObject.put("Mail", mail);
+        jsonObject.put("Telefonska", phone);
+        jsonObject.put("Ime", name);
+        jsonObject.put("Priimek", name);
+        return jsonObject;
+    }
+    /*
     glede na status obdela podatke(izpiše error ali zamenja activity)
      */
-    private void LogInResponse(String result) throws JSONException {
+    private void LogInRegistrationResponse(String result) throws JSONException {
         String[] res = result.split("#");
         //textView za izpis errorja
         TextView error = (TextView) activity.findViewById(R.id.Error);
         error.setTextColor(activity.getResources().getColor(R.color.error));// rdeča barva texta
         //pretvorimo v json objekt
+        Log.d("result", result);
         JSONObject json = new JSONObject(res[1]);
+
         //če je code status >400 izpiši napako
         if (Integer.parseInt(res[0]) >= 400){
             error.setText(json.getString("error"));
         }
         if(Integer.parseInt(res[0]) == 200){
             error.setText("");
-            //TODO zamenjaj na mainActivity dokončati
+            //TODO zamenjaj na mainActivity dokončati dizajn
             //TODO dokončaj Backend da vrne izdelke
         }
     }
