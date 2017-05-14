@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e240cba4bdf0aaab916feb313a9230ce48d68995\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15601f895c12179095dec6657959a0506f54a784">
+        <dex dex="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1a55a23b0237766cb2aac8d3e5d030fac1a71c26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\d778789fe8138662d67d8feafd6bcf3b401e70fb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_66c1ff64b3a099850c0168fe993da5af048c5d44\classes.dex" />
+    </item>
+
+</items>

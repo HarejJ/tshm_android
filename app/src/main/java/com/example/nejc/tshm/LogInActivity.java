@@ -34,7 +34,7 @@ public class LogInActivity extends AppCompatActivity {
 
             switch (view.getId()){
                 case R.id.LogInButton:
-                    sendData();
+                    Login();
                     break;
                 case  R.id.RegistrationText:
                     Intent intent = new Intent(logInActivity, RegistrationActivity.class);
@@ -42,7 +42,7 @@ public class LogInActivity extends AppCompatActivity {
             }
         }
     };
-    private void sendData(){
+    private void Login(){
         String username = ((EditText)findViewById(R.id.UserName)).getText().toString();
         String password = (((EditText)findViewById(R.id.Password)).getText().toString());
         TextView error = (TextView) findViewById(R.id.Error);
