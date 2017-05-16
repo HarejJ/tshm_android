@@ -17,6 +17,7 @@ public class EnterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter);
 
+
         Button enter = (Button) findViewById(R.id.EnterButton);
         enter.setOnClickListener(onClickListener);
         /*String[] s = a.split("L");

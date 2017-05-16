@@ -2,31 +2,166 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\b05be9f25be91a3664454891463b945df9571e9e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_bc4bd22f1196ca88eb31febbfb5790bfa33be75f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\e1ef2db963ac37fae84b615ada12c10fb77a4a7a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_ffe728569fda705f6e6df7b60efbcd68cbd07e40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Jan\AppData\Local\Android\sdk1\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_7c4ce2b6bc675cd1752cf5871f12866fd5a6f913.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\a462ec4febd29c9e874f78fecb6eb5aa9d3ca95d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_af78bb15f7594eefa148ce4a0624c5b68a53e271.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\78f85505da6794aeeb470040a98e83e59a16c47e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_32f203efba73961f4d15584d4e58f21d1fde6f6c.jar" />
+    </item>
+    <item
         is-multidex="true"
-        jar="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0e3a35135af9a25ad1ac49eef6b74becbaec20eb">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_53f6a01fa98be11560cc56c496dc560610a653d5\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\7004487280306aed5f5ad909b0c0e5f1eb234bf5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_bb6c02802af6a004e0a9f284fee5c93f496ac111.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\abda964a290d061d7aad6e2d0a008bf2019b1031\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_6e99856a880f46fdb2a68e1bb199651e31e024c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\c09acb1332eb0bffad00f37a141fbc6b6b8fade9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_03d1318b7022bb02093c489f4c794a0bb911ae41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\5311d58fbaa0366fc353dc948bacfa6b2f718c5d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_955e6a720ddd1d6b7ad849f0c2bd302c987c9d2d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e240cba4bdf0aaab916feb313a9230ce48d68995\classes.dex" />
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_387507529a35a4a40a50a9a8d58be7b6338c52e7\classes.dex" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\69c0fb1786aec17c11ca89ed08015bd852770523\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="15601f895c12179095dec6657959a0506f54a784">
-        <dex dex="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1a55a23b0237766cb2aac8d3e5d030fac1a71c26\classes.dex" />
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_d27d2750a33c75b17c52bea1d20428428f662c13.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Nejc\.android\build-cache\d778789fe8138662d67d8feafd6bcf3b401e70fb\output\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\e04e8d1289f41297f6eaba6275dc6da34243befd\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
-        <dex dex="C:\Users\Nejc\Documents\Visual Studio 2015\Projects\tshm\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_66c1ff64b3a099850c0168fe993da5af048c5d44\classes.dex" />
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_eaf1c975a47e0614bd8b16e95cea5e977f3ec092.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\f69c242efb5d3fc28f89377f1ed5f60ae7d98c5b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_962a81c3f31bf49b3887e794fef41c6a2e07fa41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\1993b7c26ffb99010be1930a7472b633aca63319\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_a1c2273b141cf8c6dded478abe702deb46e5d26b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\c08cdd8544d9079b54478cc0afdf5adf82c3fb4a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_5a4d12526a03ef45100c6a7f635262376a5f6498.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Jan\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_98b3e52b5f60f1ba71b7df13ceb4d224bbb83f18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\ec1254db26a798c646c950153d701445fd59a117\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_e6c6e7ad7558a7b97802c460afbab3c34c770780.jar" />
     </item>
 
 </items>
