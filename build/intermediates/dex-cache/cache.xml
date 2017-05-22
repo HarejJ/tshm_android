@@ -2,166 +2,166 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\b05be9f25be91a3664454891463b945df9571e9e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_bc4bd22f1196ca88eb31febbfb5790bfa33be75f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\e1ef2db963ac37fae84b615ada12c10fb77a4a7a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_ffe728569fda705f6e6df7b60efbcd68cbd07e40.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Jan\AppData\Local\Android\sdk1\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_7c4ce2b6bc675cd1752cf5871f12866fd5a6f913.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\a462ec4febd29c9e874f78fecb6eb5aa9d3ca95d\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_af78bb15f7594eefa148ce4a0624c5b68a53e271.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\78f85505da6794aeeb470040a98e83e59a16c47e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_32f203efba73961f4d15584d4e58f21d1fde6f6c.jar" />
-    </item>
-    <item
         is-multidex="true"
-        jar="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Nejc\.android\build-cache\b14db4c5941fb0e57bfcc7840cc87c56634da356\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="0e3a35135af9a25ad1ac49eef6b74becbaec20eb">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_53f6a01fa98be11560cc56c496dc560610a653d5\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\7004487280306aed5f5ad909b0c0e5f1eb234bf5\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_bb6c02802af6a004e0a9f284fee5c93f496ac111.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\abda964a290d061d7aad6e2d0a008bf2019b1031\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_6e99856a880f46fdb2a68e1bb199651e31e024c5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\c09acb1332eb0bffad00f37a141fbc6b6b8fade9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_03d1318b7022bb02093c489f4c794a0bb911ae41.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\5311d58fbaa0366fc353dc948bacfa6b2f718c5d\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_955e6a720ddd1d6b7ad849f0c2bd302c987c9d2d.jar" />
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c9fa6b01cbaa36ace03549f3423ce8c43fe2a2ef\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Nejc\.android\build-cache\38386ceaf81c99b3c9596c1db760e26d6c96336e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_902781b655e1efca7fecb8bc3d61e1d00d722c67\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\30989d1d9bc274457611980902ea3c11455c45f8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_74632cc2def6641b7447b5f94203e2081a7e8620\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\87bc8e8549810bfd3ad351268c1d9d07f59e215c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_421b86e58f8546d3ee9d4ed57db30af78317924f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\1ca3f294d763b12c29de516e47d3f6645068714e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e51e5658a87aff5cd45ee780e83c999750e9bae3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\4b4ae8c1fe2787336c208602ca5d6e598e07e71f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8e38f1f3f93b755324493f3cd01e7d1a1d2a3f7e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_387507529a35a4a40a50a9a8d58be7b6338c52e7\classes.dex" />
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a538ef4ac90382eaf739649bc429abbec0c471cb\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\69c0fb1786aec17c11ca89ed08015bd852770523\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\34851d692ace3e1a9d4d82c40df1676bc0ce1459\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_d27d2750a33c75b17c52bea1d20428428f662c13.jar" />
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_897ef83d9b950228538e611430d7a9b240ad17c3\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\e04e8d1289f41297f6eaba6275dc6da34243befd\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\965d529c5e46672bba364c56676b2182c667e63f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4112804dbca30aeff852e8f01eeaa6da9f4fb708\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\afa1a674bf790558a5a2382a8ec789671ddd5993\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d19fc8bca6711febe086930635e329bbd7b7c02d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_e0fe2dbbad2774eefa14c01307d0892a2329258e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\9f654e5227edb077880a4563aa0973c2e4f1057c\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_eaf1c975a47e0614bd8b16e95cea5e977f3ec092.jar" />
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_62e8927e067b603ea94c42a7b90a071939c3288b\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\f69c242efb5d3fc28f89377f1ed5f60ae7d98c5b\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_962a81c3f31bf49b3887e794fef41c6a2e07fa41.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\1993b7c26ffb99010be1930a7472b633aca63319\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_a1c2273b141cf8c6dded478abe702deb46e5d26b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\c08cdd8544d9079b54478cc0afdf5adf82c3fb4a\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\631efd764510d28fde14e36b5719124797191ff4\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_5a4d12526a03ef45100c6a7f635262376a5f6498.jar" />
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4ce9372fe894f3dc320cad4ed11cf5090f816975\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Jan\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_98b3e52b5f60f1ba71b7df13ceb4d224bbb83f18.jar" />
+        sha1="41b4648952d6d7080d5bbc7dda94275e5ec16e60">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_54b9f7bcf045ef3257e854a20b8342abb07d0d7b\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Android\.android\build-cache\ec1254db26a798c646c950153d701445fd59a117\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\396ecf740aa734d313d97a962612204e92fa35fc\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\pre-dexed\debug\classes_e6c6e7ad7558a7b97802c460afbab3c34c770780.jar" />
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f7b93d0a118f2bfa7affe587954d58c3cfa5178e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\763f639849feaaa56da6e0197266d749097b79cc\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b354ae8d18a5806a7ad307d55db9978bb54c0aa1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\.android\build-cache\b22d2f8cf0e736fa10242768e2a1f5ae9077926d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fcc6954a2f9e7469b92842a577f280d330d3cbdb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nejc\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_b82484ffe43e9a638f64e575d17c12fea93e87f7\classes.dex" />
     </item>
 
 </items>

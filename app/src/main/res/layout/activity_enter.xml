@@ -7,13 +7,9 @@
     tools:context="com.example.nejc.tshm.EnterActivity">
 
     <LinearLayout
-        android:layout_width="384dp"
-        android:layout_height="551dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_height="match_parent"
-        tools:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -44,9 +40,7 @@
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_column="0"
-                        android:layout_row="0"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:text="@string/app_name"
                         android:textAlignment="center"
@@ -58,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical"/>
 
             </LinearLayout>
 
@@ -72,9 +66,6 @@
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerInParent="true"
                     android:layout_gravity="top|left"
                     android:layout_marginBottom="-40dp"
                     android:layout_weight="1"
@@ -93,7 +84,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="vertical"></LinearLayout>
+                        android:orientation="vertical"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -103,7 +94,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"></LinearLayout>
+                            android:orientation="horizontal"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -112,10 +103,10 @@
 
                             <TextView
                                 android:id="@+id/textView4"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Veseli smo, da se želiš pridružiti skupnosti ljudi, ki si želijo nekaj več kot le hitro modo"
+                                android:text="@string/opis_pod_logo"
                                 android:textAlignment="center"
                                 android:textColor="#FFFFFF" />
                         </LinearLayout>
@@ -123,7 +114,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"></LinearLayout>
+                            android:orientation="horizontal"/>
 
                     </LinearLayout>
 
@@ -131,7 +122,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="vertical"></LinearLayout>
+                        android:orientation="vertical"/>
 
                 </LinearLayout>
 
@@ -155,7 +146,7 @@
                 <LinearLayout
                     android:layout_width="38dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical"/>
 
                 <LinearLayout
                     android:layout_width="88dp"
@@ -178,7 +169,7 @@
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.68"
-                            android:orientation="vertical"></LinearLayout>
+                            android:orientation="vertical"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -200,7 +191,7 @@
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.68"
-                            android:orientation="vertical"></LinearLayout>
+                            android:orientation="vertical"/>
 
                     </LinearLayout>
 
@@ -214,7 +205,7 @@
                             android:id="@+id/textView3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Za začetek se prosim vpiši ali registriraj, če si nov uporabnik, nato pa le hitro brskaj po unikatnih modnih kosih."
+                            android:text="@string/opis_pod_vstopi"
                             android:textAlignment="center"
                             android:textColor="@color/colorPrimary"
                             android:textSize="15sp"
@@ -226,7 +217,7 @@
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.02"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical"/>
 
             </LinearLayout>
 

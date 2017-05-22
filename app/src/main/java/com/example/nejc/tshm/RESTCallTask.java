@@ -3,6 +3,7 @@
 */
 package com.example.nejc.tshm;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -10,13 +11,13 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-
+import android.view.View;
 import android.util.Log;
 import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
-
+import java.io.Serializable;
 
 
 class RESTCallTask extends AsyncTask<String,Void,String>{
@@ -28,31 +29,34 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
     private String phone;
     private String mail;
     private Activity activity;
-
+    private View view;
     /*
      konstruktor za login določi username, geslo, activity(da lahko preidemo na drug)
      za logIn
      */
-    RESTCallTask(Activity activity, String activityName, String username, String passwd) {
+    RESTCallTask(Activity activity, String activityName, String username, String passwd,View view) {
         this.activity = activity;
         this.activityName = activityName;
         this.username = username;
         this.password = passwd;
+        this.view = view;
     }
     /*
      konstruktor za registracijo določi username, geslo,ime in priimek, telefonsko in mail activity(da lahko preidemo na drug)
      in podatke za avdentikacijo(za enkrat ne potrebujemo)
      */
     RESTCallTask(Activity activity, String activityName,  String name, String userName,
-                 String passwd1, String passwd2, String phone, String mail) {
+                 String passwd1, String passwd2, String phone, String mail, View view) {
         this.activity = activity;
         this.activityName = activityName;
+        this.view = view;
         this.name = name;
         this.username = userName;
         this.password = passwd1;
         this.password2 = passwd2;
         this.phone = phone;
         this.mail = mail;
+
     }
     protected String doInBackground(String... params) {
         String url="http://tshm.herokuapp.com/%s";
@@ -163,14 +167,21 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         error.setTextColor(activity.getResources().getColor(R.color.error));// rdeča barva texta
         //pretvorimo v json objekt
         Log.d("result", result);
-        JSONObject json = new JSONObject(res[1]);
+        JSONObject jsonRes = new JSONObject(res[1]);
 
         //če je code status >400 izpiši napako
         if (Integer.parseInt(res[0]) >= 400){
-            error.setText(json.getString("error"));
+            error.setText(jsonRes.getString("error"));
         }
         if(Integer.parseInt(res[0]) == 200){
             error.setText("");
+
+            User user = new User(jsonRes.getString(""),name,
+                    password,mail,phone,1,"");
+
+            Intent intent = new Intent(activity, MainActivity.class);
+            intent.putExtra("User", (Serializable) user);
+            this.view.getContext().startActivity(intent);
             //TODO zamenjaj na mainActivity dokončati dizajn
             //TODO dokončaj Backend da vrne izdelke
         }

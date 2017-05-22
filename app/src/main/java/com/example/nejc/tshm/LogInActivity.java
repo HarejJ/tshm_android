@@ -34,7 +34,7 @@ public class LogInActivity extends AppCompatActivity {
 
             switch (view.getId()){
                 case R.id.LogInButton:
-                    Login();
+                    Login(view);
                     break;
                 case  R.id.RegistrationText:
                     Intent intent = new Intent(logInActivity, RegistrationActivity.class);
@@ -42,7 +42,7 @@ public class LogInActivity extends AppCompatActivity {
             }
         }
     };
-    private void Login(){
+    private void Login(View view) {
         String username = ((EditText)findViewById(R.id.UserName)).getText().toString();
         String password = (((EditText)findViewById(R.id.Password)).getText().toString());
         TextView error = (TextView) findViewById(R.id.Error);
@@ -53,28 +53,16 @@ public class LogInActivity extends AppCompatActivity {
         }
         String passwdHash = "";
         error.setText("");
+        MD5 hash = new MD5();
         try {
-            passwdHash = md5(password);
+            Log.d("geslo",password);
+            passwdHash = hash.md5(password);
         } catch (NoSuchAlgorithmException e) {
-            error.setText("Težava pri šifriranju gesla");
-            return;
+            e.printStackTrace();
         }
-        RESTCallTask restTask = new RESTCallTask(logInActivity, "login", username, passwdHash);
+        Log.d("1","pride");
+        RESTCallTask restTask = new RESTCallTask(logInActivity, "login", username, passwdHash,view);
+        Log.d("2","pride");
         restTask.execute("POST", String.format("login"));
-    }
-
-    @NonNull
-    private String md5(String s) throws NoSuchAlgorithmException {
-        // Create MD5 Hash
-        MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-        digest.update(s.getBytes());
-        byte messageDigest[] = digest.digest();
-
-        // Create Hex String
-        StringBuffer hexString = new StringBuffer();
-        for (int i=0; i<messageDigest.length; i++)
-            hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-        return hexString.toString();
-
     }
 }

@@ -31,13 +31,13 @@ public class RegistrationActivity extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.RegistrationButton:
-                    registration();
+                    registration(view);
                     break;
             }
         }
     };
 
-    private void registration() {
+    private void registration(View view) {
         String name = ((EditText) findViewById(R.id.Name)).getText().toString();
         String userName = ((EditText) findViewById(R.id.User)).getText().toString();
         String passwd1 = ((EditText) findViewById(R.id.Password1)).getText().toString();
@@ -53,46 +53,24 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         String passwd1MD5 = null;
+        String passwd2MD5 = null;
+        MD5 hash = new MD5();
         //šifriranje
         try {
-            passwd1MD5 = md5(passwd1);
+            passwd1MD5 = hash.md5(passwd1);
+            passwd2MD5 = hash.md5(passwd2);
         } catch (NoSuchAlgorithmException e) {
             error.setText("Težava pri šifriranju gesla");
             return;
         }
-        String passwd2MD5 = null;
-        try {
-            passwd2MD5 = md5(passwd2);
-        } catch (NoSuchAlgorithmException e) {
-            error.setText("Težava pri šifriranju gesla");
-            return;
-        }
-        Log.d(" sda",passwd1MD5);
-        Log.d(" dsa",passwd2MD5);
         // preverimo ali sta gesli enaki
         if(!passwd1MD5.equals(passwd2MD5)){
             error.setText("vnešeni gesli nista enaki");
             return;
         }
         RESTCallTask restTask = new RESTCallTask(registrationActivity, "register", name, userName,
-                passwd1MD5, passwd2MD5, phone, mail);
-        Log.d("passwd", passwd2MD5);
+                passwd1MD5, passwd2MD5, phone, mail,view);
+
         restTask.execute("POST", String.format("register"));
-
-    }
-
-    @NonNull
-    private String md5(String s) throws NoSuchAlgorithmException {
-            // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            // Create Hex String
-            StringBuffer hexString = new StringBuffer();
-            for (int i=0; i<messageDigest.length; i++)
-                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-            return hexString.toString();
-
     }
 }

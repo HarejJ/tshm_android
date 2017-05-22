@@ -18,4 +18,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti ljudi, ki si želijo nekaj več kot le hitro modo</string>
+    <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj, če si nov uporabnik, nato pa le hitro brskaj po unikatnih modnih kosih.</string>
+
+    <string name="o_aplikaciji_1">Aplikacija je bila izdelana kot del študentskega projekta \"Po kreativni poti do znanja\" z naslovom \"Temne skrivnosti hitre mode\" v sodelovanju s podjetjem Snaga d.o.o.</string>
+    
 </resources>
