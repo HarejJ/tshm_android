@@ -1,7 +1,11 @@
 package com.example.nejc.tshm;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,12 +19,14 @@ import java.security.NoSuchAlgorithmException;
 
 public class LogInActivity extends AppCompatActivity {
     LogInActivity logInActivity;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         logInActivity = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
         Button logIn = (Button) findViewById(R.id.LogInButton);
+        context = this;
         TextView registration = (TextView) findViewById(R.id.RegistrationText);
         TextView forgotPasword = (TextView) findViewById(R.id.ForgotPassword);
 
@@ -34,8 +40,12 @@ public class LogInActivity extends AppCompatActivity {
 
             switch (view.getId()){
                 case R.id.LogInButton:
-                    Login(view);
+                    if(NetworkUtils.isNetworkConnected(context))
+                        Login(view);
+                    else
+                        Dialog.networkErrorDialog(context).show();
                     break;
+
                 case  R.id.RegistrationText:
                     Intent intent = new Intent(logInActivity, RegistrationActivity.class);
                     startActivity(intent);
@@ -55,14 +65,11 @@ public class LogInActivity extends AppCompatActivity {
         error.setText("");
         MD5 hash = new MD5();
         try {
-            Log.d("geslo",password);
             passwdHash = hash.md5(password);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        Log.d("1","pride");
         RESTCallTask restTask = new RESTCallTask(logInActivity, "login", username, passwdHash,view);
-        Log.d("2","pride");
         restTask.execute("POST", String.format("login"));
     }
 }

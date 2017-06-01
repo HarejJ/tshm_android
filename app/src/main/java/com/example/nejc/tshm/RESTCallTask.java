@@ -4,6 +4,8 @@
 package com.example.nejc.tshm;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -28,6 +30,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
     private String name;
     private String phone;
     private String mail;
+    private String image;
     private Activity activity;
     private View view;
     /*
@@ -46,7 +49,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
      in podatke za avdentikacijo(za enkrat ne potrebujemo)
      */
     RESTCallTask(Activity activity, String activityName,  String name, String userName,
-                 String passwd1, String passwd2, String phone, String mail, View view) {
+                 String passwd1, String passwd2, String phone, String mail, View view,String image) {
         this.activity = activity;
         this.activityName = activityName;
         this.view = view;
@@ -56,6 +59,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         this.password2 = passwd2;
         this.phone = phone;
         this.mail = mail;
+        this.image = image;
 
     }
     protected String doInBackground(String... params) {
@@ -155,6 +159,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         jsonObject.put("Telefonska", phone);
         jsonObject.put("Ime", name);
         jsonObject.put("Priimek", name);
+        jsonObject.put("Slika",image);
         return jsonObject;
     }
     /*
@@ -171,18 +176,24 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
 
         //če je code status >400 izpiši napako
         if (Integer.parseInt(res[0]) >= 400){
+            Log.d("slika",image);
             error.setText(jsonRes.getString("error"));
         }
         if(Integer.parseInt(res[0]) == 200){
             error.setText("");
-
-            User user = new User(jsonRes.getString(""),name,
-                    password,mail,phone,1,"");
+            Log.d("json",jsonRes.toString());
+            /*String[] img = jsonRes.getString("Slika").split(" ");
+            byte[] bytes = new byte[img.length];
+            for (int j=0; j<img.length; j++)
+                bytes[j]= Byte.parseByte(img[j]);
+            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            */
+            User user = new User(jsonRes.getString("uporabniskoIme"),jsonRes.getString("Ime"),
+                    password,jsonRes.getString("Mail"),jsonRes.getString("Telefonska"),1,"",jsonRes.getString("Slika"));
 
             Intent intent = new Intent(activity, MainActivity.class);
             intent.putExtra("User", (Serializable) user);
             this.view.getContext().startActivity(intent);
-            //TODO zamenjaj na mainActivity dokončati dizajn
             //TODO dokončaj Backend da vrne izdelke
         }
     }

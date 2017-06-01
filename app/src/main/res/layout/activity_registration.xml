@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:background="@drawable/loginbackground"
+            android:orientation="vertical"
             android:weightSum="8">
 
             <LinearLayout
@@ -151,7 +151,9 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/e_mail"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:selectAllOnFocus="false"
+                    android:singleLine="false" />
             </LinearLayout>
 
             <LinearLayout
