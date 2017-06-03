@@ -22,5 +22,9 @@
     <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj, če si nov uporabnik, nato pa le hitro brskaj po unikatnih modnih kosih.</string>
 
     <string name="o_aplikaciji_1">Aplikacija je bila izdelana kot del študentskega projekta \"Po kreativni poti do znanja\" z naslovom \"Temne skrivnosti hitre mode\" v sodelovanju s podjetjem Snaga d.o.o.</string>
-    
+    <string name="priljubljeni_kosi">Priljubljeni kosi</string>
+    <string name="brez_rezerviranih_Oblačil">Žal trenutno še nimaš aktivnih rezervacij oblačil, skoči na galerijo in si hitro enega rezerviraj</string>
+    <string name="galerija">Galerija</string>
+    <string name="status_rezervacije">Status rezervacije</string>
+
 </resources>

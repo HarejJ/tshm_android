@@ -14,6 +14,8 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
@@ -32,7 +34,7 @@ public class UserProfileFragment extends Fragment {
     User user;
     TextView userName,name,mail,statusTw,popularTw;
     LinearLayout withoutReservation,reservation,popular;
-    Button galleryBtn;
+    Button galleryBtn,statusBtn,popularBtn;
     public UserProfileFragment() {
         // Required empty public constructor
     }
@@ -40,10 +42,12 @@ public class UserProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        user =(User) getArguments().getSerializable("user");
+
         fragmentTransaction = this.getFragmentManager().beginTransaction();
         View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
 
-        user =(User) getArguments().getSerializable("user");
         withoutReservation =(LinearLayout) view.findViewById(R.id.brezRezervacije);
         userName = (TextView) view.findViewById(R.id.userNameTV);
         name = (TextView) view.findViewById(R.id.NameTW);
@@ -51,6 +55,8 @@ public class UserProfileFragment extends Fragment {
         statusTw = (TextView) view.findViewById(R.id.textViewStatus);
         popularTw = (TextView) view.findViewById(R.id.textViewPopular);
         galleryBtn = (Button) view.findViewById(R.id.galleryBtn);
+        statusBtn = (Button) view.findViewById(R.id.status);
+        popularBtn = (Button) view.findViewById(R.id.popular);
 
         statusTw.setVisibility(View.INVISIBLE);
         popularTw.setVisibility(View.VISIBLE);
@@ -59,22 +65,13 @@ public class UserProfileFragment extends Fragment {
         userName.setText(user.getUsername());
         name.setText(user.getName());
         mail.setText(user.getMail());
-        // slika
-        /*
-        String[] img = user.getImage().split(" ");
-        byte[] bytes = new byte[img.length];
-        for (int j=0; j<img.length; j++)
-            bytes[j]= Byte.parseByte(img[j]);
-        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        */
 
         CircleImageView userImage =(CircleImageView) view.findViewById(R.id.profile_image);
         userImage.setImageBitmap(ImageUtil.convert(user.getImage()));
-        Button status = (Button) view.findViewById(R.id.status);
-        Button popular = (Button) view.findViewById(R.id.popular);
 
-        status.setOnClickListener(onClickListener);
-        popular.setOnClickListener(onClickListener);
+
+        statusBtn.setOnClickListener(onClickListener);
+        popularBtn.setOnClickListener(onClickListener);
         galleryBtn.setOnClickListener(onClickListener);
         return view;
 
@@ -85,12 +82,21 @@ public class UserProfileFragment extends Fragment {
 
             switch (view.getId()){
                 case R.id.status:
+
                     statusTw.setVisibility(View.VISIBLE);
                     popularTw.setVisibility(View.INVISIBLE);
                     withoutReservation.setVisibility(View.VISIBLE);
                     break;
 
                 case R.id.popular:
+
+                    Animation animation   =    AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_righ);
+                    animation.setDuration(500);
+                    withoutReservation.setAnimation(animation);
+                    withoutReservation.animate();
+                    animation.start();
+
+                    statusTw.animate().translationX(view.getWidth());
                     statusTw.setVisibility(View.INVISIBLE);
                     popularTw.setVisibility(View.VISIBLE);
                     withoutReservation.setVisibility(View.INVISIBLE);

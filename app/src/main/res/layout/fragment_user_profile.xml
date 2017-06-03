@@ -181,7 +181,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/colorPrimary"
-                        android:text="Priljubljeni kosi" />
+                        android:text="@string/priljubljeni_kosi" />
 
                     <Button
                         android:id="@+id/status"
@@ -189,7 +189,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/colorPrimary"
-                        android:text="Status rezervacije" />
+                        android:text="@string/status_rezervacije" />
 
                 </LinearLayout>
 
@@ -220,6 +220,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
+                android:animateLayoutChanges="true"
                 android:orientation="vertical"
                 android:visibility="visible">
 
@@ -227,8 +228,9 @@
                     android:id="@+id/brezRezervacije"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1.7"
                     android:orientation="vertical"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     android:weightSum="2">
 
                     <LinearLayout
@@ -261,7 +263,7 @@
                                 android:gravity="center"
                                 android:lineSpacingExtra="3dp"
                                 android:longClickable="false"
-                                android:text="Žal trenutno še nimaš aktivnih rezervacij oblačil, skoči na galerijo in si hitro enega rezerviraj"
+                                android:text="@string/brez_rezerviranih_Oblačil"
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                                 android:textSize="18sp" />
                         </LinearLayout>
@@ -270,9 +272,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.32"
-                            android:orientation="horizontal">
-
-                        </LinearLayout>
+                            android:orientation="horizontal" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -286,7 +286,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.3"
-                            android:orientation="horizontal"></LinearLayout>
+                            android:orientation="horizontal" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -301,16 +301,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
-                                android:text="Galerija" />
+                                android:text="@string/galerija" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.3"
-                            android:orientation="horizontal">
-
-                        </LinearLayout>
+                            android:orientation="horizontal" />
 
                     </LinearLayout>
 

@@ -171,12 +171,10 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         TextView error = (TextView) activity.findViewById(R.id.Error);
         error.setTextColor(activity.getResources().getColor(R.color.error));// rdeča barva texta
         //pretvorimo v json objekt
-        Log.d("result", result);
         JSONObject jsonRes = new JSONObject(res[1]);
 
         //če je code status >400 izpiši napako
         if (Integer.parseInt(res[0]) >= 400){
-            Log.d("slika",image);
             error.setText(jsonRes.getString("error"));
         }
         if(Integer.parseInt(res[0]) == 200){

@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = null;
     Toolbar toolbar = null;
     User user = null;
+    android.support.v4.app.FragmentTransaction fragmentTransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +37,15 @@ public class MainActivity extends AppCompatActivity
         Intent i = getIntent();
         user = (User)i.getSerializableExtra("User");
 
+
+        Bundle args = new Bundle();
+        args.putSerializable("user", (Serializable) user);
         //Set the fragment initially
-        MainFragment fragment = new MainFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction =
-                getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        MainFragment mainFragment = new MainFragment();
+        mainFragment.setArguments(args);
+
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, mainFragment);
         fragmentTransaction.commit();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -59,18 +65,8 @@ public class MainActivity extends AppCompatActivity
         View hView =  navigationView.getHeaderView(0);
         TextView nav_user = (TextView)hView.findViewById(R.id.userMenu);
         nav_user.setText(user.getName());
-
         //nastavi sliko
-        /*
-        String[] img = user.getImage().split(" ");
-        byte[] bytes = new byte[img.length];
-        for (int j=0; j<img.length; j++)
-            bytes[j]= Byte.parseByte(img[j]);
-        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        */
         CircleImageView profilImage = (CircleImageView)hView.findViewById(R.id.profile_image);
-        //String  bitmap = ImageUtil.convert(bmp);
-        //Log.d("image", bitmap);
         profilImage.setImageBitmap(ImageUtil.convert(user.getImage()));
     }
 
