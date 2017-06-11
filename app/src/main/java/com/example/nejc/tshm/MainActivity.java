@@ -31,13 +31,14 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar = null;
     User user = null;
     android.support.v4.app.FragmentTransaction fragmentTransaction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Intent i = getIntent();
-        user = (User)i.getSerializableExtra("User");
+        user = (User) i.getSerializableExtra("User");
 
 
         Bundle args = new Bundle();
@@ -64,11 +65,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // nastavi uporabniško ime v glavi menuja
-        View hView =  navigationView.getHeaderView(0);
-        TextView nav_user = (TextView)hView.findViewById(R.id.userMenu);
+        View hView = navigationView.getHeaderView(0);
+        TextView nav_user = (TextView) hView.findViewById(R.id.userMenu);
         nav_user.setText(user.getName());
         //nastavi sliko
-        CircleImageView profilImage = (CircleImageView)hView.findViewById(R.id.profile_image);
+        CircleImageView profilImage = (CircleImageView) hView.findViewById(R.id.profile_image);
         profilImage.setImageBitmap(ImageUtil.convert(user.getImage()));
 
     }
@@ -82,7 +83,6 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
 
 
     @Override
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
 
-        }else if(id == R.id.nav_user){
+        } else if (id == R.id.nav_user) {
             Bundle args = new Bundle();
             args.putSerializable("user", (Serializable) user);
 
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
 
-        }else if (id == R.id.nav_about_aplication) {
+        } else if (id == R.id.nav_about_aplication) {
             AboutAPPFragment fragment = new AboutAPPFragment();
 
             android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
 
-        } else if(id == R.id.nav_logout){
+        } else if (id == R.id.nav_logout) {
             finish();
         }
 

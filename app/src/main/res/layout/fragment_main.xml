@@ -16,6 +16,7 @@
         android:weightSum="2">
 
         <LinearLayout
+            android:id="@+id/upperFactBody"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.6"
@@ -278,7 +279,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/colorPrimary"
+                            android:background="@color/colorPrimaryTransparent"
                             android:text="Galerija" />
                     </LinearLayout>
 
@@ -299,7 +300,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/colorPrimary"
+                            android:background="@color/colorPrimaryTransparent"
                             android:text="Hitra moda in mi" />
                     </LinearLayout>
                 </LinearLayout>
@@ -328,7 +329,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/colorPrimary"
+                            android:background="@color/colorPrimaryTransparent"
                             android:text="Moj profil" />
                     </LinearLayout>
 
@@ -349,7 +350,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/colorPrimary"
+                            android:background="@color/colorPrimaryTransparent"
                             android:text="nega oblačil" />
                     </LinearLayout>
                 </LinearLayout>

@@ -228,7 +228,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/holo_green_dark"
+                android:background="@color/colorPrimaryDark"
                 android:gravity="center"
                 android:text="@string/registracija"
                 android:textColor="@color/common_google_signin_btn_text_dark_default" />
