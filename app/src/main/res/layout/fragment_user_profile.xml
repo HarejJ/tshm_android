@@ -48,13 +48,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1.7"
-                        android:orientation="vertical"/>
+                        android:layout_weight="1.8"
+                        android:orientation="vertical" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.3"
+                        android:layout_weight="0.2"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -126,7 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1.3"
-                        android:orientation="vertical"/>
+                        android:orientation="vertical" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -225,12 +225,23 @@
                 android:visibility="visible">
 
                 <LinearLayout
+                    android:id="@+id/priljubljeniKosi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.7"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="2">
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/brezRezervacije"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1.7"
                     android:orientation="vertical"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:weightSum="2">
 
                     <LinearLayout
@@ -301,7 +312,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
-                                android:text="@string/galerija" />
+                                android:text="@string/galerija"
+                                android:textColor="@color/common_google_signin_btn_text_dark_default" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -312,6 +324,581 @@
 
                     </LinearLayout>
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Rezervacija"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.7"
+                    android:background="@color/belkasta"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:weightSum="4">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.25"
+                        android:orientation="horizontal"></LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.9"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/SlikaRezervacja"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/shirt1" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/OblikovalecRezervacija"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Ime oblikovalca"
+                                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/TipRezervacija"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Tip obleke"
+                                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/Spol_velikostRezervacija"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="unisex Velikost M"
+                                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.25"
+                        android:orientation="horizontal"></LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/StatusOblacila"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.85"
+                            android:orientation="vertical"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView16"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Juhu si trenutni imetnik oblačila :)"
+                                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                        android:textSize="22sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.2"
+                                android:orientation="horizontal"></LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.8"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView15"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Št. preostalih dni"
+                                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                        android:textSize="22sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:weightSum="5">
+
+                                    <TextView
+                                        android:id="@+id/stDniTw"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@color/common_google_signin_btn_text_dark_default"
+                                        android:gravity="center"
+                                        android:text="2"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.35"
+                            android:orientation="horizontal"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.8"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:id="@+id/predajaBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <Button
+                                    android:id="@+id/predajNaprej"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@color/colorPrimaryDark"
+                                    android:text="Predaja Oblačila"
+                                    android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.35"
+                                    android:orientation="horizontal"></LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.3"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:weightSum="3">
+
+                                    <TextView
+                                        android:id="@+id/textView20"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="P.S.: Oblačila ne pozabi oprati in oddati tako lepo negovanega kot si ga prejel "
+                                        android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.35"
+                                    android:orientation="horizontal"></LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/StatusRezervacija"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.9"
+                            android:orientation="vertical"
+                            android:weightSum="4">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.1"
+                                android:orientation="horizontal"></LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.9"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView16"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Trenutni imetnik"
+                                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                        android:textSize="22sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:id="@+id/textView17"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@color/common_google_signin_btn_text_dark_default"
+                                        android:gravity="center"
+                                        android:text="Uporabnik"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.1"
+                                android:orientation="horizontal"></LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.9"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView15"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Čakalna vrsta"
+                                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                        android:textSize="22sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:weightSum="6">
+
+                                    <TextView
+                                        android:id="@+id/textView19"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@color/common_google_signin_btn_text_dark_default"
+                                        android:gravity="center"
+                                        android:text="2"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.9"
+                            android:orientation="horizontal"></LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.3"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <Button
+                                android:id="@+id/DeleteReservationBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@color/colorPrimaryDark"
+                                android:text="Zbriši rezervacijo"
+                                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/OblaciloOddano"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="vertical"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.35"
+                                    android:orientation="horizontal"></LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.3"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView16"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Če si oblačilo že predal naslednjemu uporabniku to prosim potrdi s klikom na spodnji gumb "
+                                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                        android:textSize="19sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.35"
+                                    android:orientation="horizontal"></LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <Button
+                                android:id="@+id/OddajaBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@color/colorPrimaryDark"
+                                android:text="Oblčilo odano"
+                                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/OblaciloSprejeto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:orientation="vertical"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="vertical"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.35"
+                                    android:orientation="horizontal"></LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.3"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/textView16"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Če si oblačilo že prejel  to prosim potrdi s klikom na spodnji gumb "
+                                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                        android:textSize="19sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.35"
+                                    android:orientation="horizontal"></LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <Button
+                                android:id="@+id/SprejemOblacila"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@color/colorPrimaryDark"
+                                android:text="Oblačilo sprejeto"
+                                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

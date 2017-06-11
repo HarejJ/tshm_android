@@ -27,6 +27,7 @@ public class NetworkUtils {
         }
         return TYPE_NOT_CONNECTED;
     }
+
     //prača true če ima naprava wifi ali vključene mobilne podatke
     public static boolean isNetworkConnected(Context context) {
         int networkStatus = getConnectivityStatus(context);

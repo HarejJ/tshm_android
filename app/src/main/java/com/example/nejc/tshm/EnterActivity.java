@@ -27,6 +27,7 @@ public class EnterActivity extends AppCompatActivity {
         public void onClick(View v) {
             Log.d("view", String.valueOf(v.getId()));
             Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
     };

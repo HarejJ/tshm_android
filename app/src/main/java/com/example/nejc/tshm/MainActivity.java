@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity
         //nastavi sliko
         CircleImageView profilImage = (CircleImageView)hView.findViewById(R.id.profile_image);
         profilImage.setImageBitmap(ImageUtil.convert(user.getImage()));
+
     }
 
     @Override
@@ -84,30 +87,25 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
-
         return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
             Bundle args = new Bundle();
             args.putSerializable("user", (Serializable) user);
+
             MainFragment fragment = new MainFragment();
             fragment.setArguments(args);
+
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
+
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
 
@@ -118,48 +116,59 @@ public class MainActivity extends AppCompatActivity
 
             UserProfileFragment fragment = new UserProfileFragment();
             fragment.setArguments(args);
+
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
+
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+
         } else if (id == R.id.nav_gallery) {
+            Bundle args = new Bundle();
+            args.putSerializable("user", (Serializable) user);
+
             GalleryFragment fragment = new GalleryFragment();
+            fragment.setArguments(args);
+
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
+
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
-            // Handle the camera action
+
         } else if (id == R.id.nav_about) {
             AboutProjectFragment fragment = new AboutProjectFragment();
+
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
+
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_help) {
             HelpFragment fragment = new HelpFragment();
+
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
+
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+
         }else if (id == R.id.nav_about_aplication) {
             AboutAPPFragment fragment = new AboutAPPFragment();
+
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
+
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+
         } else if(id == R.id.nav_logout){
-            this.finish();
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    private View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-
-        }
-    };
 
 }

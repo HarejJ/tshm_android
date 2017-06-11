@@ -76,9 +76,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Si vedel/a da se za proizvodnjo enih kavbojk porabi 1000L vode?"
+                                android:text="Za pridobitev 1 kg bombaža potrebujemo 30 000 litrov vode."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="36sp"
+                                android:textSize="24sp"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -96,9 +96,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Si vedel/a da se za proizvodnjo enih kavbojk porabi 20000L vode?"
+                                android:text="Majica iz sintetičnih vlaken (npr. poliester: glavna sestavina je nafta) za razgradnjo potrebuje 200 let ali več."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="36sp"
+                                android:textSize="24sp"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -116,9 +116,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Si vedel/a da se za proizvodnjo enih kavbojk porabi 3000L vode?"
+                                android:text="Tekstilna industrija je (takoj za naftno) druga največja onesnaževalka okolja."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="36sp"
+                                android:textSize="24sp"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -136,9 +136,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Si vedel/a da se za proizvodnjo enih kavbojk porabi 30000L vode?"
+                                android:text="Si vedel/a da za proizvodnjo enega para kavbojk potrebujemo 80 000 litrov vode."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="36sp"
+                                android:textSize="24sp"
                                 android:visibility="visible" />
                         </LinearLayout>
 

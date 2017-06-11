@@ -16,19 +16,18 @@ import android.widget.TextView;
 import java.io.Serializable;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MainFragment extends Fragment {
-    android.support.v4.app.FragmentTransaction fragmentTransaction;
-    User user;
-    Button galleryBtn1, profileBtn1, aboutBtn1, careOfClothesBtn1;
-    ImageView left,right,radio1,radio2,radio3,radio4;
-    LinearLayout title1,title2,title3,title4;
-    int prevPosition;
-    int position;
-    LinearLayout[] titles = new LinearLayout[4];
-    ImageView[] titlePosition = new ImageView[4];
+
+    private android.support.v4.app.FragmentTransaction fragmentTransaction;
+    private User user;
+    private Button galleryBtn1, profileBtn1, aboutBtn1, careOfClothesBtn1;
+    private ImageView left,right,radio1,radio2,radio3,radio4;
+    private LinearLayout title1,title2,title3,title4;
+    private int prevPosition, position;
+    private LinearLayout[] titles = new LinearLayout[4];
+    private ImageView[] titlePosition = new ImageView[4];
+
+
     public MainFragment() {
         // Required empty public constructor
     }
@@ -119,15 +118,19 @@ public class MainFragment extends Fragment {
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            Bundle args = new Bundle();
             switch (view.getId()) {
                 case R.id.galleryBtn1:
+                    args.putSerializable("user", (Serializable) user);
+
                     GalleryFragment galleryFragment = new GalleryFragment();
+                    galleryFragment.setArguments(args);
+
                     fragmentTransaction.replace(R.id.fragment_container, galleryFragment);
                     fragmentTransaction.commit();
                     break;
 
                 case R.id.profilbtn1:
-                    Bundle args = new Bundle();
                     args.putSerializable("user", (Serializable) user);
 
                     UserProfileFragment userProfileFragment = new UserProfileFragment();

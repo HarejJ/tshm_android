@@ -17,13 +17,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistrationActivity extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private String name,userName,passwd1,passwd2,phone,mail,passwd1MD5,passwd2MD5;
+    private EditText name,userName,passwd1,passwd2,phone,mail,birthday,location;
+    private  String passwd1MD5,passwd2MD5;
     private RegistrationActivity registrationActivity;
     private View view1;
-    Context context;
+    private TextView error;
+    private Context context;
+    boolean vnesena= true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,42 +57,87 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void registration(View view) {
         view1 = view;
-        name = ((EditText) findViewById(R.id.Name)).getText().toString();
-        userName = ((EditText) findViewById(R.id.User)).getText().toString();
-        passwd1 = ((EditText) findViewById(R.id.Password1)).getText().toString();
-        passwd2 = ((EditText) findViewById(R.id.Password2)).getText().toString();
-        phone = ((EditText) findViewById(R.id.PhoneNumber)).getText().toString();
-        mail = ((EditText) findViewById(R.id.Email)).getText().toString();
-        TextView error = (TextView) findViewById(R.id.Error);
+        name = ((EditText) findViewById(R.id.Name));
+        userName = ((EditText) findViewById(R.id.User));
+        passwd1 = ((EditText) findViewById(R.id.Password1));
+        passwd2 = ((EditText) findViewById(R.id.Password2));
+        phone = ((EditText) findViewById(R.id.PhoneNumber));
+        mail = ((EditText) findViewById(R.id.Email));
+        error = (TextView) findViewById(R.id.Error);
+        birthday = ((EditText) findViewById(R.id.Date));
+        location = ((EditText) findViewById(R.id.Location));
         //izpolnjena vsa polja
-        if(name.length() == 0 || userName.length() == 0 || passwd1.length() == 0
-                ||passwd2.length() == 0 ||phone.length() == 0 || mail.length() == 0){
-            error.setText("izpolnite vsa polja");
-            return;
+        if(name.length() == 0) {
+            name.setError("Vnesite ime in priimek");
+            vnesena = false;
         }
-
+        if(userName.length() == 0) {
+            userName.setError("Vnesite uporabniško ime");
+            vnesena = false;
+        }
+        if(passwd1.length() == 0) {
+            passwd1.setError("Vnesite geslo");
+            vnesena = false;
+        }
+        if(passwd2.length() == 0) {
+            passwd2.setError("ponovno vnesite geslo");
+            vnesena = false;
+        }
+        if(phone.length() == 0) {
+            phone.setError("vnesite telefonsko številko");
+            vnesena = false;
+        }
+        if(mail.length() == 0) {
+            mail.setError("Vnesite e-mail");
+            vnesena = false;
+        }
+        if(mail.length() == 0) {
+            mail.setError("Vnesite e-mail");
+            vnesena = false;
+        }
+        if(birthday.length() == 0) {
+            birthday.setError("Vnesite datum rojstva");
+            vnesena = false;
+        }
+        if(location.length() == 0) {
+            mail.setError("Vnesite prebivališče");
+            vnesena = false;
+        }
+        if(vnesena == false)
+            return;
         passwd1MD5 = null;
         passwd2MD5 = null;
         MD5 hash = new MD5();
         //šifriranje
         try {
-            passwd1MD5 = hash.md5(passwd1);
-            passwd2MD5 = hash.md5(passwd2);
+            passwd1MD5 = hash.md5(passwd1.getText().toString());
+            passwd2MD5 = hash.md5(passwd2.getText().toString());
         } catch (NoSuchAlgorithmException e) {
-            error.setText("Težava pri šifriranju gesla");
+            passwd2.setText("Težava pri šifriranju gesla");
             return;
         }
         // preverimo ali sta gesli enaki
         if(!passwd1MD5.equals(passwd2MD5)){
-            error.setText("vnešeni gesli nista enaki");
+            passwd1.setError("vnešeni gesli nista enaki");
+            passwd2.setError("vnešeni gesli nista enaki");
             return;
         }
-        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
+        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(mail.getText().toString()).matches()){
             error.setText("e-mail nalov je neveljaven");
             return;
         }
-        if(!validatedNumber(phone)){
+        if(!validatedNumber(phone.getText().toString())){
             error.setText("telefonska stevilka je neveljavna");
+            return;
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+
+        try {
+            Date date = formatter.parse(birthday.getText().toString());
+            System.out.println(date);
+            System.out.println(formatter.format(date));
+        } catch (ParseException e) {
+            birthday.setError("vnesite veljaven datum rojstva");
             return;
         }
         if(NetworkUtils.isNetworkConnected(context))
@@ -93,6 +146,8 @@ public class RegistrationActivity extends AppCompatActivity {
             Dialog.networkErrorDialog(context).show();
 
     }
+
+    //pravilnost vnešene telefonske številke
     private boolean validatedNumber(String phone){
         if(phone.charAt(0) == '+') {
             if(phone.length() != 12)
@@ -110,6 +165,17 @@ public class RegistrationActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    //pravilnost vnešenega datuma
+    private  boolean validateDate(String birthDate){
+        String[] date = birthDate.split(".");
+        if(Integer.parseInt(date[1]) > 12 || Integer.parseInt(date[1]) < 1)
+            return false;
+        if(Integer.parseInt(date[2]) <19)
+            return false;
+        return true;
+    }
+
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -127,12 +193,9 @@ public class RegistrationActivity extends AppCompatActivity {
             imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] byteArray = stream.toByteArray();
             String image=ImageUtil.convert(imageBitmap);
-            /*
-            for (int i = 0; i<byteArray.length; i++)
-                image+= i<byteArray.length? byteArray[i]+" " :byteArray[i];
-            */
-            RESTCallTask restTask = new RESTCallTask(registrationActivity, "register", name, userName,
-                    passwd1MD5, passwd2MD5, phone, mail,view1,image);
+
+            RESTCallTask restTask = new RESTCallTask(registrationActivity, "register", name.getText().toString(), userName.getText().toString(),
+                    passwd1MD5, passwd2MD5, phone.getText().toString(), mail.getText().toString(),view1,image);
             restTask.execute("POST", String.format("register"));
 
         }

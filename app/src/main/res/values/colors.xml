@@ -5,4 +5,6 @@
     <color name="colorPrimaryDark">#087a00</color>
     <color name="colorAccent">#ff4081</color>
     <color name="error">#f70307</color>
+    <color name="siva">#13000000</color>
+    <color name="belkasta">#c0b0adad</color>
 </resources>

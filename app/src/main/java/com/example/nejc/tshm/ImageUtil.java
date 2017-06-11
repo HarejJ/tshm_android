@@ -1,8 +1,6 @@
 package com.example.nejc.tshm;
 
-/**
- * Created by Nejc on 1. 06. 2017.
- */
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
