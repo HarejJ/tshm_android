@@ -16,6 +16,16 @@
     <string name="registracija">Registracija</string>
     <string name="title_activity_gallery">GalleryActivity</string>
 
+    <string name="care_welcome">Vsako oblačilo zahteva sebi prilagojeno nego. Za lažje razumevanje simbolov za ravnanje z izposojenimi kosi, ti tukaj prilagamo razlago.</string>
+    <string name="care_item0">Simboli za pranje</string>
+    <string name="care_item0_item0">Številka v kadi je najvišja temperatura pri kateri lahko peremo oblačilo.\nČe je pod kadjo črta ali dve, pomeni, da oblačilo peremo s programi za občutljivo perilo.</string>
+    <string name="care_item1">Simboli za sušenje</string>
+    <string name="care_item1_item0">Če je boben sušilnega stroja prečrtan sušenje v stroju ni dovoljeno. Pika v sredini pomeni program za občutljivejš perilo s sušenjem pri nižji temperaturi.</string>
+    <string name="care_item2">Simboli za likanje</string>
+    <string name="care_item2_item0">Če je likalnik prečrtan perila ne likamo. Pikice pomenijo pri kako visoki temepraturi lahko likamo (tri pike pomenijo najvišjo temperaturo)</string>
+    <string name="care_item3">Ostali simboli</string>
+    <string name="care_item3_item0">Krog je simbol za menično čiščenj, črka v krogu pove s katero kemikalijo lahko čistimo.\nTrikotnik pa je simbol za beljenje in če je prečrtan beljenje ni dovoljeno.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti ljudi, ki si želijo nekaj več kot le hitro modo</string>

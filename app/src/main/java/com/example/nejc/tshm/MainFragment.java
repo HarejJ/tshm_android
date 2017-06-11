@@ -21,8 +21,8 @@ public class MainFragment extends Fragment {
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
     private User user;
     private Button galleryBtn1, profileBtn1, aboutBtn1, careOfClothesBtn1;
-    private ImageView left,right,radio1,radio2,radio3,radio4;
-    private LinearLayout title1,title2,title3,title4;
+    private ImageView left, right, radio1, radio2, radio3, radio4;
+    private LinearLayout title1, title2, title3, title4, factBdy;
     private int prevPosition, position;
     private LinearLayout[] titles = new LinearLayout[4];
     private ImageView[] titlePosition = new ImageView[4];
@@ -36,7 +36,7 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        user =(User) getArguments().getSerializable("user");
+        user = (User) getArguments().getSerializable("user");
 
         fragmentTransaction = this.getFragmentManager().beginTransaction();
         View view = inflater.inflate(R.layout.fragment_main, container, false);
@@ -45,6 +45,7 @@ public class MainFragment extends Fragment {
         profileBtn1 = (Button) view.findViewById(R.id.profilbtn1);
         aboutBtn1 = (Button) view.findViewById(R.id.aboutBtn1);
         careOfClothesBtn1 = (Button) view.findViewById(R.id.careOfClothesBtn1);
+        factBdy = (LinearLayout) view.findViewById(R.id.upperFactBody);
         left = (ImageView) view.findViewById(R.id.slideLeft);
         right = (ImageView) view.findViewById(R.id.slideRight);
         title1 = (LinearLayout) view.findViewById(R.id.TitleLL1);
@@ -70,6 +71,7 @@ public class MainFragment extends Fragment {
         profileBtn1.setOnClickListener(onClickListener);
         aboutBtn1.setOnClickListener(onClickListener);
         careOfClothesBtn1.setOnClickListener(onClickListener);
+        //factBdy.
         left.setOnClickListener(onClickListener);
         right.setOnClickListener(onClickListener);
 
@@ -77,17 +79,16 @@ public class MainFragment extends Fragment {
     }
 
     private void setPosition(int id) {
-        for (int i =0; i<4; i++){
-            if(i != position){
-                if(id == R.id.slideRight && prevPosition == i ){
-                    Animation animation   =    AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_righ);
+        for (int i = 0; i < 4; i++) {
+            if (i != position) {
+                if (id == R.id.slideRight && prevPosition == i) {
+                    Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_righ);
                     animation.setDuration(300);
                     titles[i].setAnimation(animation);
                     titles[i].animate();
                     animation.start();
-                }
-                else if(id == R.id.slideLeft && prevPosition == i ){
-                    Animation animation   =    AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_left);
+                } else if (id == R.id.slideLeft && prevPosition == i) {
+                    Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_left);
                     animation.setDuration(300);
                     titles[i].setAnimation(animation);
                     titles[i].animate();
@@ -97,15 +98,14 @@ public class MainFragment extends Fragment {
                 titles[i].setVisibility(View.GONE);
             }
         }
-        if(id == R.id.slideRight){
-            Animation animation   =    AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_left);
+        if (id == R.id.slideRight) {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_left);
             animation.setDuration(300);
             titles[position].setAnimation(animation);
             titles[position].animate();
             animation.start();
-        }
-        else if(id == R.id.slideLeft){
-            Animation animation   =    AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_right);
+        } else if (id == R.id.slideLeft) {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_right);
             animation.setDuration(300);
             titles[position].setAnimation(animation);
             titles[position].animate();
@@ -154,13 +154,13 @@ public class MainFragment extends Fragment {
 
                 case R.id.slideRight:
                     prevPosition = position;
-                    position=(position + 1) % 4;
+                    position = (position + 1) % 4;
                     setPosition(view.getId());
                     break;
 
                 case R.id.slideLeft:
                     prevPosition = position;
-                    position = (position-=1)<0 ? 3 : position;
+                    position = (position -= 1) < 0 ? 3 : position;
                     setPosition(view.getId());
             }
 

@@ -19,6 +19,9 @@ public class EnterActivity extends AppCompatActivity {
 
         Button enter = (Button) findViewById(R.id.EnterButton);
         enter.setOnClickListener(onClickListener);
+
+        ImageView logo= (ImageView) findViewById(R.id.imageView2);
+        //logo.bringToFront();
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
