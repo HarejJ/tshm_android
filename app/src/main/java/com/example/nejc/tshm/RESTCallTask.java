@@ -134,6 +134,16 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
             case "predajaNaprej":
                 jsonObject = ReservationJson();
                 break;
+            case "oddana":
+                jsonObject = ReservationJson();
+                break;
+            case "kontaktImetnika":
+                jsonObject = ReservationJson();
+                break;
+            case "kontaktprejemnika":
+                jsonObject = ReservationJson();
+                break;
+
 
         }
         Log.d("jsonObject",jsonObject.toString());
@@ -198,12 +208,38 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
                 break;
             case "predajaNaprej":
                 try {
-                    sprejemRezervacijeResponse(result);
+                    predajaNaprejResponse(result);
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
                 }
                 break;
+            case "oddana":
+                try {
+                    oddajaRezervacijeResponse(result);
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case  "kontaktImetnika":
+                try {
+                    kontaktImetnika(result);
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case  "kontaktprejemnika":
+                try {
+                    kontaktprejemnika(result);
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+
         }
     }
 
@@ -325,6 +361,15 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
             delegate.sprejemRezervacije();
         }
     }
+    private  void oddajaRezervacijeResponse(String result)throws JSONException {
+        String[] res = result.split("#");
+        if (Integer.parseInt(res[0]) == 200) {
+            delegate.oddajaRezervacije();
+        }else
+            delegate.oddajaRezervacijeZavrnjena();
+
+
+    }
     private  void predajaNaprejResponse(String result)throws JSONException {
         String[] res = result.split("#");
         if (Integer.parseInt(res[0]) == 200) {
@@ -333,10 +378,35 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
     }
     private  void deleteReservationResponse(String result)throws JSONException {
         String[] res = result.split("#");
-        boolean[]user = new boolean[5];
         if (Integer.parseInt(res[0]) == 200) {
 
             delegate.deleteReservation();
+        }
+    }
+
+    private  void kontaktImetnika(String result)throws JSONException {
+        String[] res = result.split("#");
+        if (Integer.parseInt(res[0]) == 200) {
+            JSONObject jsonObject = new JSONObject(res[1]);
+            String[]user = new String[4];
+            user[0]=(jsonObject.getString("uporabnik"));
+            user[1]=(jsonObject.getString("mail"));
+            user[2]=(jsonObject.getString("stevilka"));
+            user[3]=(jsonObject.getString("lokacija"));
+            delegate.kontaktImetnika(user);
+        }
+    }
+
+    private  void kontaktprejemnika(String result)throws JSONException {
+        String[] res = result.split("#");
+        if (Integer.parseInt(res[0]) == 200) {
+            JSONObject jsonObject = new JSONObject(res[1]);
+            String[]user = new String[4];
+            user[0]=(jsonObject.getString("uporabnik"));
+            user[1]=(jsonObject.getString("mail"));
+            user[2]=(jsonObject.getString("stevilka"));
+            user[3]=(jsonObject.getString("lokacija"));
+            delegate.kontaktImetnika(user);
         }
     }
     private void clothesResponse(String result) throws  JSONException{

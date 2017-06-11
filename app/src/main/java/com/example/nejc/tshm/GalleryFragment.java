@@ -88,6 +88,21 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
     }
 
+    @Override
+    public void oddajaRezervacije() {
+
+    }
+
+    @Override
+    public void oddajaRezervacijeZavrnjena() {
+
+    }
+
+    @Override
+    public void kontaktImetnika(String[] user) {
+
+    }
+
     private void setImage(ArrayList<Dress> output){
         int size=0;
         int count =1;

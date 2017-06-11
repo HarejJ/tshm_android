@@ -1,338 +1,351 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
     tools:context="com.example.nejc.tshm.GalleryFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_weight="0.92"
+        android:orientation="horizontal"></LinearLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:cropToPadding="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/background" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingEnd="@dimen/activity_horizontal_margin"
-                android:paddingStart="@dimen/activity_horizontal_margin"
-                android:text="@string/care_welcome"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:cropToPadding="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/background" />
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/care_item0"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:text="@string/care_welcome"
                     android:textAlignment="center"
-                    android:textAllCaps="false"
                     android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
-            </LinearLayout>
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/background"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:orientation="vertical">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/simboli_pranje" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/textView12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:paddingEnd="@dimen/activity_horizontal_margin"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
-                        android:text="@string/care_item0_item0"
+                        android:text="@string/care_item0"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
+                        android:textSize="25sp" />
                 </LinearLayout>
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
-
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/care_item1"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/background"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:background="@drawable/background"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
-                    <ImageView
-                        android:id="@+id/imageView6"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/simboli_susenje" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/simboli_pranje" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:paddingEnd="@dimen/activity_horizontal_margin"
+                            android:paddingStart="@dimen/activity_horizontal_margin"
+                            android:text="@string/care_item0_item0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
                     <TextView
-                        android:id="@+id/textView16"
+                        android:id="@+id/textView15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:paddingEnd="@dimen/activity_horizontal_margin"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
-                        android:text="@string/care_item1_item0"
+                        android:text="@string/care_item1"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
+                        android:textSize="25sp" />
                 </LinearLayout>
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
-
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/care_item2"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/background"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:background="@drawable/background"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
-                    <ImageView
-                        android:id="@+id/imageView1"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/simboli_likanje" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/simboli_susenje" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:paddingEnd="@dimen/activity_horizontal_margin"
+                            android:paddingStart="@dimen/activity_horizontal_margin"
+                            android:text="@string/care_item1_item0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
                     <TextView
-                        android:id="@+id/textView18"
+                        android:id="@+id/textView17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:paddingEnd="@dimen/activity_horizontal_margin"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
-                        android:text="@string/care_item2_item0"
+                        android:text="@string/care_item2"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
+                        android:textSize="25sp" />
                 </LinearLayout>
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/care_item3"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/background"
-                android:orientation="vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:background="@drawable/background"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
-                    <ImageView
-                        android:id="@+id/imageView2"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/simboli_ostalo" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/simboli_likanje" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:paddingEnd="@dimen/activity_horizontal_margin"
+                            android:paddingStart="@dimen/activity_horizontal_margin"
+                            android:text="@string/care_item2_item0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:paddingEnd="@dimen/activity_horizontal_margin"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
-                        android:text="@string/care_item3_item0"
+                        android:text="@string/care_item3"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
+                        android:textSize="25sp" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/simboli_ostalo" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:paddingEnd="@dimen/activity_horizontal_margin"
+                            android:paddingStart="@dimen/activity_horizontal_margin"
+                            android:text="@string/care_item3_item0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

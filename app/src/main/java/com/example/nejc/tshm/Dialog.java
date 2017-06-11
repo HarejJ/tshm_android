@@ -41,6 +41,16 @@ public class Dialog {
         return dialog;
     }
 
+    public static AlertDialog imetnikOblacila(Context context,String[]user){
+        String str = "Uporabnik: "+user[0]+"\nmail: "+user[1]+"\nštevilka: "+user[2]+"\nlokacija: "+user[3];
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(dialogMessage(context,str));
+        builder.setCustomTitle(title(context,"Kontakti uporabnika"));
+        builder.setPositiveButton("VREDU",null);
+        AlertDialog dialog = builder.create();
+        return dialog;
+    }
+
     private static ScrollView dialogMessage(Context context, String titleText){
         ScrollView s_view = new ScrollView(context);
         TextView t_view = new TextView(context);

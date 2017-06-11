@@ -11,4 +11,7 @@ public interface AsyncResponse {
     void deleteReservation();
     void sprejemRezervacije();
     void predajaNaprej();
+    void oddajaRezervacije();
+    void oddajaRezervacijeZavrnjena();
+    void kontaktImetnika(String[] user);
 }

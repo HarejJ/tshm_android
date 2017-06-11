@@ -96,6 +96,12 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
                     linearLayoutReservation.setVisibility(View.GONE);
                     linearLayoutClothesCare.setVisibility(View.VISIBLE);
                     break;
+                case R.id.ClothesCareB:
+                    CareOfClothes fragment = new CareOfClothes();
+
+                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                    fragmentTransaction.commit();
+                    break;
                 case R.id.ReservationTB:
 
                     clothesCare.setVisibility(View.GONE);
@@ -157,6 +163,21 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
 
     @Override
     public void predajaNaprej() {
+
+    }
+
+    @Override
+    public void oddajaRezervacije() {
+
+    }
+
+    @Override
+    public void oddajaRezervacijeZavrnjena() {
+
+    }
+
+    @Override
+    public void kontaktImetnika(String[] user) {
 
     }
 }

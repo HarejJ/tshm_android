@@ -45,9 +45,8 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     private TextView userName,name,mail,statusTw,popularTw;
     private LinearLayout withoutReservation,reservation,popular;
     private LinearLayout statusRezervacijeLL, statusOblacilaLL, statusOddanoLL, statusSprejetoLL;
-    private Button galleryBtn,statusBtn,popularBtn;
+    private Button galleryBtn,statusBtn,popularBtn,kontaktImetnika,kontaktPrejemnika;
     private Button sprejemOblacila,oddajaOblacila,izbrisiRezervacijo,predajNaprej;
-    private LinearLayout statusRezervacija,statusOblacila,oblaciloOddano,oblaciloSprejeto;
     public UserProfileFragment() {
         // Required empty public constructor
     }
@@ -89,16 +88,13 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         name.setText(user.getName());
         mail.setText(user.getMail());
 
-        statusRezervacija = (LinearLayout) view.findViewById(R.id.StatusRezervacija);
-        statusOblacila = (LinearLayout) view.findViewById(R.id.StatusOblacila);
-        oblaciloOddano = (LinearLayout) view.findViewById(R.id.OblaciloOddano);
-        oblaciloSprejeto = (LinearLayout) view.findViewById(R.id.OblaciloSprejeto);
 
         sprejemOblacila = (Button) view.findViewById(R.id.SprejemOblacila);
         oddajaOblacila = (Button) view.findViewById(R.id.OddajaBtn);
         izbrisiRezervacijo = (Button) view.findViewById(R.id.DeleteReservationBtn);
         predajNaprej = (Button) view.findViewById(R.id.predajNaprej);
-
+        kontaktImetnika = (Button) view.findViewById(R.id.kontaktImetnika);
+        kontaktPrejemnika =(Button) view.findViewById(R.id.kontaktPrejemnika);
         statusRezervacijeLL =(LinearLayout) view.findViewById(R.id.StatusRezervacija);
         statusOblacilaLL = (LinearLayout) view.findViewById(R.id.StatusOblacila);
         statusOddanoLL =(LinearLayout) view.findViewById(R.id.OblaciloOddano);
@@ -106,13 +102,15 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
         CircleImageView userImage =(CircleImageView) view.findViewById(R.id.profile_image);
         userImage.setImageBitmap(ImageUtil.convert(user.getImage()));
-
+        kontaktPrejemnika.setOnClickListener(onClickListener);
+        kontaktImetnika.setOnClickListener(onClickListener);
         predajNaprej.setOnClickListener(onClickListener);
         izbrisiRezervacijo.setOnClickListener(onClickListener);
         statusBtn.setOnClickListener(onClickListener);
         popularBtn.setOnClickListener(onClickListener);
         galleryBtn.setOnClickListener(onClickListener);
         sprejemOblacila.setOnClickListener(onClickListener);
+        oddajaOblacila.setOnClickListener(onClickListener);
         context = getContext();
         asyncResponse = this;
         return view;
@@ -153,14 +151,14 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         }
                         else if(user.isPredaja() && user.isIzposojena() && !user.isPredajaNaprej()
                                 && !user.isVrnjena()){
-                            statusOblacila.setVisibility(View.VISIBLE);
+                            statusOblacilaLL.setVisibility(View.VISIBLE);
                         }
                         else if(user.isPredaja() && user.isIzposojena() && user.isPredajaNaprej()
                                 && !user.isVrnjena()){
                             statusOddanoLL.setVisibility(View.VISIBLE);
                         }
                         else if(user.isPredaja() && user.isIzposojena() && user.isPredajaNaprej()
-                                && !user.isVrnjena()){
+                                && user.isVrnjena()){
                             reservation.setVisibility(View.GONE);
                             withoutReservation.setVisibility(View.VISIBLE);
                             popular.setVisibility(View.GONE);
@@ -198,6 +196,14 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                     restTask.execute("POST", String.format("izposojena"));
 
                     break;
+
+                case R.id.OddajaBtn:
+                    restTask = new RESTCallTask("oddana",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                    restTask.delegate = asyncResponse;
+                    restTask.execute("POST", String.format("oddana"));
+
+                    break;
+
                 case R.id.predajNaprej:
                     restTask = new RESTCallTask("predajaNaprej",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
                     restTask.delegate = asyncResponse;
@@ -209,6 +215,18 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                     restTask.delegate = asyncResponse;
                     restTask.execute("POST", String.format("deleteReservation"));
                     break;
+
+                case R.id.kontaktImetnika:
+                    restTask = new RESTCallTask("kontaktImetnika",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                    restTask.delegate = asyncResponse;
+                    restTask.execute("POST", String.format("kontaktImetnika"));
+                    break;
+                case R.id.kontaktPrejemnika:
+                    restTask = new RESTCallTask("kontaktprejemnika",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                    restTask.delegate = asyncResponse;
+                    restTask.execute("POST", String.format("kontaktprejemnika"));
+                    break;
+
             }
         }
     };
@@ -244,9 +262,8 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         user.setIzposojena(true);
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
-        statusOblacila.setVisibility(View.GONE);
+        statusOblacilaLL.setVisibility(View.GONE);
         statusOddanoLL.setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -254,7 +271,35 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         user.setIzposojena(true);
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
+        statusRezervacijeLL.setVisibility(View.GONE);
+        statusOblacilaLL.setVisibility(View.GONE);
+        statusOddanoLL.setVisibility(View.GONE);
         statusSprejetoLL.setVisibility(View.GONE);
-        statusOblacila.setVisibility(View.VISIBLE);
+        statusOblacilaLL.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void oddajaRezervacije() {
+        user.setVrnjena(true);
+        Bundle args = new Bundle();
+        args.putSerializable("user", (Serializable) user);
+        GalleryFragment galleryFragment = new GalleryFragment();
+        galleryFragment.setArguments(args);
+
+        fragmentTransaction.replace(R.id.fragment_container, galleryFragment);
+        fragmentTransaction.commit();
+
+
+
+    }
+
+    @Override
+    public void oddajaRezervacijeZavrnjena() {
+
+    }
+
+    @Override
+    public void kontaktImetnika(String[] user) {
+        Dialog.imetnikOblacila(context, user).show();
     }
 }
