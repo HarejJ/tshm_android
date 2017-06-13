@@ -60,7 +60,8 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void processFinish(ArrayList<Dress> output){
-
+        clothes.clear();
+        imaggesIds.clear();
         for(int i = 0; i<output.size(); i++){
             clothes.add(output.get(i));
         }
@@ -103,7 +104,13 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
     }
 
+    @Override
+    public void clothesNotReserved() {
+
+    }
+
     private void setImage(ArrayList<Dress> output){
+
         int size=0;
         int count =1;
         LinearLayout.LayoutParams paramsLine = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
@@ -122,7 +129,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
             left.setWeightSum(1);
             left.setGravity(count%2 ==0 ? Gravity.RIGHT : Gravity.LEFT);
 
-            parmsImage.height = (int) (Resources.getSystem().getDisplayMetrics().widthPixels/1.9);
+            parmsImage.height = (int) (Resources.getSystem().getDisplayMetrics().widthPixels/1.7);
             //image
             Integer id = View.generateViewId();
             BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(dress.getSlika()));
@@ -188,7 +195,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
                     ClothesFragment dressFragment = new ClothesFragment();
                     dressFragment.setArguments(args);
-                    fragmentTransaction.replace(R.id.fragment_container, dressFragment);
+                    fragmentTransaction.replace(R.id.fragment_container, dressFragment).addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             }

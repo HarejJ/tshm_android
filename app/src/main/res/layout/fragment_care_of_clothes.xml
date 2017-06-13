@@ -15,7 +15,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,14 +26,6 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:cropToPadding="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/background" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -78,7 +71,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background"
                     android:orientation="vertical"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp">
@@ -152,7 +144,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background"
                     android:orientation="vertical"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp">
@@ -226,7 +217,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background"
                     android:orientation="vertical"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp">
@@ -300,7 +290,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background"
                     android:orientation="vertical"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp">
@@ -344,6 +333,11 @@
 
                 </LinearLayout>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:orientation="horizontal"></LinearLayout>
 
         </LinearLayout>
     </ScrollView>

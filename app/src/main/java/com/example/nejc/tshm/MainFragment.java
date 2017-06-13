@@ -82,13 +82,13 @@ public class MainFragment extends Fragment {
         for (int i = 0; i < 4; i++) {
             if (i != position) {
                 if (id == R.id.slideRight && prevPosition == i) {
-                    Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_righ);
+                    Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_left);
                     animation.setDuration(300);
                     titles[i].setAnimation(animation);
                     titles[i].animate();
                     animation.start();
                 } else if (id == R.id.slideLeft && prevPosition == i) {
-                    Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_left);
+                    Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_righ);
                     animation.setDuration(300);
                     titles[i].setAnimation(animation);
                     titles[i].animate();
@@ -99,13 +99,13 @@ public class MainFragment extends Fragment {
             }
         }
         if (id == R.id.slideRight) {
-            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_left);
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_right);
             animation.setDuration(300);
             titles[position].setAnimation(animation);
             titles[position].animate();
             animation.start();
         } else if (id == R.id.slideLeft) {
-            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_right);
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_left);
             animation.setDuration(300);
             titles[position].setAnimation(animation);
             titles[position].animate();

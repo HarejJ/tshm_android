@@ -31,6 +31,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private View view1;
     private TextView error;
     private Context context;
+    private Date date;
     boolean vnesena= true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +134,7 @@ public class RegistrationActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 
         try {
-            Date date = formatter.parse(birthday.getText().toString());
+            date = formatter.parse(birthday.getText().toString());
             System.out.println(date);
             System.out.println(formatter.format(date));
         } catch (ParseException e) {
@@ -195,7 +196,7 @@ public class RegistrationActivity extends AppCompatActivity {
             String image=ImageUtil.convert(imageBitmap);
 
             RESTCallTask restTask = new RESTCallTask(registrationActivity, "register", name.getText().toString(), userName.getText().toString(),
-                    passwd1MD5, passwd2MD5, phone.getText().toString(), mail.getText().toString(),view1,image);
+                    passwd1MD5, passwd2MD5, phone.getText().toString(), mail.getText().toString(),view1,image,location.getText().toString(),birthday.getText().toString());
             restTask.execute("POST", String.format("register"));
 
         }

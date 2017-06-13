@@ -517,7 +517,6 @@
                                         android:layout_weight="1"
                                         android:background="@color/common_google_signin_btn_text_dark_default"
                                         android:gravity="center"
-                                        android:text="2"
                                         android:textSize="18sp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
@@ -608,7 +607,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.6"
                         android:orientation="vertical"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:weightSum="3">
 
                         <LinearLayout
@@ -657,7 +656,7 @@
                                     android:weightSum="2">
 
                                     <TextView
-                                        android:id="@+id/textView17"
+                                        android:id="@+id/trenutniUporabnik"
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:layout_weight="1"
@@ -707,13 +706,12 @@
                                     android:weightSum="6">
 
                                     <TextView
-                                        android:id="@+id/textView19"
+                                        android:id="@+id/cakalnaVrsta"
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:layout_weight="1"
                                         android:background="@color/common_google_signin_btn_text_dark_default"
                                         android:gravity="center"
-                                        android:text="2"
                                         android:textSize="18sp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
@@ -753,7 +751,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.6"
                         android:orientation="vertical"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         android:weightSum="2">
 
                         <LinearLayout

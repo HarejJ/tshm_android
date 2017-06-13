@@ -22,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.io.Serializable;
+import java.security.interfaces.DSAKey;
 import java.util.ArrayList;
 
 
@@ -36,6 +37,8 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
     private String mail;
     private String image;
     private String idObleke;
+    private String location;
+    private String birthDay;
     private Activity activity;
     private View view;
 
@@ -58,7 +61,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
      in podatke za avdentikacijo(za enkrat ne potrebujemo)
      */
     RESTCallTask(Activity activity, String activityName,  String name, String userName,
-                 String passwd1, String passwd2, String phone, String mail, View view,String image) {
+                 String passwd1, String passwd2, String phone, String mail, View view,String image,String location, String birthday) {
         this.activity = activity;
         this.activityName = activityName;
         this.view = view;
@@ -69,6 +72,8 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         this.phone = phone;
         this.mail = mail;
         this.image = image;
+        this.location = location;
+        this.birthDay = birthday;
 
     }
 
@@ -268,6 +273,8 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         jsonObject.put("Ime", name);
         jsonObject.put("Priimek", name);
         jsonObject.put("Slika",image);
+        jsonObject.put("Lokacija",location);
+        jsonObject.put("datumRojstva",birthDay);
         return jsonObject;
     }
     /*
@@ -316,7 +323,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
             if( jsonRes.getString("id_obleka").compareTo("null") !=0) {
                 Dress dress = new Dress(jsonRes.getString("id_obleka"), jsonRes.getString("slika_obleke"),
                         jsonRes.getString("tip"), jsonRes.getString("velikost"), jsonRes.getString("displayName"),
-                        jsonRes.getString("trenutniIzposojevalec"), jsonRes.getString("slikaOblikovalca"),
+                        jsonRes.getString("slikaOblikovalca"),jsonRes.getString("trenutniIzposojevalec"),
                         jsonRes.getString("rezervacije"));
                 user.setReservedDress(dress);
 
@@ -353,6 +360,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
             user[4]=(Boolean.parseBoolean(jsonObject.getString("vrnjena")));
             delegate.clothesReserved(dress, user);
         }
+        delegate.clothesNotReserved();
     }
 
     private  void sprejemRezervacijeResponse(String result)throws JSONException {
@@ -418,7 +426,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
                 JSONObject jsonObject = jsonRes.getJSONObject(i);
                 Dress dress = new Dress(jsonObject.getString("id_obleka"),jsonObject.getString("slika"),
                         jsonObject.getString("tip"),jsonObject.getString("velikost"),jsonObject.getString("displayName"),
-                        jsonObject.getString("trenutniIzposojevalec"),jsonObject.getString("slikaOblikovalca"),
+                        jsonObject.getString("slikaOblikovalca"),jsonObject.getString("trenutniIzposojevalec"),
                         jsonObject.getString("rezervacije"));
                 clothes.add(dress);
             }

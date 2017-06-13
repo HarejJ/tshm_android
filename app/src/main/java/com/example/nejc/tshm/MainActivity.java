@@ -1,5 +1,7 @@
 package com.example.nejc.tshm;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         mainFragment.setArguments(args);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, mainFragment);
+        fragmentTransaction.replace(R.id.fragment_container, mainFragment).addToBackStack(null);
         fragmentTransaction.commit();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -76,11 +79,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
+        if(getFragmentManager().getBackStackEntryCount() == 0) {
             super.onBackPressed();
+        }
+        else {
+            getFragmentManager().popBackStack();
         }
     }
 
@@ -106,7 +109,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
 
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
             fragmentTransaction.commit();
 
 
@@ -120,7 +123,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
 
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_gallery) {
@@ -133,7 +136,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
 
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_about) {
@@ -142,7 +145,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
 
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_care) {
             CareOfClothes fragment = new CareOfClothes();
@@ -150,7 +153,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
 
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_help) {
             HelpFragment fragment = new HelpFragment();
@@ -158,7 +161,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
 
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_about_aplication) {
@@ -167,7 +170,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
 
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_logout) {
@@ -178,5 +181,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 }

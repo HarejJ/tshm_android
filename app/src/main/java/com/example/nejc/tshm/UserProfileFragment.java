@@ -42,7 +42,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     private Context context;
     private ImageView oblekaRezervacija;
     private TextView designerRezervacija,tipRezervacija,spol_velikostRezervacija;
-    private TextView userName,name,mail,statusTw,popularTw;
+    private TextView userName,name,mail,statusTw,popularTw,cakalnaVrsta,trenutniUporabnik;
     private LinearLayout withoutReservation,reservation,popular;
     private LinearLayout statusRezervacijeLL, statusOblacilaLL, statusOddanoLL, statusSprejetoLL;
     private Button galleryBtn,statusBtn,popularBtn,kontaktImetnika,kontaktPrejemnika;
@@ -78,7 +78,6 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         designerRezervacija = (TextView) view.findViewById(R.id.OblikovalecRezervacija);
         tipRezervacija =(TextView) view.findViewById(R.id.TipRezervacija);
         spol_velikostRezervacija = (TextView) view.findViewById(R.id.Spol_velikostRezervacija);
-
         statusTw.setVisibility(View.INVISIBLE);
         popularTw.setVisibility(View.VISIBLE);
         withoutReservation.setVisibility(View.GONE);
@@ -99,7 +98,8 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         statusOblacilaLL = (LinearLayout) view.findViewById(R.id.StatusOblacila);
         statusOddanoLL =(LinearLayout) view.findViewById(R.id.OblaciloOddano);
         statusSprejetoLL =(LinearLayout) view.findViewById(R.id.OblaciloSprejeto);
-
+        cakalnaVrsta = (TextView) view.findViewById(R.id.cakalnaVrsta);
+        trenutniUporabnik  = (TextView) view.findViewById(R.id.trenutniUporabnik);
         CircleImageView userImage =(CircleImageView) view.findViewById(R.id.profile_image);
         userImage.setImageBitmap(ImageUtil.convert(user.getImage()));
         kontaktPrejemnika.setOnClickListener(onClickListener);
@@ -144,6 +144,8 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         if(!user.isPredaja() && !user.isIzposojena() && !user.isPredajaNaprej()
                                 && !user.isVrnjena()){
                             statusRezervacijeLL.setVisibility(View.VISIBLE);
+                            trenutniUporabnik.setText(String.valueOf(user.getReservedDress().getTrenutniImetnik()));
+                            cakalnaVrsta.setText(String.valueOf(user.getReservedDress().getCakalnaVrsta()));
                         }
                         else if(user.isPredaja() && !user.isIzposojena() && !user.isPredajaNaprej()
                                 && !user.isVrnjena()){
@@ -186,45 +188,64 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
                     GalleryFragment galleryFragment = new GalleryFragment();
                     galleryFragment.setArguments(args);
-                    fragmentTransaction.replace(R.id.fragment_container, galleryFragment);
+                    fragmentTransaction.replace(R.id.fragment_container, galleryFragment).addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
 
                 case R.id.SprejemOblacila:
-                    restTask = new RESTCallTask("izposojena",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
-                    restTask.delegate = asyncResponse;
-                    restTask.execute("POST", String.format("izposojena"));
-
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("izposojena", user.getUsername(), user.getPassword(), user.getReservedDress().getId_obleka(), view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("izposojena"));
+                    } else
+                        Dialog.networkErrorDialog(context).show();
                     break;
 
-                case R.id.OddajaBtn:
-                    restTask = new RESTCallTask("oddana",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
-                    restTask.delegate = asyncResponse;
-                    restTask.execute("POST", String.format("oddana"));
 
+                case R.id.OddajaBtn:
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("oddana",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("oddana"));
+                    } else
+                        Dialog.networkErrorDialog(context).show();
                     break;
 
                 case R.id.predajNaprej:
-                    restTask = new RESTCallTask("predajaNaprej",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
-                    restTask.delegate = asyncResponse;
-                    restTask.execute("POST", String.format("predajaNaprej"));
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("predajaNaprej",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("predajaNaprej"));
+                    } else
+                        Dialog.networkErrorDialog(context).show();
 
                     break;
                 case R.id.DeleteReservationBtn:
-                    restTask = new RESTCallTask("deleteReservation",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
-                    restTask.delegate = asyncResponse;
-                    restTask.execute("POST", String.format("deleteReservation"));
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("deleteReservation",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("deleteReservation"));
+                    } else {
+                        Dialog.networkErrorDialog(context).show();
+                    }
                     break;
 
-                case R.id.kontaktImetnika:
+                case R.id.kontaktImetnika:if(NetworkUtils.isNetworkConnected(context)) {
                     restTask = new RESTCallTask("kontaktImetnika",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
                     restTask.delegate = asyncResponse;
                     restTask.execute("POST", String.format("kontaktImetnika"));
+                } else {
+                    Dialog.networkErrorDialog(context).show();
+                }
                     break;
                 case R.id.kontaktPrejemnika:
-                    restTask = new RESTCallTask("kontaktprejemnika",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
-                    restTask.delegate = asyncResponse;
-                    restTask.execute("POST", String.format("kontaktprejemnika"));
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("kontaktprejemnika",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("kontaktprejemnika"));
+                    } else {
+                        Dialog.networkErrorDialog(context).show();
+                    }
                     break;
 
             }
@@ -253,7 +274,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         GalleryFragment galleryFragment = new GalleryFragment();
         galleryFragment.setArguments(args);
 
-        fragmentTransaction.replace(R.id.fragment_container, galleryFragment);
+        fragmentTransaction.replace(R.id.fragment_container, galleryFragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -262,13 +283,16 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         user.setIzposojena(true);
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
+        statusRezervacijeLL.setVisibility(View.GONE);
         statusOblacilaLL.setVisibility(View.GONE);
-        statusOddanoLL.setVisibility(View.VISIBLE);
+        statusOddanoLL.setVisibility(View.GONE);
+        statusSprejetoLL.setVisibility(View.GONE);
+        statusOblacilaLL.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void predajaNaprej() {
-        user.setIzposojena(true);
+        user.setPredajaNaprej(true);
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
         statusRezervacijeLL.setVisibility(View.GONE);
@@ -281,12 +305,13 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     @Override
     public void oddajaRezervacije() {
         user.setVrnjena(true);
+        user.setRezervacija(false);
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
         GalleryFragment galleryFragment = new GalleryFragment();
         galleryFragment.setArguments(args);
 
-        fragmentTransaction.replace(R.id.fragment_container, galleryFragment);
+        fragmentTransaction.replace(R.id.fragment_container, galleryFragment).addToBackStack(null);
         fragmentTransaction.commit();
 
 
@@ -301,5 +326,10 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     @Override
     public void kontaktImetnika(String[] user) {
         Dialog.imetnikOblacila(context, user).show();
+    }
+
+    @Override
+    public void clothesNotReserved() {
+
     }
 }

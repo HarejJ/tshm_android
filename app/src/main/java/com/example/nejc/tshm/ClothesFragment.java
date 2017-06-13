@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -25,8 +26,8 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
     private User user;
     private View view;
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
-    private LinearLayout picture, linearLayoutReservation, linearLayoutClothesCare;
-
+    private LinearLayout linearLayoutReservation, linearLayoutClothesCare;
+    private ImageView picture;
     private Button clothesCareTB, reservationTB, reservationB, clothesCareB;
     private TextView clothesCare,reservation, imeOblikovalca, tipObleke, spol_velikost, trenutniImetnik,cakalnaVrsta;
     private RESTCallTask restTask;
@@ -49,9 +50,9 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
         dress =(Dress) getArguments().getSerializable("dress");
         fragmentTransaction = this.getFragmentManager().beginTransaction();
         view = inflater.inflate(R.layout.fragment_clothes, container, false);
-        picture =(LinearLayout) view.findViewById(R.id.imageDress);
-        BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(dress.getSlika()));
-        picture.setBackground(background);
+        picture =(ImageView) view.findViewById(R.id.imageDress);
+        //BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(dress.getSlika()));
+        picture.setImageBitmap(ImageUtil.convert(dress.getSlika()));
         context = getContext();
         asyncResponse = this;
         clothesCareTB = (Button) view.findViewById(R.id.ClothesCareTB);
@@ -99,7 +100,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
                 case R.id.ClothesCareB:
                     CareOfClothes fragment = new CareOfClothes();
 
-                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                    fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
                 case R.id.ReservationTB:
@@ -147,7 +148,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
         UserProfileFragment fragment = new UserProfileFragment();
         fragment.setArguments(args);
 
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -179,5 +180,10 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
     @Override
     public void kontaktImetnika(String[] user) {
 
+    }
+
+    @Override
+    public void clothesNotReserved() {
+        Dialog.reservationRefusalDialog(context);
     }
 }

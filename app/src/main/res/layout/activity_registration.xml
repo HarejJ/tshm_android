@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="0.8"
-                    app:srcCompat="@drawable/logo_final" />
+                    app:srcCompat="@drawable/logo_final2" />
             </LinearLayout>
 
             <LinearLayout
@@ -217,7 +217,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="6"
+            android:layout_weight="6.5"
             android:background="#D3D3D3"
             android:gravity="center"
             android:orientation="horizontal"

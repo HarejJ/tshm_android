@@ -14,4 +14,5 @@ public interface AsyncResponse {
     void oddajaRezervacije();
     void oddajaRezervacijeZavrnjena();
     void kontaktImetnika(String[] user);
+    void clothesNotReserved();
 }
