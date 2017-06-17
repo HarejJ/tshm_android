@@ -115,7 +115,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
                     ImagePanningFragment imagePanningFragment = new ImagePanningFragment();
                     imagePanningFragment.setPictureSource(ImageUtil.convert(dress.getSlika()));
 
-                    fragmentTransaction.replace(R.id.fragment_container, imagePanningFragment);
+                    fragmentTransaction.replace(R.id.fragment_container, imagePanningFragment).addToBackStack(null);;
                     fragmentTransaction.commit();
                     break;
             }
