@@ -1,10 +1,6 @@
 package com.example.nejc.tshm;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,44 +9,39 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
-
-import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class ClothesFragment extends Fragment implements AsyncResponse{
+public class ClothesFragment extends Fragment implements AsyncResponse {
     private User user;
     private View view;
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
     private LinearLayout linearLayoutReservation, linearLayoutClothesCare;
     private ImageView picture;
     private Button clothesCareTB, reservationTB, reservationB, clothesCareB;
-    private TextView clothesCare,reservation, imeOblikovalca, tipObleke, spol_velikost, trenutniImetnik,cakalnaVrsta;
+    private TextView clothesCare, reservation, imeOblikovalca, tipObleke, spol_velikost, trenutniImetnik, cakalnaVrsta;
     private RESTCallTask restTask;
     private AsyncResponse asyncResponse;
     Dress dress;
     private Context context;
+
     public ClothesFragment() {
         // Required empty public constructor
     }
 
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)  {
+                             Bundle savedInstanceState) {
 
-        user =(User) getArguments().getSerializable("user");
-        dress =(Dress) getArguments().getSerializable("dress");
+        user = (User) getArguments().getSerializable("user");
+        dress = (Dress) getArguments().getSerializable("dress");
         fragmentTransaction = this.getFragmentManager().beginTransaction();
         view = inflater.inflate(R.layout.fragment_clothes, container, false);
-        picture =(ImageView) view.findViewById(R.id.imageDress);
+        picture = (ImageView) view.findViewById(R.id.imageDress);
         //BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(dress.getSlika()));
         picture.setImageBitmap(ImageUtil.convert(dress.getSlika()));
         context = getContext();
@@ -68,14 +59,13 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
         cakalnaVrsta = (TextView) view.findViewById(R.id.queueTV);
 
 
-
-        linearLayoutReservation =(LinearLayout) view.findViewById(R.id.LinearLayoutReservation);
-        linearLayoutClothesCare =(LinearLayout) view.findViewById(R.id.LinearLayoutClothesCare);
+        linearLayoutReservation = (LinearLayout) view.findViewById(R.id.LinearLayoutReservation);
+        linearLayoutClothesCare = (LinearLayout) view.findViewById(R.id.LinearLayoutClothesCare);
 
 
         imeOblikovalca.setText(dress.getOblikovalec());
         tipObleke.setText(dress.getTip());
-        spol_velikost.setText(dress.getSpol() +",Velikost "+ dress.getVelikost());
+        spol_velikost.setText(dress.getSpol() + ",Velikost " + dress.getVelikost());
         trenutniImetnik.setText(dress.getTrenutniImetnik());
 
         cakalnaVrsta.setText(String.valueOf(dress.getCakalnaVrsta()));
@@ -84,16 +74,18 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
         reservationTB.setOnClickListener(onClickListener);
         reservationB.setOnClickListener(onClickListener);
         clothesCareB.setOnClickListener(onClickListener);
+        picture.setOnClickListener(onClickListener);
 
         return view;
     }
+
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch(v.getId()) {
+            switch (v.getId()) {
                 case R.id.ClothesCareTB:
                     clothesCare.setVisibility(View.VISIBLE);
-                    reservation.setVisibility(View.GONE);
+                    reservation.setVisibility(View.INVISIBLE);
                     linearLayoutReservation.setVisibility(View.GONE);
                     linearLayoutClothesCare.setVisibility(View.VISIBLE);
                     break;
@@ -104,21 +96,27 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
                     fragmentTransaction.commit();
                     break;
                 case R.id.ReservationTB:
-
-                    clothesCare.setVisibility(View.GONE);
+                    clothesCare.setVisibility(View.INVISIBLE);
                     reservation.setVisibility(View.VISIBLE);
                     linearLayoutReservation.setVisibility(View.VISIBLE);
                     linearLayoutClothesCare.setVisibility(View.GONE);
                     break;
 
                 case R.id.ReservationB:
-                    if(user.isRezervacija())
+                    if (user.isRezervacija())
                         Dialog.reservationRefusalDialog(context).show();
-                    else{
-                        restTask = new RESTCallTask("reservation",user.getUsername(),user.getPassword(),dress.getId_obleka(),view);
+                    else {
+                        restTask = new RESTCallTask("reservation", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
                         restTask.delegate = asyncResponse;
                         restTask.execute("POST", String.format("reservation"));
                     }
+                    break;
+                case R.id.imageDress:
+                    ImagePanningFragment imagePanningFragment = new ImagePanningFragment();
+                    imagePanningFragment.setPictureSource(ImageUtil.convert(dress.getSlika()));
+
+                    fragmentTransaction.replace(R.id.fragment_container, imagePanningFragment);
+                    fragmentTransaction.commit();
                     break;
             }
         }
@@ -140,7 +138,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse{
         user.setVrnjena(userData[4]);
 
         user.setReservedDress(output);
-        if(output.getCakalnaVrsta() == 0)
+        if (output.getCakalnaVrsta() == 0)
             user.setPredaja(true);
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
