@@ -159,10 +159,11 @@
                     android:id="@+id/LogInButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1.1"
                     android:background="@color/colorPrimaryDark"
                     android:text="@string/vpis"
-                    android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -182,7 +183,7 @@
                     android:gravity="center"
                     android:text="@string/registration"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp" />
+                    android:textSize="21sp" />
             </LinearLayout>
 
         </LinearLayout>

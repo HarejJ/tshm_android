@@ -77,7 +77,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Za pridobitev 1 kg bombaža potrebujemo 30 000 litrov vode."
+                                android:text="V tekstilni industriji je trenutno zaposlenih okoli 170 miljonov otrok."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="24sp"
                                 android:visibility="visible" />
@@ -97,7 +97,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Majica iz sintetičnih vlaken (npr. poliester: glavna sestavina je nafta) za razgradnjo potrebuje 200 let ali več."
+                                android:text="Za pridelavo 1 kg bombaža se porabi približno 5000 L vode."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="24sp"
                                 android:visibility="visible" />
@@ -117,7 +117,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Tekstilna industrija je (takoj za naftno) druga največja onesnaževalka okolja."
+                                android:text="Povprečna življenjska doba oblačil hitre mode znaša manj kot 2 leti."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="24sp"
                                 android:visibility="visible" />
@@ -137,7 +137,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Si vedel/a da za proizvodnjo enega para kavbojk potrebujemo 80 000 litrov vode."
+                                android:text="Pobiralec bombaža v Indiji je za celodnevno delo plačan 1,5€."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="24sp"
                                 android:visibility="visible" />
@@ -174,7 +174,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.84"
-                    android:orientation="horizontal"/>
+                    android:orientation="horizontal" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -236,7 +236,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.84"
-                    android:orientation="horizontal"/>
+                    android:orientation="horizontal" />
             </LinearLayout>
 
             <LinearLayout

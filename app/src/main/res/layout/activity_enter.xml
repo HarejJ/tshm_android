@@ -45,6 +45,7 @@
                         android:text="@string/app_name"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
+                        android:textSize="24sp"
                         android:textStyle="bold|italic" />
                 </LinearLayout>
 
@@ -110,7 +111,8 @@
                                 android:layout_weight="1"
                                 android:text="@string/opis_pod_logo"
                                 android:textAlignment="center"
-                                android:textColor="#FFFFFF" />
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -166,35 +168,26 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="76dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.68"
-                            android:orientation="vertical"/>
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.68"
+                            android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:weightSum="3">
 
                             <Button
                                 android:id="@+id/EnterButton"
                                 android:layout_width="wrap_content"
-                                android:layout_height="38dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
-                                android:text="VPIS"
-                                android:textColor="#FFFFFF" />
+                                android:text="vpis/registracija"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp" />
                         </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.68"
-                            android:orientation="vertical"/>
 
                     </LinearLayout>
 
@@ -202,6 +195,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
@@ -211,7 +205,7 @@
                             android:text="@string/opis_pod_vstopi"
                             android:textAlignment="center"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="15sp"
+                            android:textSize="18sp"
                             tools:layout_width="match_parent" />
                     </LinearLayout>
                 </LinearLayout>

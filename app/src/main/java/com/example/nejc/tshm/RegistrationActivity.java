@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -135,8 +136,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         try {
             date = formatter.parse(birthday.getText().toString());
-            System.out.println(date);
-            System.out.println(formatter.format(date));
+            
         } catch (ParseException e) {
             birthday.setError("vnesite veljaven datum rojstva");
             return;

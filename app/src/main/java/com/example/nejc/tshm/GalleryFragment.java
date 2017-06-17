@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class GalleryFragment extends Fragment implements AsyncResponse {
     private RESTCallTask restTask;
-    private ArrayList<Dress> clothes = new ArrayList<>();
+    private static ArrayList<Dress> clothes = new ArrayList<>();
     private ArrayList<Integer> imaggesIds = new ArrayList<Integer>();
     private View view;
     private Context context;
@@ -44,8 +44,9 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
         context = getContext();
         fragmentTransaction = this.getFragmentManager().beginTransaction();
         images = (LinearLayout) view.findViewById(R.id.ImagesLayout);
-
-        if(NetworkUtils.isNetworkConnected(context)) {
+        if(clothes.size() > 0)
+            setImage(clothes);
+        else if(NetworkUtils.isNetworkConnected(context)) {
             restTask = new RESTCallTask("clothes",user.getUsername(),user.getPassword(),view);
             restTask.delegate = this;
             restTask.execute("POST", String.format("clothes"));
@@ -110,7 +111,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
     }
 
     private void setImage(ArrayList<Dress> output){
-
+        imaggesIds.clear();
         int size=0;
         int count =1;
         LinearLayout.LayoutParams paramsLine = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);

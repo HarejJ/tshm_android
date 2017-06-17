@@ -22,7 +22,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.85"
+                android:layout_weight="0.87"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:weightSum="1">
@@ -198,7 +198,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.08"
+                android:layout_weight="1.06"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="1.6">
@@ -227,11 +227,12 @@
                 android:id="@+id/RegistrationButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.6"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
                 android:text="@string/registracija"
-                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="24sp" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

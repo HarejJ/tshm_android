@@ -156,7 +156,7 @@ class RESTCallTask extends AsyncTask<String,Void,String>{
         try {
             DefaultHttpClient httpclient = new DefaultHttpClient();
             HttpPost httpost = new HttpPost(callURL);
-            httpost.setEntity(new StringEntity(String.valueOf(jsonObject)));
+            httpost.setEntity(new StringEntity(String.valueOf(jsonObject),"UTF-8"));
 
             httpost.setHeader("Accept", "application/json");
             httpost.setHeader("Content-type", "application/json");
