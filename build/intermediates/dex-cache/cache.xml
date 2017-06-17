@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="222007ea331331cab8ce417b5fba99be40a78b18">
-        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_54b9f7bcf045ef3257e854a20b8342abb07d0d7b\classes.dex" />
+        sha1="73eb22d7eeef72c8dae5227b4bcb315e2c29b2da">
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_53f6a01fa98be11560cc56c496dc560610a653d5\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\Nejc\AndroidStudioProjects\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a538ef4ac90382eaf739649bc429abbec0c471cb\classes.dex" />
+        <dex dex="C:\Users\Jan\Documents\Faks\PKP\THSM\applikacija\skupni\tshm_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_387507529a35a4a40a50a9a8d58be7b6338c52e7\classes.dex" />
     </item>
 
 </items>
