@@ -867,17 +867,18 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="0.7"
+                                    android:layout_weight="0.75"
                                     android:orientation="horizontal">
 
                                     <Button
                                         android:id="@+id/kontaktImetnika"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_height="match_parent"
                                         android:layout_weight="1"
                                         android:background="@color/colorPrimaryDark"
                                         android:text="Kontakt trenutnega imetnika"
-                                        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                                        android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                        android:textSize="14sp" />
 
                                 </LinearLayout>
 
@@ -891,12 +892,13 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
+                                    android:gravity="center"
                                     android:orientation="horizontal">
 
                                     <Button
                                         android:id="@+id/deleteReservation"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_height="match_parent"
                                         android:layout_gravity="bottom"
                                         android:layout_weight="1"
                                         android:background="@color/colorPrimaryTransparent"

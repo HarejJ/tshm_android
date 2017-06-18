@@ -111,6 +111,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         galleryBtn.setOnClickListener(onClickListener);
         sprejemOblacila.setOnClickListener(onClickListener);
         oddajaOblacila.setOnClickListener(onClickListener);
+        deleteReservation.setOnClickListener(onClickListener);
         context = getContext();
         asyncResponse = this;
         return view;
