@@ -46,7 +46,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     private LinearLayout withoutReservation,reservation,popular;
     private LinearLayout statusRezervacijeLL, statusOblacilaLL, statusOddanoLL, statusSprejetoLL;
     private Button galleryBtn,statusBtn,popularBtn,kontaktImetnika,kontaktPrejemnika;
-    private Button sprejemOblacila,oddajaOblacila,izbrisiRezervacijo,predajNaprej;
+    private Button sprejemOblacila,oddajaOblacila,izbrisiRezervacijo,predajNaprej, deleteReservation;
     public UserProfileFragment() {
         // Required empty public constructor
     }
@@ -87,7 +87,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         name.setText(user.getName());
         mail.setText(user.getMail());
 
-
+        deleteReservation = (Button) view.findViewById(R.id.deleteReservation);
         sprejemOblacila = (Button) view.findViewById(R.id.SprejemOblacila);
         oddajaOblacila = (Button) view.findViewById(R.id.OddajaBtn);
         izbrisiRezervacijo = (Button) view.findViewById(R.id.DeleteReservationBtn);
@@ -229,7 +229,15 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         Dialog.networkErrorDialog(context).show();
                     }
                     break;
-
+                case R.id.deleteReservation:
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("deleteReservation",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("deleteReservation"));
+                    } else {
+                        Dialog.networkErrorDialog(context).show();
+                    }
+                    break;
                 case R.id.kontaktImetnika:if(NetworkUtils.isNetworkConnected(context)) {
                     restTask = new RESTCallTask("kontaktImetnika",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
                     restTask.delegate = asyncResponse;
