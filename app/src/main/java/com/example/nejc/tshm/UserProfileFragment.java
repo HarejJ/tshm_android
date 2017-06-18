@@ -42,7 +42,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     private Context context;
     private ImageView oblekaRezervacija;
     private TextView designerRezervacija,tipRezervacija,spol_velikostRezervacija;
-    private TextView userName,name,mail,statusTw,popularTw,cakalnaVrsta,trenutniUporabnik;
+    private TextView userName,name,mail,statusTw,popularTw,cakalnaVrsta,trenutniUporabnik, stDniTw;
     private LinearLayout withoutReservation,reservation,popular;
     private LinearLayout statusRezervacijeLL, statusOblacilaLL, statusOddanoLL, statusSprejetoLL;
     private Button galleryBtn,statusBtn,popularBtn,kontaktImetnika,kontaktPrejemnika;
@@ -73,7 +73,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         statusBtn = (Button) view.findViewById(R.id.status);
         popularBtn = (Button) view.findViewById(R.id.popular);
 
-
+        stDniTw = (TextView)view.findViewById(R.id.stDniTw);
         oblekaRezervacija = (ImageView)view.findViewById(R.id.SlikaRezervacja);
         designerRezervacija = (TextView) view.findViewById(R.id.OblikovalecRezervacija);
         tipRezervacija =(TextView) view.findViewById(R.id.TipRezervacija);
@@ -130,8 +130,8 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         oblekaRezervacija.setImageBitmap(ImageUtil.convert(user.getReservedDress().getSlika()));
                         designerRezervacija.setText(user.getReservedDress().getOblikovalec());
                         tipRezervacija.setText(user.getReservedDress().getTip());
-                        spol_velikostRezervacija .setText(user.getReservedDress().getSpol()+" Velikost "+user.getReservedDress().getVelikost());
-
+                        spol_velikostRezervacija.setText(user.getReservedDress().getSpol()+" Velikost "+user.getReservedDress().getVelikost());
+                        stDniTw.setText(user.getReservedDress().getStDni());
                         reservation.setVisibility(View.VISIBLE);
                         withoutReservation.setVisibility(View.GONE);
                         popular.setVisibility(View.GONE);
@@ -297,9 +297,9 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         args.putSerializable("user", (Serializable) user);
         statusRezervacijeLL.setVisibility(View.GONE);
         statusOblacilaLL.setVisibility(View.GONE);
-        statusOddanoLL.setVisibility(View.GONE);
+        statusOddanoLL.setVisibility(View.VISIBLE);
         statusSprejetoLL.setVisibility(View.GONE);
-        statusOblacilaLL.setVisibility(View.VISIBLE);
+        statusOblacilaLL.setVisibility(View.GONE);
     }
 
     @Override

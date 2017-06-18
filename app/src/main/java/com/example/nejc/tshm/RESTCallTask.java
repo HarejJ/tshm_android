@@ -169,7 +169,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             HttpResponse response = httpclient.execute(httpost);// rezultat ki ga vrne service
             HttpEntity httpEntity = response.getEntity();
 
-            result = String.valueOf(response.getStatusLine().getStatusCode()) + "#";//status code
+            result = String.valueOf(response.getStatusLine().getStatusCode()) + "#"; //status code
             result += EntityUtils.toString(httpEntity);// rezultat v string
 
         } catch (IOException e) {
@@ -334,7 +334,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                 Dress dress = new Dress(jsonRes.getString("id_obleka"), jsonRes.getString("slika_obleke"),
                         jsonRes.getString("tip"), jsonRes.getString("velikost"), jsonRes.getString("displayName"),
                         jsonRes.getString("slikaOblikovalca"), jsonRes.getString("trenutniIzposojevalec"),
-                        jsonRes.getString("rezervacije"), "0");
+                        jsonRes.getString("rezervacije"), "0",jsonRes.getString("datumIzposoje"),"","");
                 user.setReservedDress(dress);
 
                 user.setRezervacija(Boolean.parseBoolean(jsonRes.getString("rezervirana")));
@@ -362,7 +362,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             Dress dress = new Dress(jsonObject.getString("id_obleka"), jsonObject.getString("slika"),
                     jsonObject.getString("tip"), jsonObject.getString("velikost"), jsonObject.getString("displayName"),
                     jsonObject.getString("trenutniIzposojevalec"), jsonObject.getString("slikaOblikovalca"),
-                    jsonObject.getString("rezervacije"), "0");
+                    jsonObject.getString("rezervacije"), "0", "0", "","");
             user[0] = (Boolean.parseBoolean(jsonObject.getString("rezervirana")));
             user[1] = (Boolean.parseBoolean(jsonObject.getString("predaja")));
             user[2] = (Boolean.parseBoolean(jsonObject.getString("izposojena")));
@@ -441,7 +441,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                 Dress dress = new Dress(jsonObject.getString("id_obleka"), jsonObject.getString("slika"),
                         jsonObject.getString("tip"), jsonObject.getString("velikost"), jsonObject.getString("displayName"),
                         jsonObject.getString("slikaOblikovalca"), jsonObject.getString("trenutniIzposojevalec"),
-                        jsonObject.getString("rezervacije"), "0");
+                        jsonObject.getString("rezervacije"), "0", "0",jsonObject.getString("spol"),jsonObject.getString("oznaka"));
                 clothes.add(dress);
             }
             delegate.processFinish(clothes);

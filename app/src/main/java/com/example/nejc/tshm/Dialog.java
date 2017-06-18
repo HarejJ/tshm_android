@@ -53,6 +53,18 @@ public class Dialog {
         return dialog;
     }
 
+    public static AlertDialog pozabljenoGeslo(Context context){
+        String str = "če ste pozabili geslo kontakdirajte odgovorne na mail:\nkabine.sherinjon@gmail.com";
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(dialogMessage(context,str));
+        builder.setCustomTitle(title(context,"Pozabljeno geslo"));
+        builder.setPositiveButton("VREDU",null);
+        AlertDialog dialog = builder.create();
+        return dialog;
+    }
+
+
     public static AlertDialog pogojiSodelovanja(final Context context, final RegistrationActivity activity){
         String str = "Tvoje osebne podatke (uporabniško ime, e-mail, kraj bivanja npr. Ljubljana " +
                 "in telefonsko številko) bo lahko videl le tisti s katerim boš izvedel/izvedla " +

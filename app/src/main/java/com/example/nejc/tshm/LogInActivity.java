@@ -32,6 +32,7 @@ public class LogInActivity extends AppCompatActivity {
 
         logIn.setOnClickListener(onClickListener);
         registration.setOnClickListener(onClickListener);
+        forgotPasword.setOnClickListener(onClickListener);
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -49,6 +50,10 @@ public class LogInActivity extends AppCompatActivity {
                 case  R.id.RegistrationText:
                     Intent intent = new Intent(logInActivity, RegistrationActivity.class);
                     startActivity(intent);
+                    break;
+                case R.id.ForgotPassword:
+                    Dialog.pozabljenoGeslo(context).show();
+                    break;
             }
         }
     };

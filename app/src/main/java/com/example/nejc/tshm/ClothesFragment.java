@@ -20,7 +20,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
     private View view;
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
     private LinearLayout linearLayoutReservation, linearLayoutClothesCare;
-    private ImageView picture, favoriteSign;
+    private ImageView picture, favoriteSign, oznake;
     private Button clothesCareTB, reservationTB, reservationB, clothesCareB;
     private TextView clothesCare, reservation, imeOblikovalca, tipObleke, spol_velikost, trenutniImetnik, cakalnaVrsta;
     private RESTCallTask restTask;
@@ -43,13 +43,13 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         view = inflater.inflate(R.layout.fragment_clothes, container, false);
         picture = (ImageView) view.findViewById(R.id.imageDress);
         favoriteSign = (ImageView) view.findViewById(R.id.favoriteDress);
-        //BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(dress.getSlika()));
         picture.setImageBitmap(ImageUtil.convert(dress.getSlika()));
         favoriteSign.setImageResource(new int[]{R.drawable.heart_empty_black, R.drawable.heart_full_black}[dress.isPriljubljena() ? 1 : 0]);
 
         context = getContext();
         asyncResponse = this;
-
+        oznake = (ImageView) view.findViewById(R.id.oznake);
+        oznake.setImageBitmap(ImageUtil.convert(dress.getOznaka()));
         clothesCareTB = (Button) view.findViewById(R.id.ClothesCareTB);
         reservationTB = (Button) view.findViewById(R.id.ReservationTB);
         reservationB = (Button) view.findViewById(R.id.ReservationB);
@@ -66,6 +66,8 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         linearLayoutReservation = (LinearLayout) view.findViewById(R.id.LinearLayoutReservation);
         linearLayoutClothesCare = (LinearLayout) view.findViewById(R.id.LinearLayoutClothesCare);
 
+        linearLayoutReservation.setVisibility(View.GONE);
+        linearLayoutClothesCare.setVisibility(View.VISIBLE);
 
         imeOblikovalca.setText(dress.getOblikovalec());
         tipObleke.setText(dress.getTip());
@@ -121,7 +123,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
                     imagePanningFragment.setPictureSource(ImageUtil.convert(dress.getSlika()));
 
                     fragmentTransaction.replace(R.id.fragment_container, imagePanningFragment).addToBackStack(null);
-                    ;
+
                     fragmentTransaction.commit();
                     break;
                 case R.id.favoriteDress:
