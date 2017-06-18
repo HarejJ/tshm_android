@@ -3,6 +3,7 @@ package com.example.nejc.tshm;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
     private User user;
     private LinearLayout images;
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
+
     public GalleryFragment() {
         // Required empty public constructor
     }
