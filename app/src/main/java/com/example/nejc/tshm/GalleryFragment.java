@@ -112,6 +112,8 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
     }
 
+
+
     private void setImage(ArrayList<Dress> output){
         imaggesIds.clear();
         int size=0;

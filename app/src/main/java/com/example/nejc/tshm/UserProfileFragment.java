@@ -341,4 +341,5 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     public void clothesNotReserved() {
 
     }
+
 }

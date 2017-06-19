@@ -46,6 +46,18 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
     private Activity activity;
     private View view;
 
+    /*
+        spremeni profilno sliko
+     */
+    RESTCallTask(Activity activity, String activityName, String username, String passwd,String image,View view) {
+        this.activity = activity;
+        this.activityName = activityName;
+        this.username = username;
+        this.password = passwd;
+        this.image = image;
+        this.view = view;
+    }
+
 
     /*
      konstruktor za login določi username, geslo, activity(da lahko preidemo na drug)
@@ -153,6 +165,9 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             case "kontaktprejemnika":
                 jsonObject = ReservationJson();
                 break;
+            case "changeImage":
+                jsonObject = changeImageJson();
+                break;
 
 
         }
@@ -251,8 +266,13 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                     e.printStackTrace();
                 }
                 break;
-
-
+            case "changeImage":
+                try {
+                    changeImageResponse(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
 
@@ -286,6 +306,14 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         return jsonObject;
     }
 
+    // json za spremembo profilne
+    private JSONObject changeImageJson() throws JSONException{
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("UporabniskoIme", username);
+        jsonObject.put("Geslo", password);
+        jsonObject.put("Slika", image);
+        return jsonObject;
+    }
     /*
    naredi JSON objekt ki vsebuje uporabniško ime geslo,....
    uporabi se v requestu za pridobitec oblek
@@ -372,7 +400,12 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         }
         delegate.clothesNotReserved();
     }
+    private void changeImageResponse(String result) throws JSONException {
+        String[] res = result.split("#");
+        if (Integer.parseInt(res[0]) == 200) {
 
+        }
+    }
     private void sprejemRezervacijeResponse(String result) throws JSONException {
         String[] res = result.split("#");
         if (Integer.parseInt(res[0]) == 200) {

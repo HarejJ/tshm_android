@@ -89,7 +89,7 @@ public class Dialog {
     }
 
     public static AlertDialog vnesiSliko(final Context context, final RegistrationActivity activity){
-        String str = "iyberi način vnosa profilne slike.";
+        String str = "izberi način vnosa profilne slike.";
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage(context,str));

@@ -2,15 +2,20 @@ package com.example.nejc.tshm;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,23 +28,36 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
+    ImageView changeProfilImage;
     NavigationView navigationView = null;
     Toolbar toolbar = null;
     User user = null;
+    String newImage;
+    Context context;
+    View view;
+    CircleImageView profilImage;
+    MainActivity mainActivity;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    private  static final int PICK_IMAGE = 100;
     android.support.v4.app.FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        context = this;
+        mainActivity =this;
         Intent i = getIntent();
         user = (User) i.getSerializableExtra("User");
 
@@ -72,8 +90,38 @@ public class MainActivity extends AppCompatActivity
         TextView nav_user = (TextView) hView.findViewById(R.id.userMenu);
         nav_user.setText(user.getName());
         //nastavi sliko
-        CircleImageView profilImage = (CircleImageView) hView.findViewById(R.id.profile_image);
+        profilImage = (CircleImageView) hView.findViewById(R.id.profile_image);
         profilImage.setImageBitmap(ImageUtil.convert(user.getImage()));
+
+        changeProfilImage = (ImageView) hView.findViewById(R.id.changeProfilImage);
+
+        changeProfilImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view = v;
+                PopupMenu popup = new PopupMenu(MainActivity.this, changeProfilImage);
+                popup.getMenuInflater().inflate(R.menu.poupup_menu_image, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        int id = item.getItemId();
+                        if (id == R.id.selfi) {
+                            if(NetworkUtils.isNetworkConnected(context))
+                                mainActivity.dispatchTakePictureIntent();
+                            else
+                                Dialog.networkErrorDialog(context).show();
+                        }
+                        if(id == R.id.galerija){
+                            if(NetworkUtils.isNetworkConnected(context))
+                                mainActivity.openGallery();
+                            else
+                                Dialog.networkErrorDialog(context).show();
+                        }
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
 
     }
 
@@ -86,6 +134,7 @@ public class MainActivity extends AppCompatActivity
             getFragmentManager().popBackStack();
         }
     }
+
 
 
     @Override
@@ -183,4 +232,58 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    public void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+    public void openGallery(){
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(gallery,PICK_IMAGE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            Uri imageUri = data.getData();
+            try {
+                if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+                    getIntent().setAction(Intent.ACTION_GET_CONTENT);
+                } else {
+                    getIntent().setAction(Intent.ACTION_OPEN_DOCUMENT);
+                    getIntent().addCategory(Intent.CATEGORY_OPENABLE);
+                }
+                int scale = 20;
+                BitmapFactory.Options o2 = new BitmapFactory.Options();
+                o2.inSampleSize = scale;
+                Bitmap bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(imageUri), null, o2);
+
+                newImage=ImageUtil.convert(bitmap);
+                user.setImage(newImage);
+                profilImage.setImageBitmap(ImageUtil.convert(newImage));
+                RESTCallTask restTask = new RESTCallTask(mainActivity, "changeImage", user.getUsername(),
+                        user.getPassword(),newImage, view);
+                restTask.execute("POST", String.format("changeImage"));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
+            newImage=ImageUtil.convert(imageBitmap);
+            user.setImage(newImage);
+            profilImage.setImageBitmap(ImageUtil.convert(newImage));
+            RESTCallTask restTask = new RESTCallTask(mainActivity, "changeImage", user.getUsername(),
+                    user.getPassword(),newImage,view);
+            restTask.execute("POST", String.format("changeImage"));
+
+        }
+    }
 }

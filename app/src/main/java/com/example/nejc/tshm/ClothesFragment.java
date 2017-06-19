@@ -211,4 +211,5 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
     public void clothesNotReserved() {
         Dialog.reservationRefusalDialog(context);
     }
+
 }
