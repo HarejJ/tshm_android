@@ -24,10 +24,12 @@ import java.util.ArrayList;
 public class GalleryFragment extends Fragment implements AsyncResponse {
     private RESTCallTask restTask;
     private static ArrayList<Dress> clothes = new ArrayList<>();
-    private ArrayList<Integer> imaggesIds = new ArrayList<Integer>();
+    private static ArrayList<Integer> imaggesIds = new ArrayList<Integer>();
     private View view;
     private Context context;
     private User user;
+    AsyncResponse asyncResponse;
+    private int id;
     private LinearLayout images;
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
 
@@ -41,7 +43,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
                              Bundle savedInstanceState) {
 
         user =(User) getArguments().getSerializable("user");
-
+        asyncResponse =this;
         view = inflater.inflate(R.layout.fragment_gallery, container, false);
         context = getContext();
         fragmentTransaction = this.getFragmentManager().beginTransaction();
@@ -112,12 +114,33 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
     }
 
+    @Override
+    public void dressDetail(String[] dressDeatil) {
+        clothes.get(id).setTip(dressDeatil[0]);
+        clothes.get(id).setVelikost(dressDeatil[1]);
+        clothes.get(id).setOblikovalec(dressDeatil[2]);
+        clothes.get(id).setSlikaOblikovalca(dressDeatil[3]);
+        clothes.get(id).setTrenutniImetnik(dressDeatil[4]);
+        clothes.get(id).setCakalnaVrsta(Integer.parseInt(dressDeatil[5]));
+        clothes.get(id).setSpol(dressDeatil[6]);
+        clothes.get(id).setOznaka(dressDeatil[7]);
+
+
+        Bundle args = new Bundle();
+        args.putSerializable("user", (Serializable) user);
+        args.putSerializable("dress", (Serializable) clothes.get(id));
+        ClothesFragment dressFragment = new ClothesFragment();
+        dressFragment.setArguments(args);
+        fragmentTransaction.replace(R.id.fragment_container, dressFragment).addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 
 
     private void setImage(ArrayList<Dress> output){
         imaggesIds.clear();
         int size=0;
         int count =1;
+        Integer id = 0;
         LinearLayout.LayoutParams paramsLine = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,1f);
         LinearLayout.LayoutParams parmsImage = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,0.95f);
@@ -133,10 +156,10 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
             //image layout
             left.setWeightSum(1);
             left.setGravity(count%2 ==0 ? Gravity.RIGHT : Gravity.LEFT);
-
             parmsImage.height = (int) (Resources.getSystem().getDisplayMetrics().widthPixels/1.7);
+            parmsImage.width = (int) (left.getWidth());
             //image
-            Integer id = View.generateViewId();
+
             BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(dress.getSlika()));
             image.setBackground(background);
             image.setId(id);
@@ -144,7 +167,8 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
             image.setOnClickListener(onClickListener);
 
             imaggesIds.add(id);
-
+            id++;
+            params.width = (int) (Resources.getSystem().getDisplayMetrics().widthPixels/2);
             left.setLayoutParams(params);
 
             left.addView(image);
@@ -193,15 +217,17 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
         public void onClick(View view) {
             for (int i = 0; i<imaggesIds.size(); i++){
                 if(view.getId() == imaggesIds.get(i)){
-                    Bundle args = new Bundle();
-                    args.putSerializable("user", (Serializable) user);
-                    args.putSerializable("dress", (Serializable) clothes.get(i));
-
-
-                    ClothesFragment dressFragment = new ClothesFragment();
-                    dressFragment.setArguments(args);
-                    fragmentTransaction.replace(R.id.fragment_container, dressFragment).addToBackStack(null);
-                    fragmentTransaction.commit();
+                    id = imaggesIds.get(i);
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("dressDetail",user.getUsername(),user.getPassword(),
+                                clothes.get(id).getId_obleka(),clothes.get(id).getId_obleka(),view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("dressDetail"));
+                    }
+                    else {
+                        Dialog.networkErrorDialog(context).show();
+                    }
+                    break;
                 }
             }
         }

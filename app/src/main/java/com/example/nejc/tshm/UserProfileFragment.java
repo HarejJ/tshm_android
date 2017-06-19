@@ -342,4 +342,9 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
     }
 
+    @Override
+    public void dressDetail(String[] dressDeatil) {
+
+    }
+
 }

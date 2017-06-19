@@ -14,7 +14,6 @@ public class Dress implements Serializable {
     private String spol;
     private String oblikovalec;
     private String slikaOblikovalca;
-    private String[] oznake;
     private String trenutniImetnik;
     private int cakalnaVrsta;
     private int steviloDni;
@@ -33,7 +32,7 @@ public class Dress implements Serializable {
         this.spol = spol;
         this.slikaOblikovalca = slikaOblikovalca;
         this.steviloDni = calculateDays(datumIzposoje);
-        this.cakalnaVrsta = Integer.parseInt(rezervacije);
+        this.cakalnaVrsta = 0;
         this.priljubljena = priljubljena.equals("1");
         this.oznaka = oznaka;
     }
@@ -59,6 +58,46 @@ public class Dress implements Serializable {
 
     public String getSlika() {
         return slika;
+    }
+
+    public void setId_obleka(String id_obleka) {
+        this.id_obleka = id_obleka;
+    }
+
+    public void setSlika(String slika) {
+        this.slika = slika;
+    }
+
+    public void setTip(String tip) {
+        this.tip = tip;
+    }
+
+    public void setVelikost(String velikost) {
+        this.velikost = velikost;
+    }
+
+    public void setSpol(String spol) {
+        this.spol = spol;
+    }
+
+    public void setOblikovalec(String oblikovalec) {
+        this.oblikovalec = oblikovalec;
+    }
+
+    public void setSlikaOblikovalca(String slikaOblikovalca) {
+        this.slikaOblikovalca = slikaOblikovalca;
+    }
+
+    public void setTrenutniImetnik(String trenutniImetnik) {
+        this.trenutniImetnik = trenutniImetnik;
+    }
+
+    public void setSteviloDni(int steviloDni) {
+        this.steviloDni = steviloDni;
+    }
+
+    public void setOznaka(String oznaka) {
+        this.oznaka = oznaka;
     }
 
     public String getOznaka() {
@@ -100,13 +139,9 @@ public class Dress implements Serializable {
         return slikaOblikovalca;
     }
 
-    public String[] getOznake() { return oznake; }
 
     public boolean isPriljubljena() { return priljubljena; }
 
-    public void setOznake(String[] oznake) {
-        this.oznake = oznake;
-    }
 
     public void setPriljubljena(boolean priljubljena) { this.priljubljena = priljubljena; }
 

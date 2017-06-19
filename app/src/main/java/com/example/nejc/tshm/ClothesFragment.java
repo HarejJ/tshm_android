@@ -212,4 +212,9 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         Dialog.reservationRefusalDialog(context);
     }
 
+    @Override
+    public void dressDetail(String[] dressDeatil) {
+
+    }
+
 }
