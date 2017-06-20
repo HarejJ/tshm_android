@@ -120,7 +120,7 @@ public class Dress implements Serializable {
 
     public String getStDni() {
 
-        return String.valueOf(7 - steviloDni);
+        return String.valueOf(14 - steviloDni);
     }
 
     public String getOblikovalec() {

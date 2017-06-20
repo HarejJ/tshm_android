@@ -14,13 +14,15 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class ClothesFragment extends Fragment implements AsyncResponse {
     private User user;
     private View view;
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
     private LinearLayout linearLayoutReservation, linearLayoutClothesCare;
-    private ImageView picture, favoriteSign, oznake;
+    private ImageView picture, favoriteSign, oznake,oblikovalec;
     private Button clothesCareTB, reservationTB, reservationB, clothesCareB;
     private TextView clothesCare, reservation, imeOblikovalca, tipObleke, spol_velikost, trenutniImetnik, cakalnaVrsta;
     private RESTCallTask restTask;
@@ -50,6 +52,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         asyncResponse = this;
         oznake = (ImageView) view.findViewById(R.id.oznake);
         oznake.setImageBitmap(ImageUtil.convert(dress.getOznaka()));
+        oblikovalec = (CircleImageView) view.findViewById(R.id.oblikovalec);
         clothesCareTB = (Button) view.findViewById(R.id.ClothesCareTB);
         reservationTB = (Button) view.findViewById(R.id.ReservationTB);
         reservationB = (Button) view.findViewById(R.id.ReservationB);
@@ -73,7 +76,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         tipObleke.setText(dress.getTip());
         spol_velikost.setText(dress.getSpol() + ",Velikost " + dress.getVelikost());
         trenutniImetnik.setText(dress.getTrenutniImetnik());
-
+        oblikovalec.setImageBitmap(ImageUtil.convert(dress.getSlikaOblikovalca()));
         cakalnaVrsta.setText(String.valueOf(dress.getCakalnaVrsta()));
 
         clothesCareTB.setOnClickListener(onClickListener);

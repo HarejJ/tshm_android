@@ -95,7 +95,7 @@
                                     android:orientation="horizontal">
 
                                     <de.hdodenhof.circleimageview.CircleImageView
-                                        android:id="@+id/circleImageView"
+                                        android:id="@+id/oblikovalec"
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:layout_alignParentLeft="true"
