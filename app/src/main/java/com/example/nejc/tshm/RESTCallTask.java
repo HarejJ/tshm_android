@@ -179,10 +179,17 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             case "dressDetail":
                 jsonObject = dressDetailJson();
                 break;
-
+            case "dodajPriljubljeno":
+                jsonObject = ReservationJson();
+                break;
+            case "odstraniPriljubljeno":
+                jsonObject = ReservationJson();
+                break;
+            case "priljubljeneObleke":
+                jsonObject = priljubljeneJson();
+                break;
 
         }
-        Log.d("jsonObject", jsonObject.toString());
         String result = "";
         try {
             DefaultHttpClient httpclient = new DefaultHttpClient();
@@ -201,7 +208,6 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.d("result", result);
         return result;//vrne status_code@vrednost
     }
 
@@ -291,6 +297,27 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                     e.printStackTrace();
                 }
                 break;
+            case "dodajPriljubljeno":
+                try {
+                    addFavoriteResponse(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "odstraniPriljubljeno":
+                try {
+                    deleteFavoriteResponse(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "priljubljeneObleke":
+                try {
+                    clothesResponse(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
 
@@ -330,6 +357,13 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         jsonObject.put("UporabniskoIme", username);
         jsonObject.put("Geslo", password);
         jsonObject.put("Obleka", idObleke);
+        return jsonObject;
+    }
+    // json za spremembo profilne
+    private JSONObject priljubljeneJson() throws JSONException{
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("UporabniskoIme", username);
+        jsonObject.put("Geslo", password);
         return jsonObject;
     }
 
@@ -460,8 +494,19 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
     private void deleteReservationResponse(String result) throws JSONException {
         String[] res = result.split("#");
         if (Integer.parseInt(res[0]) == 200) {
-
             delegate.deleteReservation();
+        }
+    }
+    private void addFavoriteResponse(String result) throws JSONException {
+        String[] res = result.split("#");
+        if (Integer.parseInt(res[0]) == 200) {
+            delegate.addFavorite();
+        }
+    }
+    private void deleteFavoriteResponse(String result) throws JSONException {
+        String[] res = result.split("#");
+        if (Integer.parseInt(res[0]) == 200) {
+            delegate.deleteFavorite();
         }
     }
 
@@ -493,7 +538,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
     private void dressDetailResponse (String result) throws JSONException {
         String[] res = result.split("#");
         JSONObject jsonObject = new JSONObject(res[1]);
-        String[] dress = new String[8];
+        String[] dress = new String[9];
         if (Integer.parseInt(res[0]) == 200) {
             dress[0]=jsonObject.getString("tip");
             dress[1]=jsonObject.getString("velikost");
@@ -503,6 +548,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             dress[5]=jsonObject.getString("rezervacije");
             dress[6]=jsonObject.getString("spol");
             dress[7]=jsonObject.getString("oznaka");
+            dress[8] = jsonObject.getString("priljubljena");
             delegate.dressDetail(dress);
         }
     }

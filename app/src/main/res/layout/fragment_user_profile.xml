@@ -230,9 +230,19 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1.7"
                     android:orientation="vertical"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:weightSum="2">
 
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/priljubljene"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+                    </ScrollView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -333,7 +343,7 @@
                     android:layout_weight="1.7"
                     android:background="@color/belkasta"
                     android:orientation="vertical"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:weightSum="4">
 
                     <LinearLayout

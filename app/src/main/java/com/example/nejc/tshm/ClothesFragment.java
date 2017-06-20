@@ -129,18 +129,16 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
                 case R.id.favoriteDress:
                     if (dress.isPriljubljena()) {
 
-                        // ******
-                        //ZAPIŠI V BAZO DA SLIKA NI PRILJUBLJENA
-                        // ******
+                        restTask = new RESTCallTask("odstraniPriljubljeno", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("odstraniPriljubljeno"));
 
                         dress.setPriljubljena(false);
                         favoriteSign.setImageResource(R.drawable.heart_empty_black);
                     } else {
-
-                        // ******
-                        //ZAPIŠI V BAZO DA JE SLIKA PRILJUBLJENA
-                        // ******
-
+                        restTask = new RESTCallTask("dodajPriljubljeno", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("dodajPriljubljeno"));
                         dress.setPriljubljena(true);
                         favoriteSign.setImageResource(R.drawable.heart_full_black);
                     }
@@ -215,6 +213,16 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
     @Override
     public void dressDetail(String[] dressDeatil) {
 
+    }
+
+    @Override
+    public void addFavorite() {
+        user.addFavoriteDress(dress);
+    }
+
+    @Override
+    public void deleteFavorite() {
+        user.deleteFavoriteDress(dress);
     }
 
 }

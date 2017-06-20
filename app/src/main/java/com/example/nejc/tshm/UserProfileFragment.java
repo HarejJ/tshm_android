@@ -4,14 +4,18 @@ package com.example.nejc.tshm;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.widget.ButtonBarLayout;
 import android.text.Layout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,10 +41,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class UserProfileFragment extends Fragment implements AsyncResponse {
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
     private User user;
+    private int id;
+
+    private static ArrayList<Dress> clothes = new ArrayList<>();
+    private static ArrayList<Integer> imaggesIds = new ArrayList<Integer>();
     private RESTCallTask restTask;
     private AsyncResponse asyncResponse;
     private Context context;
     private ImageView oblekaRezervacija;
+    private LinearLayout images;
     private TextView designerRezervacija,tipRezervacija,spol_velikostRezervacija;
     private TextView userName,name,mail,statusTw,popularTw,cakalnaVrsta,trenutniUporabnik, stDniTw;
     private LinearLayout withoutReservation,reservation,popular;
@@ -58,8 +67,9 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         user =(User) getArguments().getSerializable("user");
 
         fragmentTransaction = this.getFragmentManager().beginTransaction();
-        View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
 
+        View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
+        images = (LinearLayout) view.findViewById(R.id.priljubljene);
         withoutReservation =(LinearLayout) view.findViewById(R.id.brezRezervacije);
         reservation = (LinearLayout) view.findViewById(R.id.Rezervacija);
         popular = (LinearLayout) view.findViewById(R.id.priljubljeniKosi);
@@ -114,6 +124,13 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         deleteReservation.setOnClickListener(onClickListener);
         context = getContext();
         asyncResponse = this;
+
+
+        restTask = new RESTCallTask("priljubljeneObleke",user.getUsername(),user.getPassword(),this.getView());
+        restTask.delegate = asyncResponse;
+        restTask.execute("POST", String.format("priljubljeneObleke"));
+
+
         return view;
 
     }
@@ -140,7 +157,6 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         statusOblacilaLL.setVisibility(View.GONE);
                         statusOddanoLL.setVisibility(View.GONE);
                         statusSprejetoLL.setVisibility(View.GONE);
-
 
                         if(!user.isPredaja() && !user.isIzposojena() && !user.isPredajaNaprej()
                                 && !user.isVrnjena()){
@@ -178,8 +194,8 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                 case R.id.popular:
                     statusTw.setVisibility(View.INVISIBLE);
                     popularTw.setVisibility(View.VISIBLE);
-                    withoutReservation.setVisibility(View.INVISIBLE);
-                    reservation.setVisibility(View.INVISIBLE);
+                    withoutReservation.setVisibility(View.GONE);
+                    reservation.setVisibility(View.GONE);
                     popular.setVisibility(View.VISIBLE);
                     break;
 
@@ -256,6 +272,22 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         Dialog.networkErrorDialog(context).show();
                     }
                     break;
+                default:
+                    for (int i = 0; i<imaggesIds.size(); i++){
+                        if(view.getId() == imaggesIds.get(i)){
+                            id = imaggesIds.get(i);
+                            if(NetworkUtils.isNetworkConnected(context)) {
+                                restTask = new RESTCallTask("dressDetail",user.getUsername(),user.getPassword(),
+                                        clothes.get(id).getId_obleka(),clothes.get(id).getId_obleka(),view);
+                                restTask.delegate = asyncResponse;
+                                restTask.execute("POST", String.format("dressDetail"));
+                            }
+                            else {
+                                Dialog.networkErrorDialog(context).show();
+                            }
+                            break;
+                        }
+                    }
 
             }
         }
@@ -264,7 +296,13 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void processFinish(ArrayList<Dress> output) {
-
+        clothes.clear();
+        imaggesIds.clear();
+        for(int i = 0; i<output.size(); i++){
+            clothes.add(output.get(i));
+        }
+        setImage(clothes);
+        return;
     }
 
     @Override
@@ -322,9 +360,6 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
         fragmentTransaction.replace(R.id.fragment_container, galleryFragment).addToBackStack(null);
         fragmentTransaction.commit();
-
-
-
     }
 
     @Override
@@ -344,6 +379,106 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void dressDetail(String[] dressDeatil) {
+        clothes.get(id).setTip(dressDeatil[0]);
+        clothes.get(id).setVelikost(dressDeatil[1]);
+        clothes.get(id).setOblikovalec(dressDeatil[2]);
+        clothes.get(id).setSlikaOblikovalca(dressDeatil[3]);
+        clothes.get(id).setTrenutniImetnik(dressDeatil[4]);
+        clothes.get(id).setCakalnaVrsta(Integer.parseInt(dressDeatil[5]));
+        clothes.get(id).setSpol(dressDeatil[6]);
+        clothes.get(id).setOznaka(dressDeatil[7]);
+        clothes.get(id).setPriljubljena(Integer.valueOf(dressDeatil[8])>0 ? true:false);
+
+
+        Bundle args = new Bundle();
+        args.putSerializable("user", (Serializable) user);
+        args.putSerializable("dress", (Serializable) clothes.get(id));
+        ClothesFragment dressFragment = new ClothesFragment();
+        dressFragment.setArguments(args);
+        fragmentTransaction.replace(R.id.fragment_container, dressFragment).addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void addFavorite() {
+
+    }
+
+    @Override
+    public void deleteFavorite() {
+
+    }
+
+    private void setImage(ArrayList<Dress> output){
+        imaggesIds.clear();
+        int size=0;
+        int count =1;
+        Integer id = 0;
+        LinearLayout.LayoutParams paramsLine = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,1f);
+        LinearLayout.LayoutParams parmsImage = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,0.95f);
+
+        LinearLayout right = new LinearLayout(context);
+        LinearLayout line = new LinearLayout(context);
+        line.setWeightSum(2);
+        line.setLayoutParams(paramsLine);
+        for (Dress dress : output){
+            LinearLayout left = new LinearLayout(context);
+            LinearLayout image = new LinearLayout(context);
+
+            //image layout
+            left.setWeightSum(1);
+            left.setGravity(count%2 ==0 ? Gravity.RIGHT : Gravity.LEFT);
+            parmsImage.height = (int) (Resources.getSystem().getDisplayMetrics().widthPixels/1.7);
+            parmsImage.width = (int) (left.getWidth());
+            //image
+
+            BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(dress.getSlika()));
+            image.setBackground(background);
+            image.setId(id);
+            image.setLayoutParams(parmsImage);
+            image.setOnClickListener(onClickListener);
+
+            imaggesIds.add(id);
+            id++;
+            params.width = (int) (Resources.getSystem().getDisplayMetrics().widthPixels/2);
+            left.setLayoutParams(params);
+
+            left.addView(image);
+            line.addView(left);
+
+            count++;
+            if(count % 3 == 0){
+                images.addView(line);
+
+                line = new LinearLayout(context);
+                line.addView(space());
+
+                images.addView(line);
+                line = new LinearLayout(context);
+                count = 1;
+                line.setLayoutParams(paramsLine);
+                line.setWeightSum(2);
+            }
+        }
+        if(count % 3 != 0){
+            BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(output.get(0).getSlika()));
+            right.setMinimumWidth(size);
+            right.setBackgroundColor(Color.BLACK);
+            right.setLayoutParams(params);
+            right.setMinimumWidth(size);
+            line.addView(right);
+            images.addView(line);
+
+        }
+
+        return;
+    }
+    private LinearLayout space(){
+        LinearLayout space = new LinearLayout(context);
+        space.setMinimumWidth(Resources.getSystem().getDisplayMetrics().widthPixels);
+        space.setMinimumHeight(20);
+        return space;
 
     }
 

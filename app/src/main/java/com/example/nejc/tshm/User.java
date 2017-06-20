@@ -2,6 +2,7 @@ package com.example.nejc.tshm;
 import android.graphics.Bitmap;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 class User implements Serializable{
     private String username;
@@ -19,10 +20,27 @@ class User implements Serializable{
     private boolean predajaNaprej;
     private boolean vrnjena;
     private Dress reservedDress;
+
+    public ArrayList<Dress> getFavoriteDress() {
+        return favoriteDress;
+    }
+    public void addFavoriteDress(Dress favoriteDress) {
+        this.favoriteDress.add(favoriteDress);
+    }
+    public void deleteFavoriteDress(Dress dress){
+        for (int i = 0; i<favoriteDress.size(); i++){
+            if(favoriteDress.get(i).getId_obleka() == dress.getId_obleka()){
+                favoriteDress.remove(i);
+                break;
+            }
+        }
+    }
+
+    private ArrayList<Dress> favoriteDress;
     //konstruktor
     User(String username, String name,String password, String mail, String phone,
          int level, String levelName, String image){
-
+        favoriteDress = new ArrayList<Dress>();
         this.username = username;
         this.name = name;
         this.password = password;

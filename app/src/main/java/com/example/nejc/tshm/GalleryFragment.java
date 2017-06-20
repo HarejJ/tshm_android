@@ -124,6 +124,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
         clothes.get(id).setCakalnaVrsta(Integer.parseInt(dressDeatil[5]));
         clothes.get(id).setSpol(dressDeatil[6]);
         clothes.get(id).setOznaka(dressDeatil[7]);
+        clothes.get(id).setPriljubljena(Integer.valueOf(dressDeatil[8])>0 ? true:false);
 
 
         Bundle args = new Bundle();
@@ -133,6 +134,16 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
         dressFragment.setArguments(args);
         fragmentTransaction.replace(R.id.fragment_container, dressFragment).addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void addFavorite() {
+
+    }
+
+    @Override
+    public void deleteFavorite() {
+
     }
 
 

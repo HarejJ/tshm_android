@@ -16,4 +16,6 @@ public interface AsyncResponse {
     void kontaktImetnika(String[] user);
     void clothesNotReserved();
     void dressDetail(String[] dressDeatil);
+    void addFavorite();
+    void deleteFavorite();
 }
