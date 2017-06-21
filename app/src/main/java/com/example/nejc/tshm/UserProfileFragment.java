@@ -301,7 +301,8 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         for(int i = 0; i<output.size(); i++){
             clothes.add(output.get(i));
         }
-        setImage(clothes);
+        if(clothes.size()>0)
+            setImage(clothes);
         return;
     }
 
