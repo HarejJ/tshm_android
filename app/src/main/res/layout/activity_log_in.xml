@@ -131,7 +131,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="@string/forgotPassword"
-                        android:textSize="18sp" />
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -157,7 +157,7 @@
 
                 <Button
                     android:id="@+id/LogInButton"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.1"
                     android:background="@color/colorPrimaryDark"
@@ -177,13 +177,12 @@
 
                 <TextView
                     android:id="@+id/RegistrationText"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/registration"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="21sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
         </LinearLayout>

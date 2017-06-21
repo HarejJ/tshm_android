@@ -126,7 +126,7 @@ public class MainFragment extends Fragment {
                     GalleryFragment galleryFragment = new GalleryFragment();
                     galleryFragment.setArguments(args);
 
-                    fragmentTransaction.replace(R.id.fragment_container, galleryFragment);
+                    fragmentTransaction.replace(R.id.fragment_container, galleryFragment).addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
 
@@ -136,19 +136,19 @@ public class MainFragment extends Fragment {
                     UserProfileFragment userProfileFragment = new UserProfileFragment();
                     userProfileFragment.setArguments(args);
 
-                    fragmentTransaction.replace(R.id.fragment_container, userProfileFragment);
+                    fragmentTransaction.replace(R.id.fragment_container, userProfileFragment).addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
 
                 case R.id.careOfClothesBtn1:
                     CareOfClothes careOfClothes = new CareOfClothes();
-                    fragmentTransaction.replace(R.id.fragment_container, careOfClothes);
+                    fragmentTransaction.replace(R.id.fragment_container, careOfClothes).addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
 
                 case R.id.aboutBtn1:
                     AboutProjectFragment aboutProjectFragment = new AboutProjectFragment();
-                    fragmentTransaction.replace(R.id.fragment_container, aboutProjectFragment);
+                    fragmentTransaction.replace(R.id.fragment_container, aboutProjectFragment).addToBackStack(null);
                     fragmentTransaction.commit();
                     break;
 

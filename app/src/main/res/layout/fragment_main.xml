@@ -117,7 +117,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Povprečna življenjska doba oblačil hitre mode znaša manj kot 2 leti."
+                                android:text="@string/zivljenska_doba"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="24sp"
                                 android:visibility="visible" />
@@ -137,7 +137,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Pobiralec bombaža v Indiji je za celodnevno delo plačan 1,5€."
+                                android:text="@string/pobiralec"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="24sp"
                                 android:visibility="visible" />
@@ -243,7 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1.41"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal"/>
 
         </LinearLayout>
 
@@ -301,7 +301,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryTransparent"
-                            android:text="Hitra moda in mi" />
+                            android:text="@string/hitra_moda_in_mi" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -309,7 +309,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1.9"
-                    android:orientation="horizontal"></LinearLayout>
+                    android:orientation="horizontal"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -330,7 +330,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryTransparent"
-                            android:text="Moj profil" />
+                            android:text="@string/moj_profil" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -351,7 +351,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryTransparent"
-                            android:text="nega oblačil" />
+                            android:text="@string/nega_obla_il" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -360,7 +360,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1.8"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal"/>
 
         </LinearLayout>
     </LinearLayout>

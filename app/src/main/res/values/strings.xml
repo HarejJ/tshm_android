@@ -26,15 +26,20 @@
     <string name="care_item3">Ostali simboli</string>
     <string name="care_item3_item0">Krog je simbol za menično čiščenj, črka v krogu pove s katero kemikalijo lahko čistimo.\nTrikotnik pa je simbol za beljenje in če je prečrtan beljenje ni dovoljeno.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti ljudi, ki si želijo nekaj več kot le hitro modo</string>
-    <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj, če si nov uporabnik, nato pa le hitro brskaj po unikatnih modnih kosih.</string>
+    <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj, nato pa hitro brskaj po unikatnih modnih kosih.</string>
 
     <string name="o_aplikaciji_1">Aplikacija je bila izdelana kot del študentskega projekta \"Po kreativni poti do znanja\" z naslovom \"Temne skrivnosti hitre mode\" v sodelovanju s podjetjem Snaga d.o.o.</string>
     <string name="priljubljeni_kosi">Priljubljeni kosi</string>
     <string name="brez_rezerviranih_Oblačil">Žal trenutno še nimaš aktivnih rezervacij oblačil, skoči na galerijo in si hitro enega rezerviraj</string>
     <string name="galerija">Galerija</string>
     <string name="status_rezervacije">Status rezervacije</string>
+    <string name="zivljenska_doba">Povprečna življenjska doba oblačil hitre mode znaša manj kot 2 leti.</string>
+    <string name="pobiralec">Pobiralec bombaža v Indiji je za celodnevno delo plačan 1,5€.</string>
+    <string name="hitra_moda_in_mi">Hitra moda in mi</string>
+    <string name="moj_profil">Moj profil</string>
+    <string name="nega_obla_il">nega oblačil</string>
+    <string name="o_negi">Kabiné Šerinjon je knjižnica oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblek iz Centra ponovne uporabe.   Nastal je v okviru projekta Po kreativni poti do znanjain je plod sodelovanja sedmih študentov s treh različnih fakultet Univerze v Ljubljani pod vodstvom pedagoških in delovnih mentorjev.   Za imenom Kabiné Šerinjon se skriva naša želja po spreminjanju odnosa do samoumevnih in vsakodnevnih dobrinah, zato smo pot do nasprotja hitre, surove in množične proizvodnje ter potrošnje oblačil.</string>
+    <string name="zahvala">Posebna zahvala gre predvsem vsem sudelojočim modnim oblikovalcem in mentorjem projekta</string>
 
 </resources>
