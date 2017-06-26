@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Kabiné Šerinjon</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -10,28 +11,28 @@
     <string name="vpis">VPIS</string>
     <string name="geslo">Geslo</string>
     <string name="uporabni_ko_ime">Uporabniško ime</string>
-    <string name="ime_in_priimek">Ime in Priimek</string>
+    <string name="ime_in_priimek">Ime in priimek</string>
     <string name="telefonska_tevilka">Telefonska številka</string>
     <string name="e_mail">e-mail</string>
     <string name="registracija">Registracija</string>
     <string name="title_activity_gallery">GalleryActivity</string>
 
-    <string name="care_welcome">Vsako oblačilo zahteva sebi prilagojeno nego. Za lažje razumevanje simbolov za ravnanje z izposojenimi kosi, ti tukaj prilagamo razlago.</string>
+    <string name="care_welcome">Vsako oblačilo zahteva sebi prilagojeno nego. Za lažje razumevanje simbolov za ravnanje z izposojenimi kosi ti tukaj prilagamo razlago.</string>
     <string name="care_item0">Simboli za pranje</string>
-    <string name="care_item0_item0">Številka v kadi je najvišja temperatura pri kateri lahko peremo oblačilo.\nČe je pod kadjo črta ali dve, pomeni, da oblačilo peremo s programi za občutljivo perilo.</string>
+    <string name="care_item0_item0">Številka v kadi je najvišja temperatura, pri kateri lahko peremo oblačilo.\nČe je pod kadjo črta ali dve, to pomeni, da oblačilo peremo s programom za občutljivo perilo.</string>
     <string name="care_item1">Simboli za sušenje</string>
-    <string name="care_item1_item0">Če je boben sušilnega stroja prečrtan sušenje v stroju ni dovoljeno. Pika v sredini pomeni program za občutljivejš perilo s sušenjem pri nižji temperaturi.</string>
+    <string name="care_item1_item0">Če je boben sušilnega stroja prečrtan, sušenje v stroju ni dovoljeno. Pika v sredini pomeni program za občutljivejše perilo s sušenjem pri nižji temperaturi.</string>
     <string name="care_item2">Simboli za likanje</string>
-    <string name="care_item2_item0">Če je likalnik prečrtan perila ne likamo. Pikice pomenijo pri kako visoki temepraturi lahko likamo (tri pike pomenijo najvišjo temperaturo)</string>
+    <string name="care_item2_item0">Če je likalnik prečrtan, perila ne likamo. Pikedoločajo temperaturo, pri kateri lahko oblačilo likamo (tri pike pomenijo najvišjo temperaturo)</string>
     <string name="care_item3">Ostali simboli</string>
-    <string name="care_item3_item0">Krog je simbol za menično čiščenj, črka v krogu pove s katero kemikalijo lahko čistimo.\nTrikotnik pa je simbol za beljenje in če je prečrtan beljenje ni dovoljeno.</string>
+    <string name="care_item3_item0">Krog je simbol za kemično čiščenje, črka v krogu opredeljuje kemikalijo, s katero lahko čistimo.\nTrikotnik je simbol za beljenje. Če je prečrtan, beljenje ni dovoljeno.</string>
 
-    <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti ljudi, ki si želijo nekaj več kot le hitro modo</string>
-    <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj, nato pa hitro brskaj po unikatnih modnih kosih.</string>
+    <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti, ki si želi nekaj več od hitre mode</string>
+    <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj. Zatem lahko takoj začneš z brskanjem po unikatnih modnih kosih.</string>
 
     <string name="o_aplikaciji_1">Aplikacija je bila izdelana kot del študentskega projekta \"Po kreativni poti do znanja\" z naslovom \"Temne skrivnosti hitre mode\" v sodelovanju s podjetjem Snaga d.o.o.</string>
     <string name="priljubljeni_kosi">Priljubljeni kosi</string>
-    <string name="brez_rezerviranih_Oblačil">Žal trenutno še nimaš aktivnih rezervacij oblačil, skoči na galerijo in si hitro enega rezerviraj</string>
+    <string name="brez_rezerviranih_Oblačil">Žal trenutno še nimaš aktivnih rezervacij oblačil. Skoči na galerijo in si hitro enega rezerviraj.</string>
     <string name="galerija">Galerija</string>
     <string name="status_rezervacije">Status rezervacije</string>
     <string name="zivljenska_doba">Povprečna življenjska doba oblačil hitre mode znaša manj kot 2 leti.</string>
@@ -39,7 +40,47 @@
     <string name="hitra_moda_in_mi">Hitra moda in mi</string>
     <string name="moj_profil">Moj profil</string>
     <string name="nega_obla_il">nega oblačil</string>
-    <string name="o_negi">Kabiné Šerinjon je knjižnica oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblek iz Centra ponovne uporabe.   Nastal je v okviru projekta Po kreativni poti do znanjain je plod sodelovanja sedmih študentov s treh različnih fakultet Univerze v Ljubljani pod vodstvom pedagoških in delovnih mentorjev.   Za imenom Kabiné Šerinjon se skriva naša želja po spreminjanju odnosa do samoumevnih in vsakodnevnih dobrinah, zato smo pot do nasprotja hitre, surove in množične proizvodnje ter potrošnje oblačil.</string>
-    <string name="zahvala">Posebna zahvala gre predvsem vsem sudelojočim modnim oblikovalcem in mentorjem projekta</string>
+    <string name="o_negi">Kabiné Šerinjon je knjižnica oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblek iz Centra ponovne uporabe. Nastal je v okviru projekta Po kreativni poti do znanja in je plod sodelovanja sedmih študentov s treh različnih fakultet Univerze v Ljubljani pod vodstvom pedagoških in delovnih mentorjev.   Za imenom Kabiné Šerinjon se skriva naša želja po spreminjanju odnosa do samoumevnih in vsakodnevnih dobrin. Predstavljamo pot do nasprotja hitre, surove in množične proizvodnje ter potrošnje oblačil.</string>
+    <string name="zahvala">Posebna zahvala gre predvsem vsem sodelujočim modnim oblikovalcem in mentorjem projekta</string>
+    <string name="dogovor_izposoje">Za izposojo se dogovori s trenutnim imetnikom. Če si oblačilo že prejel to prosim potrdi s klikom na spodnji gumb</string>
+    <string name="st_preostalih_dni">Št. preostalih dni</string>
+    <string name="trenutni_imetnik">Juhu si trenutni imetnik oblačila :)</string>
+    <string name="zapomni_si_me">Zapomni si me</string>
+    <string name="ime">Ime</string>
+    <string name="priimek">Priimek</string>
+    <string name="staro_geslo">Staro geslo:</string>
+    <string name="novo_geslo">Novo geslo:</string>
+    <string name="preklici">Prekliči</string>
+    <string name="potrdi">Potrdi</string>
+    <string name="sprememba_podatkov">Sprememba podatkov</string>
+    <string name="posta">e-pošta:</string>
+    <string name="stevilka">Tel. številka</string>
+    <string name="naslov">Naslov</string>
+    <string name="prekli_i">Prekliči</string>
+    <string name="prekliCi_rezervacijo">Prekliči rezervacijo</string>
+    <string name="oblacilo_sprejeto">Oblačilo sprejeto</string>
+    <string name="kontakt">Kontakt trenutnega imetnika</string>
+    <string name="oblacilo_oddano">Oblačilo oddano</string>
+    <string name="predano_oblacilo">Če si oblačilo že predal naslednjemu uporabniku to prosim potrdi s klikom na spodnji gumb</string>
+    <string name="kontaktni_podatki_prejemnika">Kontaktni podatki prejemnika</string>
+    <string name="zbrisi_rezervacijo">Zbriši rezervacijo</string>
+    <string name="cakalna_vrsta">Čakalna vrsta</string>
+    <string name="uporabnik">Uporabnik</string>
+    <string name="trenutni_imetnik1">Trenutni imetnik</string>
+    <string name="negovati">P.S.: Oblačila ne pozabi oprati in oddati tako lepo negovanega kot si ga prejel</string>
+    <string name="predaja_oblacila">Predaja Oblačila</string>
+    <string name="tip_obleke">Tip obleke</string>
+    <string name="ime_oblikovalca">Ime oblikovalca</string>
+    <string name="nega_oblacil">Nega oblačil</string>
+    <string name="o_hitri_modi">O hitri modi</string>
+    <string name="domov">Domov</string>
+    <string name="pomoc">Pomoč</string>
+    <string name="o_aplikaciji">O aplikaciji</string>
+    <string name="odjava">Odjava</string>
+    <string name="spremeni_profilno_fotografijo">Spremeni profilno fotografijo</string>
+    <string name="spremeni_geslo">Spremeni geslo</string>
+    <string name="dopolni_profil">Dopolni profil</string>
+    <string name="zaposleni_otroci">V tekstilni industriji je trenutno zaposlenih okoli 170 miljonov otrok.</string>
+    <string name="pridelava">Za pridelavo 1 kg bombaža se porabi približno 5000 L vode.</string>
 
 </resources>

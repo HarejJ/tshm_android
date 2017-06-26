@@ -17,12 +17,12 @@
             android:layout_weight="1"
             android:background="@drawable/loginbackground"
             android:orientation="vertical"
-            android:weightSum="10">
+            android:weightSum="7">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.87"
+                android:layout_weight="0.88"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:weightSum="1">
@@ -38,19 +38,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.01"
+                android:layout_weight="1.005"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
                 <EditText
-                    android:id="@+id/Name"
+                    android:id="@+id/firstNameET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/ime_in_priimek"
+                    android:hint="@string/ime"
                     android:inputType="textPersonName"
                     android:singleLine="true"
                     android:textColor="@android:color/black" />
@@ -59,13 +59,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.01"
+                android:layout_weight="1.005"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
                 <EditText
-                    android:id="@+id/User"
+                    android:id="@+id/lastNameET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/priimek"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.005"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/userNameET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -79,13 +100,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.01"
+                android:layout_weight="1.005"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
                 <EditText
-                    android:id="@+id/Password1"
+                    android:id="@+id/password1ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -99,13 +120,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.01"
+                android:layout_weight="1.005"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
                 <EditText
-                    android:id="@+id/Password2"
+                    android:id="@+id/password2ET"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -119,140 +140,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1.01"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <EditText
-                    android:id="@+id/PhoneNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/telefonska_tevilka"
-                    android:inputType="phone" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.01"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <EditText
-                    android:id="@+id/Email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/e_mail"
-                    android:inputType="textEmailAddress"
-                    android:selectAllOnFocus="false"
-                    android:singleLine="false" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.01"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <EditText
-                    android:id="@+id/Location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="Naslov prebivališča"
-                    android:inputType="text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.01"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="6">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2.5"
-                    android:gravity="bottom"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/Date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:editable="false"
-                        android:elevation="0dp"
-                        android:ems="10"
-                        android:enabled="false"
-                        android:gravity="center"
-                        android:hint="Datum rojstva"
-                        android:inputType="date" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.4"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/DateBtn"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@color/colorPrimaryDark"
-                            android:text="Vnesi datum"
-                            android:textColor="@color/common_google_signin_btn_text_dark_default" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.6"
-                        android:orientation="horizontal"></LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1.06"
+                android:layout_weight="1.1"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="1.6">
 
                 <TextView
-                    android:id="@+id/Error"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/errorTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="top"
+                    android:gravity="top|center"
                     android:textColor="@color/error"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 

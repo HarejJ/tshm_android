@@ -94,7 +94,7 @@ public class Dialog {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage(context,str));
         builder.setCustomTitle(title(context,"Profilna slika"));
-        builder.setNegativeButton("selfi", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Fotoaparat", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(NetworkUtils.isNetworkConnected(context))
@@ -103,7 +103,7 @@ public class Dialog {
                     Dialog.networkErrorDialog(context).show();
             }
         });
-        builder.setPositiveButton("iz galerije", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Galerija", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(NetworkUtils.isNetworkConnected(context))

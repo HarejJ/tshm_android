@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/selfi"
-        android:title="nova slika(selfi)"/>
+        android:id="@+id/spremeniSliko"
+        android:title="@string/spremeni_profilno_fotografijo"/>
 
     <item
-        android:id="@+id/galerija"
-        android:title="nova slika(galerija)"/>
+        android:id="@+id/spremeniGeslo"
+        android:title="@string/spremeni_geslo"/>
+    <item
+        android:id="@+id/dopolniProfil"
+        android:title="@string/dopolni_profil"/>
 </menu>

@@ -77,7 +77,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="V tekstilni industriji je trenutno zaposlenih okoli 170 miljonov otrok."
+                                android:text="@string/zaposleni_otroci"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="24sp"
                                 android:visibility="visible" />
@@ -97,7 +97,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Za pridelavo 1 kg bombaža se porabi približno 5000 L vode."
+                                android:text="@string/pridelava"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="24sp"
                                 android:visibility="visible" />
@@ -280,7 +280,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryTransparent"
-                            android:text="Galerija" />
+                            android:text="@string/galerija" />
                     </LinearLayout>
 
                     <LinearLayout

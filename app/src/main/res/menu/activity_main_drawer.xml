@@ -7,24 +7,24 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_home"
-            android:title="Domov" />
+            android:title="@string/domov" />
         <item
             android:id="@+id/nav_user"
             android:icon="@drawable/ic_menu_user"
-            android:title="Moj profil" />
+            android:title="@string/moj_profil" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="galerija" />
+            android:title="@string/galerija" />
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about_project"
-            android:title="O hitri modi" />
+            android:title="@string/o_hitri_modi" />
 
         <item
             android:id="@+id/nav_care"
             android:icon="@drawable/ic_menu_care"
-            android:title="Nega oblačil" />
+            android:title="@string/nega_oblacil" />
     </group>
 
     <group
@@ -33,17 +33,17 @@
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/ic_menu_help"
-            android:title="Pomoč" />
+            android:title="@string/pomoc" />
         <item
             android:id="@+id/nav_about_aplication"
             android:icon="@drawable/ic_menu_about_aplication"
-            android:title="O aplikaciji" />
+            android:title="@string/o_aplikaciji" />
     </group>
     <group android:id="@+id/menu_bottom"
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_menu_logout"
-            android:title="Odjava" />
+            android:title="@string/odjava" />
     </group>
 </menu>

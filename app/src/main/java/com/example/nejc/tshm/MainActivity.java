@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +28,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,19 +37,26 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener,AsyncResponse{
     ImageView changeProfilImage;
     NavigationView navigationView = null;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
     Toolbar toolbar = null;
     User user = null;
     String newImage;
+    String passwd1MD5;
     Context context;
     View view;
+    AsyncResponse asyncResponse;
+    EditText staroGesloET,novoGeslo1ET,novoGeslo2ET;
+    AlertDialog spremeniGeslo;
     CircleImageView profilImage;
     MainActivity mainActivity;
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -59,9 +70,11 @@ public class MainActivity extends AppCompatActivity
         context = this;
         mainActivity =this;
         Intent i = getIntent();
+
+        pref = getSharedPreferences("login.conf",Context.MODE_PRIVATE);
+        editor = pref.edit();
+        asyncResponse = this;
         user = (User) i.getSerializableExtra("User");
-
-
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
         //Set the fragment initially
@@ -104,17 +117,87 @@ public class MainActivity extends AppCompatActivity
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         int id = item.getItemId();
-                        if (id == R.id.selfi) {
+                        if(id == R.id.spremeniSliko){
                             if(NetworkUtils.isNetworkConnected(context))
                                 mainActivity.dispatchTakePictureIntent();
                             else
                                 Dialog.networkErrorDialog(context).show();
                         }
-                        if(id == R.id.galerija){
-                            if(NetworkUtils.isNetworkConnected(context))
-                                mainActivity.openGallery();
-                            else
-                                Dialog.networkErrorDialog(context).show();
+                        else if(id == R.id.spremeniGeslo){
+                            AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+                            View mView = getLayoutInflater().inflate(R.layout.dailog_change_password,null);
+                            staroGesloET = (EditText) mView.findViewById(R.id.staroGesloET);
+                            novoGeslo1ET = (EditText) mView.findViewById(R.id.novoGesloET1);
+                            novoGeslo2ET = (EditText) mView.findViewById(R.id.novoGesloET2);
+                            Button mButtonPotrdi = (Button) mView.findViewById(R.id.potrdiBTN);
+                            Button mButtonPreklici = (Button) mView.findViewById(R.id.prekliciBTN);
+                            mButtonPotrdi.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    boolean vneseniPodatki = true;
+                                    if(staroGesloET.length() == 0){
+                                        staroGesloET.setError("Vnesite trenutno geslo");
+                                        vneseniPodatki =false;
+                                    }
+                                    if(novoGeslo1ET.length() == 0){
+                                        novoGeslo1ET.setError("Vnesite novo geslo");
+                                        vneseniPodatki =false;
+                                    }
+                                    if(novoGeslo2ET.length() == 0){
+                                        novoGeslo2ET.setError("Vnesite novo geslo");
+                                        vneseniPodatki =false;
+                                    }
+                                    if(!vneseniPodatki)
+                                        return;
+                                    String staroGeslo = staroGesloET.getText().toString();
+                                    String novoGeslo1 = novoGeslo1ET.getText().toString();
+                                    String novoGeslo2 = novoGeslo2ET.getText().toString();
+
+                                    String passwdMD5 = null;
+                                    passwd1MD5 = null;
+                                    String passwd2MD5 = null;
+                                    MD5 hash = new MD5();
+                                    //šifriranje
+                                    try {
+                                        passwdMD5 = hash.md5(staroGeslo);
+                                        passwd1MD5 = hash.md5(novoGeslo1);
+                                        passwd2MD5 = hash.md5(novoGeslo2);
+                                    } catch (NoSuchAlgorithmException e) {
+                                        novoGeslo2ET.setText("Težava pri šifriranju gesla");
+                                        return;
+                                    }
+                                    if(passwdMD5.compareTo(user.getPassword())!= 0){
+                                        staroGesloET.setError("trenutno geslo ni pravilno");
+                                        return;
+                                    }
+                                    if(passwd1MD5.compareTo(passwd2MD5)!= 0){
+                                        novoGeslo2ET.setError("Novi gesli nista enaki");
+                                        return;
+                                    }
+
+                                    RESTCallTask restTask = new RESTCallTask("spremeniGeslo", user.getUsername(),
+                                            passwdMD5,passwd1MD5,passwd2MD5,passwd2MD5, view);
+                                    restTask.delegate = asyncResponse;
+                                    restTask.execute("POST", String.format("spremeniGeslo"));
+
+                                }
+                            });
+                            mButtonPreklici.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    spremeniGeslo.dismiss();
+                                }
+                            });
+                            mBuilder.setView(mView);
+                            spremeniGeslo =mBuilder.create();
+                            spremeniGeslo.show();
+                        }
+                        else if(id == R.id.dopolniProfil){
+                            AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+                            View mView = getLayoutInflater().inflate(R.layout.dailog_change_password,null);
+                            mBuilder.setView(mView);
+                            spremeniGeslo =mBuilder.create();
+                            spremeniGeslo.show();
                         }
                         return true;
                     }
@@ -223,6 +306,9 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_logout) {
+            editor = pref.edit();
+            editor.clear();
+            editor.commit();
             finish();
         }
 
@@ -285,5 +371,91 @@ public class MainActivity extends AppCompatActivity
             restTask.execute("POST", String.format("changeImage"));
 
         }
+    }
+
+    @Override
+    public void processFinish(ArrayList<Dress> output) {
+
+    }
+
+    @Override
+    public void clothesReserved(Dress output, boolean[] user) {
+
+    }
+
+    @Override
+    public void deleteReservation() {
+
+    }
+
+    @Override
+    public void sprejemRezervacije() {
+
+    }
+
+    @Override
+    public void predajaNaprej() {
+
+    }
+
+    @Override
+    public void oddajaRezervacije() {
+
+    }
+
+    @Override
+    public void oddajaRezervacijeZavrnjena() {
+
+    }
+
+    @Override
+    public void kontaktImetnika(String[] user) {
+
+    }
+
+    @Override
+    public void clothesNotReserved() {
+
+    }
+
+    @Override
+    public void dressDetail(String[] dressDeatil) {
+
+    }
+
+    @Override
+    public void addFavorite() {
+
+    }
+
+    @Override
+    public void deleteFavorite() {
+
+    }
+
+    @Override
+    public void logIn(User user) {
+
+    }
+
+    @Override
+    public void spremeniGeslo() {
+        editor = pref.edit();
+        String userName = pref.getString("username","");
+        String password = pref.getString("password","");
+        if(!(userName.equals("") && userName.equals(""))){
+            editor.putString("password",passwd1MD5);
+            editor.apply();
+            editor.commit();
+        }
+
+        user.setPassword(passwd1MD5);
+        spremeniGeslo.dismiss();
+        CharSequence text = "Geslo spremenjeno";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
     }
 }

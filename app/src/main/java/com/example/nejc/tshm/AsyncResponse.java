@@ -18,4 +18,6 @@ public interface AsyncResponse {
     void dressDetail(String[] dressDeatil);
     void addFavorite();
     void deleteFavorite();
+    void logIn(User user);
+    void spremeniGeslo();
 }

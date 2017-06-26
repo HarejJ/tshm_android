@@ -14,11 +14,13 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -32,11 +34,11 @@ import java.util.GregorianCalendar;
 
 public class RegistrationActivity extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private EditText name,userName,passwd1,passwd2,phone,mail,birthday,location;
+    private EditText firstNameET,lastNameET,userNameET,passwd1ET,passwd2ET;
     private String passwd1MD5,passwd2MD5;
     private RegistrationActivity registrationActivity;
     private View view1;
-    private TextView error;
+    private TextView errorTV;
     private Context context;
     private Button dateBtn;
     boolean vnesena= true;
@@ -46,53 +48,21 @@ public class RegistrationActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         registrationActivity = this;
 
-        name = ((EditText) findViewById(R.id.Name));
-        userName = ((EditText) findViewById(R.id.User));
-        passwd1 = ((EditText) findViewById(R.id.Password1));
-        passwd2 = ((EditText) findViewById(R.id.Password2));
-        phone = ((EditText) findViewById(R.id.PhoneNumber));
-        mail = ((EditText) findViewById(R.id.Email));
-        error = (TextView) findViewById(R.id.Error);
-        birthday = ((EditText) findViewById(R.id.Date));
-        location = ((EditText) findViewById(R.id.Location));
+        lastNameET = ((EditText) findViewById(R.id.firstNameET));
+        firstNameET = ((EditText) findViewById(R.id.lastNameET));
+        userNameET = ((EditText) findViewById(R.id.userNameET));
+        passwd1ET = ((EditText) findViewById(R.id.password1ET));
+        passwd2ET = ((EditText) findViewById(R.id.password2ET));
+        errorTV = (TextView) findViewById(R.id.errorTV);
 
         context = this;
         Button registration =(Button) findViewById(R.id.RegistrationButton);
         registration.setOnClickListener(onClickListener);
-
-        mDisplayDate = (EditText) findViewById(R.id.Date);
-        dateBtn = (Button) findViewById(R.id.DateBtn);
-        dateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(
-                        RegistrationActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        mDateSetListener,
-                        year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }
-        });
-
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                String date = day + "." + month + "." + year;
-                mDisplayDate.setText(date);
-            }
-        };
-
     }
 
     private View.OnClickListener onClickListener =new View.OnClickListener() {
@@ -109,83 +79,45 @@ public class RegistrationActivity extends AppCompatActivity {
     private void registration(View view) {
         view1 = view;
         //izpolnjena vsa polja
-        if(name.length() == 0) {
-            name.setError("Vnesite ime in priimek");
+        vnesena = true;
+        if(firstNameET.length() == 0) {
+            firstNameET.setError("Vnesite ime");
             vnesena = false;
         }
-        if(userName.length() == 0) {
-            userName.setError("Vnesite uporabniško ime");
+        if(lastNameET.length() == 0) {
+            lastNameET.setError("Vnesite priimek");
             vnesena = false;
         }
-        if(passwd1.length() == 0) {
-            passwd1.setError("Vnesite geslo");
+        if(userNameET.length() == 0) {
+            userNameET.setError("Vnesite uporabniško ime");
             vnesena = false;
         }
-        if(passwd2.length() == 0) {
-            passwd2.setError("ponovno vnesite geslo");
+        if(passwd1ET.length() == 0) {
+            passwd1ET.setError("Vnesite geslo");
             vnesena = false;
         }
-        if(phone.length() == 0) {
-            phone.setError("vnesite telefonsko številko");
-            vnesena = false;
-        }
-        if(mail.length() == 0) {
-            mail.setError("Vnesite e-mail");
-            vnesena = false;
-        }
-        if(mail.length() == 0) {
-            mail.setError("Vnesite e-mail");
-            vnesena = false;
-        }
-        if(birthday.length() == 0) {
-            birthday.setError("Vnesite datum rojstva");
-            vnesena = false;
-        }
-        if(location.length() == 0) {
-            location.setError("Vnesite prebivališče");
+        if(passwd2ET.length() == 0) {
+            passwd2ET.setError("ponovno vnesite geslo");
             vnesena = false;
         }
         if(vnesena == false)
             return;
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        Date date;
-        Date dateNow;
-        try {
-            date = dateFormat.parse(birthday.getText().toString());
-            dateNow = new Date();
-
-            if(!checkAge(date,dateNow)){
-                Dialog.starostPremajhna(context).show();
-                return;
-            }
-        } catch (ParseException e) {
-        }
-
-        if(birthday.getText().toString() =="")
 
         passwd1MD5 = null;
         passwd2MD5 = null;
         MD5 hash = new MD5();
         //šifriranje
         try {
-            passwd1MD5 = hash.md5(passwd1.getText().toString());
-            passwd2MD5 = hash.md5(passwd2.getText().toString());
+            passwd1MD5 = hash.md5(passwd1ET.getText().toString());
+            passwd2MD5 = hash.md5(passwd2ET.getText().toString());
         } catch (NoSuchAlgorithmException e) {
-            passwd2.setText("Težava pri šifriranju gesla");
+            passwd2ET.setText("Težava pri šifriranju gesla");
             return;
         }
         // preverimo ali sta gesli enaki
         if(!passwd1MD5.equals(passwd2MD5)){
-            passwd1.setError("vnešeni gesli nista enaki");
-            passwd2.setError("vnešeni gesli nista enaki");
-            return;
-        }
-        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(mail.getText().toString()).matches()){
-            error.setText("e-mail nalov je neveljaven");
-            return;
-        }
-        if(!validatedNumber(phone.getText().toString())){
-            error.setText("telefonska stevilka je neveljavna");
+            passwd1ET.setError("vnešeni gesli nista enaki");
+            passwd2ET.setError("vnešeni gesli nista enaki");
             return;
         }
         Dialog.pogojiSodelovanja(context, registrationActivity).show();
@@ -219,9 +151,7 @@ public class RegistrationActivity extends AppCompatActivity {
     public void openGallery(){
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(gallery,PICK_IMAGE);
-
     }
-
 
     private boolean checkAge(Date age, Date dateNow){
         long diff = Math.abs(dateNow.getTime() - age.getTime());
@@ -241,15 +171,24 @@ public class RegistrationActivity extends AppCompatActivity {
                     getIntent().setAction(Intent.ACTION_OPEN_DOCUMENT);
                     getIntent().addCategory(Intent.CATEGORY_OPENABLE);
                 }
-                int scale = 20;
+                int scale = 10;
                 BitmapFactory.Options o2 = new BitmapFactory.Options();
                 o2.inSampleSize = scale;
                 Bitmap bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(imageUri), null, o2);
 
                 String image=ImageUtil.convert(bitmap);
 
-                RESTCallTask restTask = new RESTCallTask(registrationActivity, "register", name.getText().toString(), userName.getText().toString(),
-                        passwd1MD5, passwd2MD5, phone.getText().toString(), mail.getText().toString(),view1,image,location.getText().toString(),birthday.getText().toString());
+                String firstName =firstNameET.getText().toString();
+                String lastName = lastNameET.getText().toString();
+                String username = userNameET.getText().toString();
+                RESTCallTask restTask = new RESTCallTask(registrationActivity, "register",
+                        firstName,lastName,username, passwd1MD5, passwd2MD5,view1,image);
+                CharSequence text = "shranjevanje podatkov. Prosimo počakajte";
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+
                 restTask.execute("POST", String.format("register"));
 
             } catch (IOException e) {
@@ -259,14 +198,21 @@ public class RegistrationActivity extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 
             String image=ImageUtil.convert(imageBitmap);
 
-            RESTCallTask restTask = new RESTCallTask(registrationActivity, "register", name.getText().toString(), userName.getText().toString(),
-                    passwd1MD5, passwd2MD5, phone.getText().toString(), mail.getText().toString(),view1,image,location.getText().toString(),birthday.getText().toString());
+            String firstName =firstNameET.getText().toString();
+            String lastName = lastNameET.getText().toString();
+            String username = userNameET.getText().toString();
+            RESTCallTask restTask = new RESTCallTask(registrationActivity, "register",
+                    firstName,lastName,username, passwd1MD5, passwd2MD5,view1,image);
+            CharSequence text = "shranjevanje podatkov. Prosimo počakajte";
+            int duration = Toast.LENGTH_LONG;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
             restTask.execute("POST", String.format("register"));
 
         }

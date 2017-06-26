@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.plus.model.people.Person;
 
@@ -407,6 +408,16 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void deleteFavorite() {
+
+    }
+
+    @Override
+    public void logIn(User user) {
+
+    }
+
+    @Override
+    public void spremeniGeslo() {
 
     }
 

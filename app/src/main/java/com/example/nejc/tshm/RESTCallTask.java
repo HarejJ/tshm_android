@@ -34,9 +34,11 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
     public AsyncResponse delegate = null;
     private String username;
     private String password;
+    private String password1;
     private String password2;
     private String activityName;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String phone;
     private String mail;
     private String image;
@@ -75,20 +77,17 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
      konstruktor za registracijo določi username, geslo,ime in priimek, telefonsko in mail activity(da lahko preidemo na drug)
      in podatke za avdentikacijo(za enkrat ne potrebujemo)
      */
-    RESTCallTask(Activity activity, String activityName, String name, String userName,
-                 String passwd1, String passwd2, String phone, String mail, View view, String image, String location, String birthday) {
+    RESTCallTask(Activity activity, String activityName, String firstName,String lastName, String userName,
+                 String passwd1, String passwd2, View view, String image) {
         this.activity = activity;
         this.activityName = activityName;
         this.view = view;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = userName;
         this.password = passwd1;
         this.password2 = passwd2;
-        this.phone = phone;
-        this.mail = mail;
         this.image = image;
-        this.location = location;
-        this.birthDay = birthday;
 
     }
 
@@ -116,6 +115,16 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         this.password = passwd;
         this.view = view;
         this.idObleke = idObleke;
+    }
+    //konstruktor spremeni geslo
+    RESTCallTask(String activityName, String username, String passwd, String password1,String password2,String password3, View view) {
+        this.activityName = activityName;
+        this.username = username;
+        this.password = passwd;
+        this.password1 = password1;
+        this.password2 = password2;
+
+        this.view = view;
     }
 
     protected String doInBackground(String... params) {
@@ -188,9 +197,13 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             case "priljubljeneObleke":
                 jsonObject = priljubljeneJson();
                 break;
+            case "spremeniGeslo":
+                jsonObject = spremeniGesloJson();
+                break;
 
         }
         String result = "";
+        Log.d("",jsonObject.toString());
         try {
             DefaultHttpClient httpclient = new DefaultHttpClient();
             HttpPost httpost = new HttpPost(callURL);
@@ -318,6 +331,13 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                     e.printStackTrace();
                 }
                 break;
+            case "spremeniGeslo":
+                try {
+                    spremeniGesloResponse(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
 
@@ -331,6 +351,18 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         jsonObject.put("Geslo", password);
         return jsonObject;
     }
+    /*
+    naredi JSON objekt ki vsebuje uporabniško ime in geslo
+    uporabi se v requestu za prijavo
+    */
+    private JSONObject spremeniGesloJson() throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("UporabniskoIme", username);
+        jsonObject.put("StaroGeslo", password);
+        jsonObject.put("NovoGeslo1", password1);
+        jsonObject.put("NovoGeslo2", password2);
+        return jsonObject;
+    }
 
     /*
     naredi JSON objekt ki vsebuje uporabniško ime geslo,....
@@ -341,13 +373,9 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         jsonObject.put("UporabniskoIme", username);
         jsonObject.put("Geslo1", password);
         jsonObject.put("Geslo2", password2);
-        jsonObject.put("Mail", mail);
-        jsonObject.put("Telefonska", phone);
-        jsonObject.put("Ime", name);
-        jsonObject.put("Priimek", name);
+        jsonObject.put("Ime", firstName);
+        jsonObject.put("Priimek", lastName);
         jsonObject.put("Slika", image);
-        jsonObject.put("Lokacija", location);
-        jsonObject.put("datumRojstva", birthDay);
         return jsonObject;
     }
 
@@ -404,7 +432,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
     private void LogInRegistrationResponse(String result) throws JSONException {
         String[] res = result.split("#");
         //textView za izpis errorja
-        TextView error = (TextView) activity.findViewById(R.id.Error);
+        TextView error = (TextView) activity.findViewById(R.id.errorTV);
         error.setTextColor(activity.getResources().getColor(R.color.error));// rdeča barva texta
         //pretvorimo v json objekt
         JSONObject jsonRes = new JSONObject(res[1]);
@@ -415,7 +443,6 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         }
         if (Integer.parseInt(res[0]) == 200) {
             error.setText("");
-            Log.d("json", jsonRes.toString());
 
             User user = new User(jsonRes.getString("uporabniskoIme"), jsonRes.getString("Ime"),
                     password, jsonRes.getString("Mail"), jsonRes.getString("Telefonska"), 1, "", jsonRes.getString("Slika"));
@@ -432,11 +459,13 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                 user.setPredajaNaprej(Boolean.parseBoolean(jsonRes.getString("predajaNaprej")));
                 user.setVrnjena(Boolean.parseBoolean(jsonRes.getString("vrnjena")));
             }
-
-
-            Intent intent = new Intent(activity, MainActivity.class);
-            intent.putExtra("User", (Serializable) user);
-            this.view.getContext().startActivity(intent);
+            if(delegate != null)
+                delegate.logIn(user);
+            else{
+                Intent intent = new Intent(activity, MainActivity.class);
+                intent.putExtra("User", (Serializable) user);
+                this.view.getContext().startActivity(intent);
+            }
         }
     }
 
@@ -564,6 +593,13 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                 clothes.add(dress);
             }
             delegate.processFinish(clothes);
+        }
+    }
+
+    private void spremeniGesloResponse(String result) throws JSONException {
+        String[] res = result.split("#");
+        if (Integer.parseInt(res[0]) == 200) {
+            delegate.spremeniGeslo();
         }
     }
 }

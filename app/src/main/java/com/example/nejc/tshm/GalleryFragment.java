@@ -146,6 +146,16 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
     }
 
+    @Override
+    public void logIn(User user) {
+
+    }
+
+    @Override
+    public void spremeniGeslo() {
+
+    }
+
 
     private void setImage(ArrayList<Dress> output){
         imaggesIds.clear();

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -158,7 +159,11 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void clothesReserved(Dress output, boolean[] userData) {
+        CharSequence text = "oblačilo je bilo uspešno rezervirano!";
+        int duration = Toast.LENGTH_SHORT;
 
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
         user.setRezervacija(userData[0]);
         user.setPredaja(userData[1]);
         user.setIzposojena(userData[2]);
@@ -170,7 +175,6 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
             user.setPredaja(true);
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
-
         UserProfileFragment fragment = new UserProfileFragment();
         fragment.setArguments(args);
 
@@ -226,6 +230,16 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
     @Override
     public void deleteFavorite() {
         user.deleteFavoriteDress(dress);
+    }
+
+    @Override
+    public void logIn(User user) {
+
+    }
+
+    @Override
+    public void spremeniGeslo() {
+
     }
 
 }
