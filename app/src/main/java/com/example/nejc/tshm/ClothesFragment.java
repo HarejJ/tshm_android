@@ -49,8 +49,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         picture = (ImageView) view.findViewById(R.id.imageDress);
         favoriteSign = (ImageView) view.findViewById(R.id.favoriteDress);
         picture.setImageBitmap(ImageUtil.convert(dress.getSlika()));
-        favoriteSign.setImageResource(new int[]{R.drawable.heart_empty_black, R.drawable.heart_full_black}[dress.isPriljubljena() ? 1 : 0]);
-
+        favoriteSign.setImageResource(new int[]{R.drawable.unlike, R.drawable.like}[dress.isPriljubljena() ? 1 : 0]);
         context = getContext();
         asyncResponse = this;
         oznake = (ImageView) view.findViewById(R.id.oznake);
@@ -142,13 +141,14 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
                         restTask.execute("POST", String.format("odstraniPriljubljeno"));
 
                         dress.setPriljubljena(false);
-                        favoriteSign.setImageResource(R.drawable.heart_empty_black);
+                        favoriteSign.setImageResource(R.drawable.unlike);
                     } else {
                         restTask = new RESTCallTask("dodajPriljubljeno", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
                         restTask.delegate = asyncResponse;
                         restTask.execute("POST", String.format("dodajPriljubljeno"));
                         dress.setPriljubljena(true);
-                        favoriteSign.setImageResource(R.drawable.heart_full_black);
+                        Toast.makeText(context,"Dodano med priljubljene kose",Toast.LENGTH_SHORT).show();
+                        favoriteSign.setImageResource(R.drawable.like);
                     }
                     break;
             }

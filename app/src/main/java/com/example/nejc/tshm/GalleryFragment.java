@@ -59,6 +59,10 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
             Dialog.networkErrorDialog(context).show();
             return view;
         }
+        if(user.isIzposojena() && !user.isPredajaNaprej() &&Integer.parseInt(user.getReservedDress().getStDni()) == 1)
+            Dialog.VrniOblacilo(getContext()).show();
+        if(user.isIzposojena() && !user.isPredajaNaprej() &&Integer.parseInt(user.getReservedDress().getStDni()) < 1)
+            Dialog.VrniOblaciloNujno(getContext()).show();
 
         return view;
     }

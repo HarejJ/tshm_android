@@ -74,6 +74,10 @@ public class MainFragment extends Fragment {
         //factBdy.
         left.setOnClickListener(onClickListener);
         right.setOnClickListener(onClickListener);
+        if(user.isIzposojena() && !user.isPredajaNaprej() &&Integer.parseInt(user.getReservedDress().getStDni()) == 1)
+            Dialog.VrniOblacilo(getContext()).show();
+        if(user.isIzposojena() && !user.isPredajaNaprej() &&Integer.parseInt(user.getReservedDress().getStDni()) < 1)
+            Dialog.VrniOblaciloNujno(getContext()).show();
 
         return view;
     }

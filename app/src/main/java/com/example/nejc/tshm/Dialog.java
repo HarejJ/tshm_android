@@ -163,6 +163,26 @@ public class Dialog {
         AlertDialog dialog = builder.create();
         return dialog;
     }
+    public static AlertDialog VrniOblacilo(Context context){
+        String str = "Vaša izposoja se bliža koncu prosimo vas, da izberete gumb oddaj oblačilo in " +
+                "se dogovorite o predaji z nasednjim imetnikom";
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(dialogMessage1(context,str));
+        builder.setCustomTitle(title(context,"Opozorilo: vrni oblačilo"));
+        builder.setPositiveButton("VREDU",null);
+        AlertDialog dialog = builder.create();
+        return dialog;
+    }
+    public static AlertDialog VrniOblaciloNujno(Context context){
+        String str = "Vaša izposoja se je že končala prosimo vas, da izberete gumb oddaj oblačilo in " +
+                "se dogovorite o predaji z nasednjim imetnikom. Če ne boste vrnili oblačila v 48 urah vam bomo blokirali račun";
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(dialogMessage1(context,str));
+        builder.setCustomTitle(title(context,"Opozorilo: vrni oblačilo"));
+        builder.setPositiveButton("VREDU",null);
+        AlertDialog dialog = builder.create();
+        return dialog;
+    }
 
 
     private static ScrollView dialogMessage(Context context, String titleText){
@@ -170,7 +190,16 @@ public class Dialog {
         TextView t_view = new TextView(context);
         t_view.setText(titleText);
         t_view.setPadding(60, 60, 60, 60);
-        t_view.setTextSize(14);
+        t_view.setTextSize(16);
+        s_view.addView(t_view);
+        return s_view;
+    }
+    private static ScrollView dialogMessage1(Context context, String titleText){
+        ScrollView s_view = new ScrollView(context);
+        TextView t_view = new TextView(context);
+        t_view.setText(titleText);
+        t_view.setPadding(60, 60, 60, 60);
+        t_view.setTextSize(18);
         s_view.addView(t_view);
         return s_view;
     }

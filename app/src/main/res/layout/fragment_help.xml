@@ -1,9 +1,634 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
     tools:context="com.example.nejc.tshm.HelpFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/crnkasta"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/crnkasta"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.45"
+            android:orientation="horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView261"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1. Kaj je Kabiné Šerinjon?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView241"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Kabiné Šerinjon je ime spletne in mobilne platforme, ki omogoča brezplačno izposojo oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblačil iz Centra ponovne uporabe."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView262"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2. Kdo stoji za tem?"
+                            android:textStyle="bold"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView242"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Sedem študentov iz treh ljubljanskih fakultet, ki s pomočjo pedagoških mentorjev in ljubljanske Snage razkrivamo temno plat hitre mode ter spodbujamo do ljudi in okolja boljše izbire"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView263"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="3. Kako deluje?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView243"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Več o postopku izmenjave in pravilih lahko prebereš v pravilih igre."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView264"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="4. Koliko stane izposoja?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView244"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Izposoja vseh modnih kosov, dodatkov in vintidž oblačil je brezplačna."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView265"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5. Kakšne so velikosti oblačil?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView245"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Oblačila so na voljo v različnih konfekcijskih številkah, nekaj kosov pa je takšnih, da jih lahko nosijo osebe z različnimi številkami in postavami."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView266"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="6. Kako dolgo imam lahko izposojeno oblačilo/modni dodatek?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView246"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="En kos imaš lahko v izposoji največ dva tedna."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView267"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="7. Ali si lahko večkrat izposodim isti kos?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView247"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Seveda!"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView268"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="8. Ali si lahko izposodim več kosov naenkrat?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView248"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Za zdaj si lahko vsak uporabnik izposodi le en kos naenkrat. "
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView269"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="9. Želim si izposoditi kos, kaj naj naredim?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView249"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Ko si v galeriji izbereš želeni kos, je v njegovem opisu tudi podatek, ali je na voljo takoj ali je trenutno izposojen. Če je v izposoji, se vpiši v čakalno vrsto, nato pa stopi v kontakt s trenutnim uporabnikom, da se dogovorita za predajo in prevzem. Kontakt trenutnega uporabnika se ti bo izpisal, ko boš prvi/a v čakalni vrsti."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView272"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="10. Kje in kako prevzamem rezervirano?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView252"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Oblačilo/modni dodatek prejmeš od prejšnjega uporabnika tako, da si najprej izmenjata kontakte ter se nato srečata v živo ali pa si pošljeta izdelek po pošti. Kontakt trenutnega uporabnika se ti bo izpisal, ko boš prvi/a v čakalni vrsti. Priporočamo, da se prejšnji in naslednji uporabnik srečata v živo ter ob prevzemu preverita, da je modni kos nepoškodovan in čist."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView273"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="11. Kako izposojeno predam naprej?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView253"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tri dni pred iztekom roka za izposojo prejmeš opomnik. Kos, ki ga predaš naprej, mora biti čist (opran) in nepoškodovan. Navodila za vzdrževanje najdeš na etiketi, ki je priložena vsakemu kosu. Odgovornost vsakega uporabnika je, da naprej preda nepoškodovan in čist kos v vrečki, v kateri je izposojen kos tudi dobil, poleg pa mora priložiti tudi etiketo z opisom in navodili za vzdrževanje."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView274"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="12. Kaj naredim, če mi prejšnji uporabnik ne preda oblačila/modnega dodatka?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView254"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Če oblačila/dodatka brez pojasnila ali dogovora s prejšnjim uporabnikom ne prejmeš v 24 urah po izteku pričakovanega roka za izposojo, nas o tem obvesti na elektronski naslov kabine.sherinjon@gmail.com."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView275"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="13. Kaj naredim, če izposojenega kosa ne morem predati naslednjemu uporabniku?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView255"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="V primeru, da izposojenega izdelka ne moreš predati naprej prvemu uporabniku v čakalni vrsti, nam v 24 urah po izteku časa izposoje to sporoči na naš e-naslov kabine.sherinjon@gmail.com. Če izdelka v treh dneh po izteku časa izposoje ne predaš prvemu ali drugemu uporabniku v čakalni vrsti, ga v vnaprej dogovorjenem času predaj nam. Če izdelka ne predaš v treh dneh po izteku časa izposoje, ti bomo blokirali uporabniški profil."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView276"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="14. Komu vrnem kos, ki ga po izteku moje izposoje ni nihče rezerviral?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView256"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Prosimo te, da nam v 24 urah po izteku časa izposoje prek elektronske pošte kabine.sherinjon@gmail.com pošlješ obvestilo in oblačilo/dodatek bo prevzela naša ekipa."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView277"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="15. Kaj naredim, če po prevzemu ugotovim, da je kos poškodovan/umazan?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView257"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="O tem nas takoj obvesti prek elektronske pošte kabine.sherinjon@gmail.com, hkrati pa stopi v kontakt z oblikovalcem, ki je kos izdelal. Podatke o modnem oblikovalcu in možnosti popravila najdeš na etiketi, priloženi izposojenemu kosu. Ekipa Kabiné Šerinjon ti bo podaljšala čas izposoje tega kosa za en teden. Če izposojenega kosa ne neseš v popravilo, ga moraš predati nam (seveda nas najprej kontaktiraš). Tvoj čas izposoje se v tem primeru ne podaljša."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView278"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="16. Kaj naj naredim, če jaz umažem/poškodujem kos?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView258"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Oblačilo operi skladno z navodili na etiketi. Če to ni rešitev oziroma je kos poškodovan, naredi enako, kot piše v prejšnjem odstavku."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView279"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="17. Kam se lahko obrnem v primeru vprašanj, predlogov, težav ipd.?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView259"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Piši nam na elektronski naslov kabine.sherinjon@gmail.com ali nam pusti sporočilo na našem Instagram profilu @kabine_sherinjon."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView281"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="18. Kako ste dobili kose, ki so na voljo za izposojo?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView282"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Oblačila in modne dodatke so prispevali modni oblikovalci, ki spodbujajo boljšo, trajnostno potrošnjo, vintidž oblačila pa so iz Centra ponovne uporabe."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView284"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="19. Ali lahko v izmenjavo prispevam tudi kakšen svoj kos?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView283"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="O tem se dogovarjamo individualno. Piši nam na elektronski naslov kabine.sherinjon@gmail.com ali nam pusti sporočilo na našem Instagram profilu @kabine_sherinjon."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="20. Ali imate tudi svojo trgovino?"
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Za zdaj še ne, če pa te zanima nakup kakšnega kosa iz naše knjižnice, se lahko obrneš neposredno na oblikovalca."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView271"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="21. Sem modni oblikovalec/ka. Ali bi lahko moj izdelek vključili v knjižnico Kabiné Šerinjon? "
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView251"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Kabiné Šerinjon je ime spletne in mobilne platforme, ki omogoča brezplačno izposojo oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblačil iz Centra ponovne uporabe."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold"
+                            tools:text="Seveda lahko. Če si modni oblikovalec, šivilja/krojač ali pa samo ljubiteljsko izdeluješ unikatne izdelke, nas kontaktiraj in se bomo dogovorili za sodelovanje." />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.45"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView2712"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="22.  Ali je aplikacija na voljo tudi za iOS? "
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/large_font_size" />
+
+                        <TextView
+                            android:id="@+id/textView2512"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Za zdaj žal še ne, jo pa načrtujemo."
+                            android:textColor="@color/common_google_signin_btn_text_dark_default"
+                            android:textSize="@dimen/normal_font_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.45"
+            android:orientation="horizontal"/>
+
+    </LinearLayout>
+
+</LinearLayout>

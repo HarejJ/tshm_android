@@ -39,14 +39,6 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/shirt1" />
 
-                <ImageView
-                    android:id="@+id/favoriteDress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="-77dp"
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/heart_empty_black" />
             </LinearLayout>
 
             <LinearLayout
@@ -60,7 +52,7 @@
                     android:layout_height="match_parent"
                     android:background="@color/common_google_signin_btn_text_light_focused"
                     android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:weightSum="3">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -173,6 +165,21 @@
                                 android:textSize="@dimen/small_font_size" />
                         </LinearLayout>
 
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/favoriteDress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/unlike" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
