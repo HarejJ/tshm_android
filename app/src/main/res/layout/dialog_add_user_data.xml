@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/sprememba_podatkov"
-                android:textSize="30sp" />
+                android:textSize="@dimen/xlarge_font_size" />
 
             <Space
                 android:layout_width="0dp"
@@ -51,14 +52,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.4"
-                    android:orientation="vertical"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="@dimen/activity_horizontal_margin">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -67,7 +63,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="2"
                             android:orientation="horizontal">
 
@@ -79,7 +75,7 @@
                                 android:gravity="bottom"
                                 android:text="@string/posta"
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/normal_font_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -94,7 +90,8 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:ems="10"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                android:textSize="@dimen/normal_font_size" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -119,7 +116,7 @@
                                 android:layout_weight="1"
                                 android:text="@string/stevilka"
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/normal_font_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -134,7 +131,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:ems="10"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                android:textSize="@dimen/normal_font_size" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -157,7 +155,7 @@
                                 android:gravity="bottom"
                                 android:text="@string/naslov"
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/normal_font_size" />
 
                         </LinearLayout>
 
@@ -173,7 +171,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:ems="10"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                android:textSize="@dimen/normal_font_size" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -183,6 +182,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1.4"
                         android:orientation="horizontal"
+                        android:paddingTop="@dimen/activity_horizontal_margin"
                         android:weightSum="3">
 
                         <LinearLayout
@@ -197,7 +197,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
-                                android:text="@string/prekli_i" />
+                                android:text="@string/prekli_i"
+                                android:textSize="@dimen/button_font_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -218,18 +219,13 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
-                                android:text="@string/potrdi" />
+                                android:text="@string/potrdi"
+                                android:textSize="@dimen/button_font_size" />
                         </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.4"
-                    android:orientation="vertical"/>
             </LinearLayout>
 
         </LinearLayout>

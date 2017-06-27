@@ -44,29 +44,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
+                    android:padding="@dimen/activity_horizontal_margin"
                     android:alpha="1"
                     android:background="@color/belkasta"
                     android:orientation="horizontal"
                     android:weightSum="3">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.1"
-                        android:orientation="horizontal"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.8"
                         android:orientation="vertical"
                         android:weightSum="7">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.85"
-                            android:orientation="horizontal"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -75,28 +64,20 @@
 
                             <TextView
                                 android:id="@+id/textView6"
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/o_aplikaciji_1"
                                 android:textAlignment="center"
 
                                 android:textColor="#FFFFFF"
-                                android:textSize="20sp"
+                                android:textSize="@dimen/normal_font_size"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.65"
-                            android:orientation="horizontal">
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_horizontal_margin"
                             android:orientation="vertical">
 
                             <TextView
@@ -106,7 +87,7 @@
                                 android:layout_weight="1"
                                 android:text="Design: Maruša"
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="20sp"
+                                android:textSize="@dimen/normal_font_size"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -116,7 +97,7 @@
                                 android:layout_weight="1"
                                 android:text="Programiranje: Jan, Nejc"
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="20sp"
+                                android:textSize="@dimen/normal_font_size"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -126,19 +107,14 @@
                                 android:layout_weight="1"
                                 android:text="Vsebina: Pia, Valentina, Žana, Kristina"
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="20sp"
+                                android:textSize="@dimen/normal_font_size"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.7"
-                            android:orientation="horizontal"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_horizontal_margin"
                             android:orientation="horizontal">
 
                             <TextView
@@ -148,23 +124,11 @@
                                 android:layout_weight="1"
                                 android:text="@string/zahvala"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="18sp"
+                                android:textSize="@dimen/normal_font_size"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.85"
-                            android:orientation="horizontal"/>
-
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.1"
-                        android:orientation="vertical"/>
 
                 </LinearLayout>
 

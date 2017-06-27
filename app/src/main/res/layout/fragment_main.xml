@@ -79,7 +79,7 @@
                                 android:gravity="center"
                                 android:text="@string/zaposleni_otroci"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="24sp"
+                                android:textSize="@dimen/xlarge_font_size"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -99,7 +99,7 @@
                                 android:gravity="center"
                                 android:text="@string/pridelava"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="24sp"
+                                android:textSize="@dimen/xlarge_font_size"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -119,7 +119,7 @@
                                 android:gravity="center"
                                 android:text="@string/zivljenska_doba"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="24sp"
+                                android:textSize="@dimen/xlarge_font_size"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -139,7 +139,7 @@
                                 android:gravity="center"
                                 android:text="@string/pobiralec"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="24sp"
+                                android:textSize="@dimen/xlarge_font_size"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -243,7 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1.41"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal" />
 
         </LinearLayout>
 
@@ -280,7 +280,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryTransparent"
-                            android:text="@string/galerija" />
+                            android:text="@string/galerija"
+                            android:textSize="@dimen/button_font_size" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -301,7 +302,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryTransparent"
-                            android:text="@string/hitra_moda_in_mi" />
+                            android:text="@string/hitra_moda_in_mi"
+                            android:textSize="@dimen/button_font_size" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -309,7 +311,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1.9"
-                    android:orientation="horizontal"/>
+                    android:orientation="horizontal" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -330,7 +332,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryTransparent"
-                            android:text="@string/moj_profil" />
+                            android:text="@string/moj_profil"
+                            android:textSize="@dimen/button_font_size" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -351,7 +354,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@color/colorPrimaryTransparent"
-                            android:text="@string/nega_obla_il" />
+                            android:text="@string/nega_obla_il"
+                            android:textSize="@dimen/button_font_size" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -360,7 +364,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1.8"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal" />
 
         </LinearLayout>
     </LinearLayout>
