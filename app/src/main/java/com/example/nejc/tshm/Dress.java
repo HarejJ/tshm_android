@@ -35,6 +35,8 @@ public class Dress implements Serializable {
         this.cakalnaVrsta = 0;
         this.priljubljena = priljubljena.equals("1");
         this.oznaka = oznaka;
+        if(rezervacije.length()>0)
+            this.cakalnaVrsta= Integer.parseInt(rezervacije);
     }
     private int calculateDays(String datumIzposoje) {
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");

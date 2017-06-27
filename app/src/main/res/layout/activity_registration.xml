@@ -53,7 +53,8 @@
                     android:hint="@string/ime"
                     android:inputType="textPersonName"
                     android:singleLine="true"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/normal_font_size" />
             </LinearLayout>
 
             <LinearLayout
@@ -74,7 +75,8 @@
                     android:hint="@string/priimek"
                     android:inputType="textPersonName"
                     android:singleLine="true"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/normal_font_size" />
             </LinearLayout>
 
             <LinearLayout
@@ -94,7 +96,8 @@
                     android:gravity="center"
                     android:hint="@string/uporabni_ko_ime"
                     android:inputType="textPersonName"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_font_size" />
             </LinearLayout>
 
             <LinearLayout
@@ -114,7 +117,8 @@
                     android:gravity="center"
                     android:hint="@string/geslo"
                     android:inputType="textPassword"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_font_size" />
             </LinearLayout>
 
             <LinearLayout
@@ -134,7 +138,8 @@
                     android:gravity="center"
                     android:hint="@string/geslo"
                     android:inputType="textPassword"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textSize="@dimen/normal_font_size" />
             </LinearLayout>
 
             <LinearLayout
@@ -152,7 +157,7 @@
                     android:layout_weight="1"
                     android:gravity="top|center"
                     android:textColor="@color/error"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/normal_font_size" />
             </LinearLayout>
         </LinearLayout>
 
@@ -174,7 +179,7 @@
                 android:gravity="center"
                 android:text="@string/registracija"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="18sp" />
+                android:textSize="@dimen/button_font_size" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

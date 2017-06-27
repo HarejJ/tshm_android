@@ -47,6 +47,7 @@
                     android:layout_weight="0.25"
                     android:alpha="1"
                     android:orientation="horizontal"
+                    android:padding="@dimen/activity_horizontal_margin"
                     android:weightSum="3">
 
                     <LinearLayout
@@ -88,6 +89,8 @@
                         android:layout_weight="0.1"
                         android:orientation="vertical" />
 
+=======
+>>>>>>> refs/remotes/origin/master
                 </LinearLayout>
 
                 <LinearLayout

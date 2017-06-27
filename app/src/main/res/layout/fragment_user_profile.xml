@@ -1,9 +1,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment1"
     tools:context="com.example.nejc.tshm.UserProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -86,7 +86,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+                                android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+                                android:textSize="@dimen/normal_font_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -101,7 +102,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+                                android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+                                android:textSize="@dimen/normal_font_size" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -181,7 +183,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/colorPrimary"
-                        android:text="@string/priljubljeni_kosi" />
+                        android:text="@string/priljubljeni_kosi"
+                        android:textSize="@dimen/button_font_size" />
 
                     <Button
                         android:id="@+id/status"
@@ -189,7 +192,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/colorPrimary"
-                        android:text="@string/status_rezervacije" />
+                        android:text="@string/status_rezervacije"
+                        android:textSize="@dimen/button_font_size" />
 
                 </LinearLayout>
 
@@ -286,7 +290,7 @@
                                 android:longClickable="false"
                                 android:text="@string/brez_rezerviranih_Oblačil"
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="18sp" />
+                                android:textSize="@dimen/normal_font_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -323,7 +327,8 @@
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
                                 android:text="@string/galerija"
-                                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                android:textSize="@dimen/button_font_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -350,7 +355,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1.25"
-                        android:orientation="horizontal"/>
+                        android:orientation="horizontal" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -393,7 +398,7 @@
                                     android:layout_weight="1"
                                     android:text="@string/ime_oblikovalca"
                                     android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                    android:textSize="28sp"
+                                    android:textSize="@dimen/xlarge_font_size"
                                     android:textStyle="bold" />
                             </LinearLayout>
 
@@ -411,7 +416,7 @@
                                     android:layout_weight="1"
                                     android:text="@string/tip_obleke"
                                     android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                    android:textSize="24sp"
+                                    android:textSize="@dimen/large_font_size"
                                     android:textStyle="bold" />
                             </LinearLayout>
 
@@ -429,7 +434,7 @@
                                     android:layout_weight="1"
                                     android:text="unisex Velikost M"
                                     android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                    android:textSize="20sp" />
+                                    android:textSize="@dimen/normal_font_size" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -438,7 +443,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1.3"
-                        android:orientation="horizontal"/>
+                        android:orientation="horizontal" />
 
                     <LinearLayout
                         android:id="@+id/StatusOblacila"
@@ -466,18 +471,19 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="horizontal">
 
                                     <TextView
                                         android:id="@+id/textView16"
-                                        android:layout_width="wrap_content"
+                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:text="@string/trenutni_imetnik"
+                                        android:textAlignment="center"
                                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                        android:textSize="22sp"
+                                        android:textSize="@dimen/normal_font_size"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -487,13 +493,15 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.2"
-                                android:orientation="horizontal"/>
+                                android:orientation="horizontal" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.8"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/activity_vertical_margin"
+                                android:paddingRight="@dimen/activity_vertical_margin">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -509,7 +517,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/st_preostalih_dni"
                                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                        android:textSize="22sp"
+                                        android:textSize="@dimen/normal_font_size"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -527,7 +535,7 @@
                                         android:layout_weight="1"
                                         android:background="@color/common_google_signin_btn_text_dark_default"
                                         android:gravity="center"
-                                        android:textSize="18sp"
+                                        android:textSize="@dimen/normal_font_size"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -539,7 +547,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.35"
-                            android:orientation="horizontal"/>
+                            android:orientation="horizontal" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -565,7 +573,8 @@
                                     android:layout_weight="1"
                                     android:background="@color/colorPrimaryDark"
                                     android:text="@string/predaja_oblacila"
-                                    android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                    android:textSize="@dimen/button_font_size" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -579,7 +588,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.35"
-                                    android:orientation="horizontal"/>
+                                    android:orientation="horizontal" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -596,14 +605,15 @@
                                         android:layout_weight="1"
                                         android:gravity="center"
                                         android:text="@string/negovati"
-                                        android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+                                        android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                                        android:textSize="@dimen/normal_font_size" />
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.35"
-                                    android:orientation="horizontal"/>
+                                    android:orientation="horizontal" />
 
                             </LinearLayout>
 
@@ -617,13 +627,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.6"
                         android:orientation="vertical"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:weightSum="3">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.9"
+                            android:layout_weight="0.7"
                             android:orientation="vertical"
                             android:weightSum="4">
 
@@ -631,7 +641,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.1"
-                                android:orientation="horizontal"/>
+                                android:orientation="horizontal" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -654,7 +664,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/trenutni_imetnik1"
                                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                        android:textSize="22sp"
+                                        android:textSize="@dimen/large_font_size"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -673,7 +683,7 @@
                                         android:background="@color/common_google_signin_btn_text_dark_default"
                                         android:gravity="center"
                                         android:text="@string/uporabnik"
-                                        android:textSize="18sp"
+                                        android:textSize="@dimen/normal_font_size"
                                         android:textStyle="bold" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -682,12 +692,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.1"
-                                android:orientation="horizontal"/>
+                                android:orientation="horizontal" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.9"
+                                android:layout_weight="0.8"
                                 android:orientation="horizontal">
 
                                 <LinearLayout
@@ -704,7 +714,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/cakalna_vrsta"
                                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                        android:textSize="22sp"
+                                        android:textSize="@dimen/large_font_size"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -722,7 +732,7 @@
                                         android:layout_weight="1"
                                         android:background="@color/common_google_signin_btn_text_dark_default"
                                         android:gravity="center"
-                                        android:textSize="18sp"
+                                        android:textSize="@dimen/normal_font_size"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -733,13 +743,13 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.9"
-                            android:orientation="horizontal"/>
+                            android:layout_weight="1.2"
+                            android:orientation="horizontal" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1.3"
+                            android:layout_weight="1.2"
                             android:gravity="center_horizontal"
                             android:orientation="horizontal"
                             android:weightSum="3">
@@ -747,11 +757,12 @@
                             <Button
                                 android:id="@+id/DeleteReservationBtn"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
                                 android:text="@string/zbrisi_rezervacijo"
-                                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                android:textSize="@dimen/button_font_size" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -761,7 +772,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.6"
                         android:orientation="vertical"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         android:weightSum="2">
 
                         <LinearLayout
@@ -786,7 +797,8 @@
                                     android:layout_weight="1"
                                     android:background="@color/colorPrimaryDark"
                                     android:text="@string/kontaktni_podatki_prejemnika"
-                                    android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                    android:textSize="@dimen/button_font_size" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -800,7 +812,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.4"
-                                    android:orientation="horizontal"/>
+                                    android:orientation="horizontal" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -816,7 +828,7 @@
                                         android:layout_weight="1"
                                         android:text="@string/predano_oblacilo"
                                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                        android:textSize="16sp"
+                                        android:textSize="@dimen/normal_font_size"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
@@ -824,7 +836,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.35"
-                                    android:orientation="horizontal"/>
+                                    android:orientation="horizontal" />
 
                             </LinearLayout>
 
@@ -845,7 +857,8 @@
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
                                 android:text="@string/oblacilo_oddano"
-                                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                android:textSize="@dimen/button_font_size" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -888,7 +901,7 @@
                                         android:background="@color/colorPrimaryDark"
                                         android:text="@string/kontakt"
                                         android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                        android:textSize="14sp" />
+                                        android:textSize="@dimen/button_font_size" />
 
                                 </LinearLayout>
 
@@ -896,7 +909,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.4"
-                                    android:orientation="horizontal"/>
+                                    android:orientation="horizontal" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -914,7 +927,7 @@
                                         android:background="@color/colorPrimaryTransparent"
                                         android:text="@string/prekliCi_rezervacijo"
                                         android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                        android:textSize="14sp" />
+                                        android:textSize="@dimen/button_font_size" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -930,7 +943,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.45"
-                                    android:orientation="horizontal"/>
+                                    android:orientation="horizontal" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -946,14 +959,14 @@
                                         android:layout_weight="1"
                                         android:text="@string/dogovor_izposoje"
                                         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                        android:textSize="18sp" />
+                                        android:textSize="@dimen/normal_font_size" />
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.45"
-                                    android:orientation="horizontal"/>
+                                    android:orientation="horizontal" />
 
                             </LinearLayout>
 
@@ -974,7 +987,8 @@
                                 android:layout_weight="1"
                                 android:background="@color/colorPrimaryDark"
                                 android:text="@string/oblacilo_sprejeto"
-                                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+                                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                android:textSize="@dimen/button_font_size" />
 
                         </LinearLayout>
 
@@ -982,7 +996,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.45"
-                            android:orientation="horizontal"/>
+                            android:orientation="horizontal" />
 
                     </LinearLayout>
                 </LinearLayout>

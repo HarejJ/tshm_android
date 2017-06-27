@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:textSize="@dimen/normal_font_size"
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/normal_font_size"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -18,6 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimaryDark"
             android:textAlignment="viewEnd"
+            android:textSize="@dimen/normal_font_size"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -25,7 +28,8 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:textSize="@dimen/normal_font_size">
 
     </FrameLayout>
 
