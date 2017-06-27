@@ -153,6 +153,16 @@ public class Dialog {
         return dialog;
     }
 
+    public static AlertDialog dopolniProfil(Context context){
+        String str = "Vaš profil ternutno vsebuje le osnovne podatke. Prosim dopolnite svoj profil.\n\n" +
+                "To lahko storite tako, da v glavi menija izberete gumb \"Dopolni profil.\"";
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(dialogMessage(context,str));
+        builder.setCustomTitle(title(context,"Dopolni profil"));
+        builder.setPositiveButton("VREDU",null);
+        AlertDialog dialog = builder.create();
+        return dialog;
+    }
 
 
     private static ScrollView dialogMessage(Context context, String titleText){
@@ -160,7 +170,7 @@ public class Dialog {
         TextView t_view = new TextView(context);
         t_view.setText(titleText);
         t_view.setPadding(60, 60, 60, 60);
-        t_view.setTextSize(22);
+        t_view.setTextSize(14);
         s_view.addView(t_view);
         return s_view;
     }

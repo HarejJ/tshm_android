@@ -118,6 +118,8 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
                 case R.id.ReservationB:
                     if (user.isRezervacija())
                         Dialog.reservationRefusalDialog(context).show();
+                    else if(user.getMail().equals("null") || user.getPhone().equals("null"))
+                        Dialog.dopolniProfil(context).show();
                     else {
                         restTask = new RESTCallTask("reservation", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
                         restTask.delegate = asyncResponse;

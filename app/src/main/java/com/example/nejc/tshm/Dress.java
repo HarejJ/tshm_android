@@ -39,19 +39,24 @@ public class Dress implements Serializable {
             this.cakalnaVrsta= Integer.parseInt(rezervacije);
     }
     private int calculateDays(String datumIzposoje) {
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        if(datumIzposoje.length()<3 || datumIzposoje.equals("null"))
+            return 0;
+        DateFormat dateFormat = new SimpleDateFormat("dd.MMM.yyyy");
         Date date;
         Date dateNow;
+        int diffDays =0;
         try {
+            String[] s = datumIzposoje.split(" ");
+            datumIzposoje=s[1]+"."+s[2]+"."+s[3];
             date = dateFormat.parse(datumIzposoje);
             dateNow = new Date();
             long diff = Math.abs(dateNow.getTime() - date.getTime());
-            long diffDays = (diff / (24 * 60 * 60 * 1000));
-            return (int) diffDays;
+            diffDays = (int) (diff / (24 * 60 * 60 * 1000));
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return 0;
+        return diffDays;
     }
 
     public String getId_obleka() {

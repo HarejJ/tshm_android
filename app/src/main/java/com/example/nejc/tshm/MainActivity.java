@@ -39,6 +39,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -229,7 +231,14 @@ public class MainActivity extends AppCompatActivity
                                     String naslov = naslovET.getText().toString();
                                     String mail = mailET.getText().toString();
                                     String telefon = telefonET.getText().toString();
-
+                                    if(!validatedNumber(telefon)){
+                                        telefonET.setError("Telefonska številka je nepravilna");
+                                        return;
+                                    }
+                                    if(!emailValidator(mail)){
+                                        mailET.setError("e-mail je nepraviln");
+                                        return;
+                                    }
                                     RESTCallTask restTask = new RESTCallTask("spremeniPodatke", user.getUsername(),
                                             user.getPassword(),naslov,mail,telefon,telefon, view);
                                     restTask.delegate = asyncResponse;
@@ -514,5 +523,33 @@ public class MainActivity extends AppCompatActivity
         toast.show();
         dopolniPodatke.dismiss();
 
+    }
+
+    //pravilnost vnešene telefonske številke
+    private boolean validatedNumber(String phone){
+        if(phone.charAt(0) == '+') {
+            if(phone.length() != 12)
+                return false;
+            for (int i = 0; i<phone.length(); i++)
+                if(!(phone.charAt(0) >= '0') && !(phone.charAt(0) <= '9'))
+                    return false;
+            return true;
+        }
+        else if(phone.charAt(0) >= '0' && phone.charAt(0) <= '9'){
+            if(phone.length() != 9)
+                return false;
+            return true;
+
+        }
+        return false;
+    }
+    public boolean emailValidator(String email)
+    {
+        Pattern pattern;
+        Matcher matcher;
+        final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 }

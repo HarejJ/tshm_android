@@ -101,7 +101,8 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
         userName.setText(user.getUsername());
         name.setText(user.getName());
-        mail.setText(user.getMail());
+        if(!user.getMail().equals("null"))
+            mail.setText(user.getMail());
 
         deleteReservation = (Button) view.findViewById(R.id.deleteReservation);
         sprejemOblacila = (Button) view.findViewById(R.id.SprejemOblacila);

@@ -528,7 +528,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             JSONObject jsonObject = new JSONObject(res[1]);
             Dress dress = new Dress(jsonObject.getString("id_obleka"), jsonObject.getString("slika"),
                     jsonObject.getString("tip"), jsonObject.getString("velikost"), jsonObject.getString("displayName"),
-                     jsonObject.getString("slikaOblikovalca"),jsonObject.getString("trenutniIzposojevalec"),
+                    jsonObject.getString("trenutniIzposojevalec"), jsonObject.getString("slikaOblikovalca"),
                     jsonObject.getString("rezervacije"), "0", "0", "","");
             user[0] = (Boolean.parseBoolean(jsonObject.getString("rezervirana")));
             user[1] = (Boolean.parseBoolean(jsonObject.getString("predaja")));

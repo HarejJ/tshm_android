@@ -40,7 +40,6 @@ public class RegistrationActivity extends AppCompatActivity {
     private View view1;
     private TextView errorTV;
     private Context context;
-    private Button dateBtn;
     boolean vnesena= true;
     private  static final int PICK_IMAGE = 100;
 
@@ -53,8 +52,8 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         registrationActivity = this;
 
-        lastNameET = ((EditText) findViewById(R.id.firstNameET));
-        firstNameET = ((EditText) findViewById(R.id.lastNameET));
+        lastNameET = ((EditText) findViewById(R.id.lastNameET));
+        firstNameET = ((EditText) findViewById(R.id.firstNameET));
         userNameET = ((EditText) findViewById(R.id.userNameET));
         passwd1ET = ((EditText) findViewById(R.id.password1ET));
         passwd2ET = ((EditText) findViewById(R.id.password2ET));
