@@ -109,7 +109,7 @@
             android:gravity="bottom|left"
             android:text="Android Studio"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="18sp" />
+            android:textSize="@dimen/normal_font_size" />
     </LinearLayout>
 
 </LinearLayout>
