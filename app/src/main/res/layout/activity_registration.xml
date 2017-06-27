@@ -157,7 +157,7 @@
                     android:layout_weight="1"
                     android:gravity="top|center"
                     android:textColor="@color/error"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/normal_font_size" />
             </LinearLayout>
         </LinearLayout>
 
