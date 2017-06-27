@@ -115,6 +115,33 @@ public class Dialog {
         AlertDialog dialog = builder.create();
         return dialog;
     }
+    public static AlertDialog vnesiSliko(final Context context, final MainActivity activity){
+        String str = "izberi način vnosa profilne slike.";
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(dialogMessage(context,str));
+        builder.setCustomTitle(title(context,"Profilna slika"));
+        builder.setNegativeButton("Fotoaparat", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(NetworkUtils.isNetworkConnected(context))
+                    activity.dispatchTakePictureIntent();
+                else
+                    Dialog.networkErrorDialog(context).show();
+            }
+        });
+        builder.setPositiveButton("Galerija", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(NetworkUtils.isNetworkConnected(context))
+                    activity.openGallery();
+                else
+                    Dialog.networkErrorDialog(context).show();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        return dialog;
+    }
 
     public static AlertDialog imetnikOblacila(Context context,String[]user){
         String str = "Uporabnik: "+user[0]+"\nmail: "+user[1]+"\nštevilka: "+user[2]+"\nlokacija: "+user[3];

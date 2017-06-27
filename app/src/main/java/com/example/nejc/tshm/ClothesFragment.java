@@ -2,11 +2,13 @@ package com.example.nejc.tshm;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,7 +34,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
     private Context context;
 
     public ClothesFragment() {
-        // Required empty public constructor
+        setArguments(new Bundle());
     }
 
 
@@ -171,8 +173,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         user.setVrnjena(userData[4]);
 
         user.setReservedDress(output);
-        if (output.getCakalnaVrsta() == 0)
-            user.setPredaja(true);
+        
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
         UserProfileFragment fragment = new UserProfileFragment();
@@ -181,7 +182,6 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         fragmentTransaction.replace(R.id.fragment_container, fragment).addToBackStack(null);
         fragmentTransaction.commit();
     }
-
     @Override
     public void deleteReservation() {
 
@@ -223,6 +223,11 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
     }
 
     @Override
+    public void dressDetail1(String[] dressDeatil) {
+
+    }
+
+    @Override
     public void addFavorite() {
         user.addFavoriteDress(dress);
     }
@@ -239,6 +244,11 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void spremeniGeslo() {
+
+    }
+
+    @Override
+    public void spremeniPodatke() {
 
     }
 

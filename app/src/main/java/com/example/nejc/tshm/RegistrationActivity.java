@@ -153,13 +153,6 @@ public class RegistrationActivity extends AppCompatActivity {
         startActivityForResult(gallery,PICK_IMAGE);
     }
 
-    private boolean checkAge(Date age, Date dateNow){
-        long diff = Math.abs(dateNow.getTime() - age.getTime());
-        long diffDays = (diff / (24 * 60 * 60 * 1000))/365;
-        if(diffDays >= 16)
-            return true;
-        return false;
-    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){

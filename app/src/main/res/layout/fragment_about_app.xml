@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/crnkasta"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -17,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.4"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,14 +39,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1.32"
-                    android:orientation="horizontal"/>
+                    android:orientation="horizontal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
                     android:alpha="1"
-                    android:background="@color/belkasta"
                     android:orientation="horizontal"
                     android:weightSum="3">
 
@@ -53,7 +53,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.1"
-                        android:orientation="horizontal"/>
+                        android:orientation="horizontal" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -66,7 +66,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.85"
-                            android:orientation="horizontal"/>
+                            android:orientation="horizontal" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Design: Maruša"
-                                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                android:textColor="@color/slikaOzadje"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -115,7 +115,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Programiranje: Jan, Nejc"
-                                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -125,7 +125,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Vsebina: Pia, Valentina, Žana, Kristina"
-                                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -134,7 +134,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.7"
-                            android:orientation="horizontal"/>
+                            android:orientation="horizontal" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1.85"
-                            android:orientation="horizontal"/>
+                            android:orientation="horizontal" />
 
                     </LinearLayout>
 
@@ -164,7 +164,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.1"
-                        android:orientation="vertical"/>
+                        android:orientation="vertical" />
 
                 </LinearLayout>
 
@@ -172,7 +172,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1.45"
-                    android:orientation="horizontal"/>
+                    android:orientation="horizontal" />
 
             </LinearLayout>
 
@@ -182,7 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.4"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal" />
     </LinearLayout>
 
 </FrameLayout>

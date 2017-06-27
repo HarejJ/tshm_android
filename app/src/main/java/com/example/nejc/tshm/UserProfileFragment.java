@@ -93,7 +93,12 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         popularTw.setVisibility(View.VISIBLE);
         withoutReservation.setVisibility(View.GONE);
         reservation.setVisibility(View.GONE);
-        popular.setVisibility(View.VISIBLE);
+        popular.setVisibility(View.GONE);
+
+
+
+
+
         userName.setText(user.getUsername());
         name.setText(user.getName());
         mail.setText(user.getMail());
@@ -125,16 +130,19 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         deleteReservation.setOnClickListener(onClickListener);
         context = getContext();
         asyncResponse = this;
-
+        oblekaRezervacija.setOnClickListener(onClickListener);
 
         restTask = new RESTCallTask("priljubljeneObleke",user.getUsername(),user.getPassword(),this.getView());
         restTask.delegate = asyncResponse;
         restTask.execute("POST", String.format("priljubljeneObleke"));
 
+        setStatus();
 
         return view;
 
     }
+
+
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -256,10 +264,11 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         Dialog.networkErrorDialog(context).show();
                     }
                     break;
-                case R.id.kontaktImetnika:if(NetworkUtils.isNetworkConnected(context)) {
-                    restTask = new RESTCallTask("kontaktImetnika",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
-                    restTask.delegate = asyncResponse;
-                    restTask.execute("POST", String.format("kontaktImetnika"));
+                case R.id.kontaktImetnika:
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("kontaktImetnika",user.getUsername(),user.getPassword(),user.getReservedDress().getId_obleka(),view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("kontaktImetnika"));
                 } else {
                     Dialog.networkErrorDialog(context).show();
                 }
@@ -273,6 +282,20 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         Dialog.networkErrorDialog(context).show();
                     }
                     break;
+                case R.id.SlikaRezervacja:
+                {
+                    Dress dress = user.getReservedDress();
+                    if(NetworkUtils.isNetworkConnected(context)) {
+                        restTask = new RESTCallTask("dressDetail1",user.getUsername(),user.getPassword(),
+                                dress.getId_obleka(),dress.getId_obleka(),view);
+                        restTask.delegate = asyncResponse;
+                        restTask.execute("POST", String.format("dressDetail"));
+                    }
+                    else {
+                        Dialog.networkErrorDialog(context).show();
+                    }
+                    break;
+                }
                 default:
                     for (int i = 0; i<imaggesIds.size(); i++){
                         if(view.getId() == imaggesIds.get(i)){
@@ -305,6 +328,51 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         if(clothes.size()>0)
             setImage(clothes);
         return;
+    }
+    public void setStatus(){
+        statusTw.setVisibility(View.VISIBLE);
+        popularTw.setVisibility(View.INVISIBLE);
+        popular.setVisibility(View.GONE);
+        if(user.isRezervacija()) {
+            oblekaRezervacija.setImageBitmap(ImageUtil.convert(user.getReservedDress().getSlika()));
+            designerRezervacija.setText(user.getReservedDress().getOblikovalec());
+            tipRezervacija.setText(user.getReservedDress().getTip());
+            spol_velikostRezervacija.setText(user.getReservedDress().getSpol() + " Velikost " + user.getReservedDress().getVelikost());
+            stDniTw.setText(user.getReservedDress().getStDni());
+            reservation.setVisibility(View.VISIBLE);
+            withoutReservation.setVisibility(View.GONE);
+            popular.setVisibility(View.GONE);
+            statusRezervacijeLL.setVisibility(View.GONE);
+            statusOblacilaLL.setVisibility(View.GONE);
+            statusOddanoLL.setVisibility(View.GONE);
+            statusSprejetoLL.setVisibility(View.GONE);
+
+            if (!user.isPredaja() && !user.isIzposojena() && !user.isPredajaNaprej()
+                    && !user.isVrnjena()) {
+                statusRezervacijeLL.setVisibility(View.VISIBLE);
+                trenutniUporabnik.setText(String.valueOf(user.getReservedDress().getTrenutniImetnik()));
+                cakalnaVrsta.setText(String.valueOf(user.getReservedDress().getCakalnaVrsta()));
+            } else if (user.isPredaja() && !user.isIzposojena() && !user.isPredajaNaprej()
+                    && !user.isVrnjena()) {
+                statusSprejetoLL.setVisibility(View.VISIBLE);
+            } else if (user.isPredaja() && user.isIzposojena() && !user.isPredajaNaprej()
+                    && !user.isVrnjena()) {
+                statusOblacilaLL.setVisibility(View.VISIBLE);
+            } else if (user.isPredaja() && user.isIzposojena() && user.isPredajaNaprej()
+                    && !user.isVrnjena()) {
+                statusOddanoLL.setVisibility(View.VISIBLE);
+            } else if (user.isPredaja() && user.isIzposojena() && user.isPredajaNaprej()
+                    && user.isVrnjena()) {
+                reservation.setVisibility(View.GONE);
+                withoutReservation.setVisibility(View.VISIBLE);
+                popular.setVisibility(View.GONE);
+            }
+        }
+        else {
+            reservation.setVisibility(View.GONE);
+            withoutReservation.setVisibility(View.VISIBLE);
+            popular.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -402,6 +470,28 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     }
 
     @Override
+    public void dressDetail1(String[] dressDeatil) {
+        user.getReservedDress().setTip(dressDeatil[0]);
+        user.getReservedDress().setVelikost(dressDeatil[1]);
+        user.getReservedDress().setOblikovalec(dressDeatil[2]);
+        user.getReservedDress().setSlikaOblikovalca(dressDeatil[3]);
+        user.getReservedDress().setTrenutniImetnik(dressDeatil[4]);
+        user.getReservedDress().setCakalnaVrsta(Integer.parseInt(dressDeatil[5]));
+        user.getReservedDress().setSpol(dressDeatil[6]);
+        user.getReservedDress().setOznaka(dressDeatil[7]);
+        user.getReservedDress().setPriljubljena(Integer.valueOf(dressDeatil[8])>0 ? true:false);
+
+
+        Bundle args = new Bundle();
+        args.putSerializable("user", (Serializable) user);
+        args.putSerializable("dress", (Serializable) user.getReservedDress());
+        ClothesFragment dressFragment = new ClothesFragment();
+        dressFragment.setArguments(args);
+        fragmentTransaction.replace(R.id.fragment_container, dressFragment).addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    @Override
     public void addFavorite() {
 
     }
@@ -418,6 +508,11 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void spremeniGeslo() {
+
+    }
+
+    @Override
+    public void spremeniPodatke() {
 
     }
 

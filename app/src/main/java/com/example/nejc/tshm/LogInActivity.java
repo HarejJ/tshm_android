@@ -170,6 +170,11 @@ public class LogInActivity extends AppCompatActivity implements AsyncResponse{
     }
 
     @Override
+    public void dressDetail1(String[] dressDeatil) {
+
+    }
+
+    @Override
     public void addFavorite() {
 
     }
@@ -193,6 +198,11 @@ public class LogInActivity extends AppCompatActivity implements AsyncResponse{
 
     @Override
     public void spremeniGeslo() {
+
+    }
+
+    @Override
+    public void spremeniPodatke() {
 
     }
 }

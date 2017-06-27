@@ -74,6 +74,22 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
     }
 
     /*
+     konstruktor za login določi username, geslo, activity(da lahko preidemo na drug)
+     za logIn
+     */
+
+    RESTCallTask(String activityName, String username, String password, String naslov,
+                 String mail,String telefon,String telefon1, View view) {
+        this.activityName = activityName;
+        this.username = username;
+        this.password = password;
+        this.location = naslov;
+        this.mail = mail;
+        this.phone = telefon;
+        this.view = view;
+    }
+
+    /*
      konstruktor za registracijo določi username, geslo,ime in priimek, telefonsko in mail activity(da lahko preidemo na drug)
      in podatke za avdentikacijo(za enkrat ne potrebujemo)
      */
@@ -188,6 +204,9 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             case "dressDetail":
                 jsonObject = dressDetailJson();
                 break;
+            case "dressDetail1":
+                jsonObject = dressDetailJson();
+                break;
             case "dodajPriljubljeno":
                 jsonObject = ReservationJson();
                 break;
@@ -200,7 +219,9 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             case "spremeniGeslo":
                 jsonObject = spremeniGesloJson();
                 break;
-
+            case "spremeniPodatke":
+                jsonObject = spremeniPodatkeJson();
+                break;
         }
         String result = "";
         Log.d("",jsonObject.toString());
@@ -310,6 +331,13 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                     e.printStackTrace();
                 }
                 break;
+            case "dressDetail1":
+                try {
+                    dressDetailResponse1(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
             case "dodajPriljubljeno":
                 try {
                     addFavoriteResponse(result);
@@ -338,6 +366,13 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
                     e.printStackTrace();
                 }
                 break;
+            case "spremeniPodatke":
+                try {
+                    spremeniPodatkeResponse(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
 
@@ -361,6 +396,20 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         jsonObject.put("StaroGeslo", password);
         jsonObject.put("NovoGeslo1", password1);
         jsonObject.put("NovoGeslo2", password2);
+        return jsonObject;
+    }
+
+    /*
+    naredi JSON objekt ki vsebuje uporabniško ime in geslo
+    uporabi se v requestu za prijavo
+    */
+    private JSONObject spremeniPodatkeJson() throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("UporabniskoIme", username);
+        jsonObject.put("Geslo", password);
+        jsonObject.put("Mail", mail);
+        jsonObject.put("Stevilka", phone);
+        jsonObject.put("Naslov", location);
         return jsonObject;
     }
 
@@ -581,6 +630,23 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             delegate.dressDetail(dress);
         }
     }
+    private void dressDetailResponse1 (String result) throws JSONException {
+        String[] res = result.split("#");
+        JSONObject jsonObject = new JSONObject(res[1]);
+        String[] dress = new String[9];
+        if (Integer.parseInt(res[0]) == 200) {
+            dress[0]=jsonObject.getString("tip");
+            dress[1]=jsonObject.getString("velikost");
+            dress[2]=jsonObject.getString("displayName");
+            dress[3]=jsonObject.getString("slikaOblikovalca");
+            dress[4]= jsonObject.getString("trenutniIzposojevalec");
+            dress[5]=jsonObject.getString("rezervacije");
+            dress[6]=jsonObject.getString("spol");
+            dress[7]=jsonObject.getString("oznaka");
+            dress[8] = jsonObject.getString("priljubljena");
+            delegate.dressDetail1(dress);
+        }
+    }
     private void clothesResponse(String result) throws JSONException {
         ArrayList<Dress> clothes = new ArrayList<Dress>();
         String[] res = result.split("#");
@@ -602,4 +668,11 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             delegate.spremeniGeslo();
         }
     }
+    private void spremeniPodatkeResponse(String result) throws JSONException {
+        String[] res = result.split("#");
+        if (Integer.parseInt(res[0]) == 200) {
+            delegate.spremeniPodatke();
+        }
+    }
+
 }

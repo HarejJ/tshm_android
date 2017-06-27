@@ -137,6 +137,11 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
     }
 
     @Override
+    public void dressDetail1(String[] dressDeatil) {
+
+    }
+
+    @Override
     public void addFavorite() {
 
     }
@@ -153,6 +158,11 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void spremeniGeslo() {
+
+    }
+
+    @Override
+    public void spremeniPodatke() {
 
     }
 

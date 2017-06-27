@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity
     Context context;
     View view;
     AsyncResponse asyncResponse;
-    EditText staroGesloET,novoGeslo1ET,novoGeslo2ET;
+    EditText staroGesloET,novoGeslo1ET,novoGeslo2ET,mailET,naslovET,telefonET;
     AlertDialog spremeniGeslo;
+    AlertDialog dopolniPodatke;
     CircleImageView profilImage;
     MainActivity mainActivity;
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         Bundle args = new Bundle();
         args.putSerializable("user", (Serializable) user);
         //Set the fragment initially
-        MainFragment mainFragment = new MainFragment();
+        final MainFragment mainFragment = new MainFragment();
         mainFragment.setArguments(args);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity
                         int id = item.getItemId();
                         if(id == R.id.spremeniSliko){
                             if(NetworkUtils.isNetworkConnected(context))
-                                mainActivity.dispatchTakePictureIntent();
+                                Dialog.vnesiSliko(context,mainActivity).show();
                             else
                                 Dialog.networkErrorDialog(context).show();
                         }
@@ -188,16 +189,54 @@ public class MainActivity extends AppCompatActivity
                                     spremeniGeslo.dismiss();
                                 }
                             });
-                            mBuilder.setView(mView);
-                            spremeniGeslo =mBuilder.create();
-                            spremeniGeslo.show();
                         }
                         else if(id == R.id.dopolniProfil){
                             AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
-                            View mView = getLayoutInflater().inflate(R.layout.dailog_change_password,null);
+                            View mView = getLayoutInflater().inflate(R.layout.dialog_add_user_data,null);
+                            telefonET = (EditText) mView.findViewById(R.id.telET);
+                            mailET = (EditText) mView.findViewById(R.id.mailET);
+                            naslovET = (EditText) mView.findViewById(R.id.nasET);
                             mBuilder.setView(mView);
-                            spremeniGeslo =mBuilder.create();
-                            spremeniGeslo.show();
+                            dopolniPodatke =mBuilder.create();
+                            dopolniPodatke.show();
+                            Button mButtonPotrdi = (Button) mView.findViewById(R.id.PotrdiBtn);
+                            Button mButtonPreklici = (Button) mView.findViewById(R.id.PrekliciBtn);
+
+                            mButtonPreklici.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dopolniPodatke.dismiss();
+                                }
+                            });
+                            mButtonPotrdi.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    boolean vneseniPodatki = true;
+                                    if(telefonET.length() == 0){
+                                        telefonET.setError("Vnesite telefonsko številko");
+                                        vneseniPodatki =false;
+                                    }
+                                    if(mailET.length() == 0){
+                                        mailET.setError("Vnesite elektronsko pošto");
+                                        vneseniPodatki =false;
+                                    }
+                                    if(naslovET.length() == 0){
+                                        naslovET.setError("Vnesite naslov");
+                                        vneseniPodatki =false;
+                                    }
+                                    if(!vneseniPodatki)
+                                        return;
+                                    String naslov = naslovET.getText().toString();
+                                    String mail = mailET.getText().toString();
+                                    String telefon = telefonET.getText().toString();
+
+                                    RESTCallTask restTask = new RESTCallTask("spremeniPodatke", user.getUsername(),
+                                            user.getPassword(),naslov,mail,telefon,telefon, view);
+                                    restTask.delegate = asyncResponse;
+                                    restTask.execute("POST", String.format("spremeniPodatke"));
+
+                                }
+                            });
                         }
                         return true;
                     }
@@ -424,6 +463,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public void dressDetail1(String[] dressDeatil) {
+
+    }
+
+    @Override
     public void addFavorite() {
 
     }
@@ -456,6 +500,19 @@ public class MainActivity extends AppCompatActivity
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+
+    }
+
+    @Override
+    public void spremeniPodatke() {
+        user.setMail(mailET.getText().toString());
+        user.setPhone(telefonET.getText().toString());
+        CharSequence text = "Vaši osebni podatki so bili spremenjeni";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        dopolniPodatke.dismiss();
 
     }
 }
