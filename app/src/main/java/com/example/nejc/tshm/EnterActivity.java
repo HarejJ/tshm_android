@@ -21,7 +21,6 @@ public class EnterActivity extends AppCompatActivity {
         Button enter = (Button) findViewById(R.id.EnterButton);
         Button registration = (Button) findViewById(R.id.EnterRegistrationButton);
 
-
         enter.setOnClickListener(enter_onClickListener);
         registration.setOnClickListener(registration_onClickListener);
     }
@@ -30,7 +29,6 @@ public class EnterActivity extends AppCompatActivity {
         //ob kliku na gumb "VSTOPI" odpre logIn okno
         @Override
         public void onClick(View v) {
-            Log.d("view", String.valueOf(v.getId()));
             Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);

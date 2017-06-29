@@ -175,7 +175,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String username = userNameET.getText().toString();
                 RESTCallTask restTask = new RESTCallTask(registrationActivity, "register",
                         firstName,lastName,username, passwd1MD5, passwd2MD5,view1,image);
-                CharSequence text = "shranjevanje podatkov. Prosimo počakajte";
+                CharSequence text = "Shranjevanje podatkov. Prosimo počakajte";
                 int duration = Toast.LENGTH_LONG;
 
                 Toast toast = Toast.makeText(context, text, duration);

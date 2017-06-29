@@ -17,17 +17,17 @@
     <string name="registracija">Registracija</string>
     <string name="title_activity_gallery">GalleryActivity</string>
 
-    <string name="care_welcome">Vsako oblačilo zahteva sebi prilagojeno nego. Za lažje razumevanje simbolov za ravnanje z izposojenimi kosi ti tukaj prilagamo razlago.</string>
+    <string name="care_welcome">Vsako oblačilo zahteva sebi prilagojeno nego. Pri ustreznem ravnanju z izposojenimi kosi, ti bodo pomagali naslednji simboli:</string>
     <string name="care_item0">Simboli za pranje</string>
-    <string name="care_item0_item0">Številka v kadi je najvišja temperatura, pri kateri lahko peremo oblačilo.\nČe je pod kadjo črta ali dve, to pomeni, da oblačilo peremo s programom za občutljivo perilo.</string>
+    <string name="care_item0_item0">Številka v kadi je najvišja temperatura, pri kateri lahko peremo oblačilo.\nČe je pod kadjo črta ali dve, to pomeni, da oblačilo peremo na programu za občutljivo perilo.\nRoka v kadi pomeni ročno pranje.</string>
     <string name="care_item1">Simboli za sušenje</string>
-    <string name="care_item1_item0">Če je boben sušilnega stroja prečrtan, sušenje v stroju ni dovoljeno. Pika v sredini pomeni program za občutljivejše perilo s sušenjem pri nižji temperaturi.</string>
+    <string name="care_item1_item0">Krog v kvadratu je simbol za strojno sušenje. Pika v sredini pomeni program za občutljivejše perilo s sušenjem pri nižji temperaturi.\nČe je boben sušilnega stroja prečrtan, sušenje v stroju ni dovoljeno.</string>
     <string name="care_item2">Simboli za likanje</string>
-    <string name="care_item2_item0">Če je likalnik prečrtan, perila ne likamo. Pikedoločajo temperaturo, pri kateri lahko oblačilo likamo (tri pike pomenijo najvišjo temperaturo)</string>
+    <string name="care_item2_item0">Če je likalnik prečrtan, perila ne likamo. Pike določajo temperaturo, pri kateri lahko oblačilo likamo (tri pike pomenijo najvišjo temperaturo).</string>
     <string name="care_item3">Ostali simboli</string>
-    <string name="care_item3_item0">Krog je simbol za kemično čiščenje, črka v krogu opredeljuje kemikalijo, s katero lahko čistimo.\nTrikotnik je simbol za beljenje. Če je prečrtan, beljenje ni dovoljeno.</string>
+    <string name="care_item3_item0">Krog je simbol za kemično čiščenje, črka v krogu opredeljuje kemikalijo, s katero lahko oblačilo čistimo.\nČe je krog prečrtan, kemično čiščenje ni dovoljeno.\nTrikotnik je simbol za beljenje. Če je prečrtan, beljenje ni dovoljeno.</string>
 
-    <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti, ki si želi nekaj več od hitre mode</string>
+    <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti, ki si spreminja svjo odnos do oblačil.</string>
     <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj. Zatem lahko takoj začneš z brskanjem po unikatnih modnih kosih.</string>
 
     <string name="o_aplikaciji_1">Aplikacija je bila izdelana kot del študentskega projekta \"Po kreativni poti do znanja\" z naslovom \"Temne skrivnosti hitre mode\" v sodelovanju s podjetjem Snaga d.o.o.</string>
@@ -42,7 +42,7 @@
     <string name="nega_obla_il">nega oblačil</string>
     <string name="o_negi">Kabiné Šerinjon je knjižnica oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblek iz Centra ponovne uporabe.\n\nNastal je v okviru projekta Po kreativni poti do znanja in je plod sodelovanja sedmih študentov s treh različnih fakultet Univerze v Ljubljani pod vodstvom pedagoških in delovnih mentorjev.\n\nZa imenom Kabiné Šerinjon se skriva naša želja po spreminjanju odnosa do samoumevnih in vsakodnevnih dobrin.\n\nPredstavljamo pot do nasprotja hitre, surove in množične proizvodnje ter potrošnje oblačil.</string>
     <string name="zahvala">Posebna zahvala gre predvsem vsem sodelujočim modnim oblikovalcem in mentorjem projekta</string>
-    <string name="dogovor_izposoje">Za izposojo se dogovori s trenutnim imetnikom. Če si oblačilo že prejel to prosim potrdi s klikom na spodnji gumb</string>
+    <string name="dogovor_izposoje">Za izposojo se dogovori s trenutnim imetnikom. Če si oblačilo že prejel to prosim potrdi s klikom na spodnji gumb.</string>
     <string name="st_preostalih_dni">Št. preostalih dni</string>
     <string name="trenutni_imetnik">Juhu si trenutni imetnik oblačila :)</string>
     <string name="zapomni_si_me">Zapomni si me</string>
@@ -74,13 +74,13 @@
     <string name="nega_oblacil">Nega oblačil</string>
     <string name="o_hitri_modi">O hitri modi</string>
     <string name="domov">Domov</string>
+    <string name="o_hitri_modi_content">Oblačila spremljajo naš vsakdan, česar se zavedajo tudi podjetja, ki te prepričujejo, da je sreča pogojena z nenehnim kupovanjem novih. Proizvodnja tako imenovane »hitre mode« negativno učinkuje na okolje - v tretjem svetu s pridelovanjem surovin, z uporabo nevarnih (v EU in ZDA prepovedanih) kemikalij, v razvitih državah pa z odpadki, ko oblačila po kratkem času zavržeš.\n\nOblačila hitre mode slabo vplivajo na tvoje zdravje, saj lahko vsebujejo škodljive snovi, za katere je dokazano, da slabijo hormonsko ravnovesje, imunski sistem in pospešujejo nastanek novotvorb. Z nakupom teh oblačil pa ne ogrožaš le svojega zdravja, temveč hkrati podpiraš suženjski odnos med tekstilnimi podjetji in delavci v azijskih potilnicah (»sweatshop«). Najpomembneje je, da oblačila kupuješ premišljeno! Več o problematiki hitre mode si lahko prebereš na naši spletni strani: <a href="http://www.kabine-sherinjon.si/">www.kabine-sherinjon.si.</a></string>
     <string name="pomoc">Pomoč</string>
     <string name="o_aplikaciji">O aplikaciji</string>
     <string name="odjava">Odjava</string>
     <string name="spremeni_profilno_fotografijo">Spremeni profilno fotografijo</string>
     <string name="spremeni_geslo">Spremeni geslo</string>
     <string name="dopolni_profil">Dopolni profil</string>
-    <string name="link">&lt;a href="http://www.google.com">Google&lt;/a></string>
     <string name="fact1">Skrčena oblačila lahko vrneš v prvotno velikost z naslednjim <a href="http://1001ideja.si/majice-ki-so-se-pri-pranju-skrcile-lahko-ponovno-raztegnete-na-prvotno-velikost"> trikom</a>.</string>
 
 

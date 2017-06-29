@@ -187,6 +187,7 @@ public class LogInActivity extends AppCompatActivity implements AsyncResponse{
     @Override
     public void logIn(User user) {
         if(rememberLogIn){
+            editor =pref.edit();
             editor.putString("username",usernameET.getText().toString());
             editor.putString("password",passwdHash);
             editor.apply();

@@ -163,7 +163,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void clothesReserved(Dress output, boolean[] userData) {
-        CharSequence text = "oblačilo je bilo uspešno rezervirano!";
+        CharSequence text = "Oblačilo je bilo uspešno rezervirano.";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -21,12 +24,12 @@ public class Dialog {
     }
 
     public static AlertDialog reservationApprovalDialog(Context context){
-        String str = "Za potrditev rezervacije tega kosa prosim pritisnite VREDU. Trenutno stanje tvoje rezervacije  in podatek o trenutnem imetniku  lahko spremljaš na svojem profilu";
+        String str = "Za potrditev rezervacije tega kosa prosim pritisnite V REDU. Trenutno stanje tvoje rezervacije  in podatek o trenutnem imetniku  lahko spremljaš na svojem profilu";
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCustomTitle(title(context,"Potrditev rezrvacije"));
         builder.setView(dialogMessage(context,str));
-        builder.setPositiveButton("VREDU",null);
+        builder.setPositiveButton("V REDU",null);
         builder.setNegativeButton("NAZAJ",null);
         AlertDialog dialog = builder.create();
         return dialog;
@@ -37,7 +40,7 @@ public class Dialog {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage(context,str));
         builder.setCustomTitle(title(context,"Rezervacija ni mogoča"));
-        builder.setPositiveButton("VREDU",null);
+        builder.setPositiveButton("V REDU",null);
         AlertDialog dialog = builder.create();
         return dialog;
     }
@@ -48,34 +51,39 @@ public class Dialog {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage(context,str));
         builder.setCustomTitle(title(context,"OPOZORILO"));
-        builder.setPositiveButton("VREDU",null);
+        builder.setPositiveButton("V REDU",null);
         AlertDialog dialog = builder.create();
         return dialog;
     }
 
     public static AlertDialog pozabljenoGeslo(Context context){
-        String str = "če ste pozabili geslo kontakdirajte odgovorne na mail:\nkabine.sherinjon@gmail.com";
+        String str = "Če si pozabil geslo nas kontaktiraj na:\nkabine.sherinjon@gmail.com.";
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage(context,str));
         builder.setCustomTitle(title(context,"Pozabljeno geslo"));
-        builder.setPositiveButton("VREDU",null);
+        builder.setPositiveButton("V REDU",null);
         AlertDialog dialog = builder.create();
         return dialog;
     }
 
 
     public static AlertDialog pogojiSodelovanja(final Context context, final RegistrationActivity activity){
-        String str = "Tvoje osebne podatke (uporabniško ime, e-mail, kraj bivanja npr. Ljubljana " +
-                "in telefonsko številko) bo lahko videl le tisti s katerim boš izvedel/izvedla " +
-                "izmenjavo. V kolikor imaš izposojen katerikoli kos, bo vsem ostalim uporabnikom " +
-                "vidno samo tvoje uporabniško ime. Po vnosu realnih podatkov je potrebno priložiti " +
-                "sliko. Lahko si jo izbereš iz galerije ali narediš sveži ''selfi''.";
+
+        String link1 = "<a href=\"http://www.kabine-sherinjon.si/wp-content/uploads/2017/06/Pogoji-uporabe_thsm.pdf\">spletni strani</a>";
+        String str = "Tvoje osebne podatke (uporabniško ime, elektronski naslov, kraj bivanja in telefonsko številko) \n" +
+        "bo lahko videl le tisti s katerim boš izvedel/izvedla izmenjavo, ostalim uporabnikom je vidno samo tvoje \n" +
+                "uporabniško ime. Po vnosu resničnih podatkov je potrebno priložiti fotografijo.\n" +
+                "Lahko si jo izbereš iz galerije ali narediš sveži 'selfi'.\n" +
+                "Več o pogojih sodelovanja \n" +
+                "si lahko preberešna naši "+link1+".";
+
+        Spanned myMessage = Html.fromHtml(str);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setView(dialogMessage(context,str));
-        builder.setCustomTitle(title(context,"Pogoji sodelovanja"));
-        builder.setPositiveButton("razumem in sprejmem pogoje", new DialogInterface.OnClickListener() {
+        builder.setView(dialogMessage1(context,myMessage,true));
+        builder.setCustomTitle(title(context,"Pogoji uporabe"));
+        builder.setPositiveButton("Razumem in sprejmem pogoje", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(NetworkUtils.isNetworkConnected(context))
@@ -116,7 +124,7 @@ public class Dialog {
         return dialog;
     }
     public static AlertDialog vnesiSliko(final Context context, final MainActivity activity){
-        String str = "izberi način vnosa profilne slike.";
+        String str = "Izberi način vnosa profilne slike.";
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage(context,str));
@@ -148,18 +156,17 @@ public class Dialog {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage(context,str));
         builder.setCustomTitle(title(context,"Kontakti uporabnika"));
-        builder.setPositiveButton("VREDU",null);
+        builder.setPositiveButton("V REDU",null);
         AlertDialog dialog = builder.create();
         return dialog;
     }
 
     public static AlertDialog dopolniProfil(Context context){
-        String str = "Vaš profil ternutno vsebuje le osnovne podatke. Prosim dopolnite svoj profil.\n\n" +
-                "To lahko storite tako, da v glavi menija izberete gumb \"Dopolni profil.\"";
+        String str = "Vaš profil trenutno vsebuje le osnovne podatke, ti pa ne zadostujejo za nadaljno izposojo kosov. Če si želiš kakšen kos tudi izposoditi, prosim dopolni svoj profil.\n To lahko storiš tako, da v glavi menija izbereš gumb \"Dopolni profil\".";
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage(context,str));
         builder.setCustomTitle(title(context,"Dopolni profil"));
-        builder.setPositiveButton("VREDU",null);
+        builder.setPositiveButton("V REDU",null);
         AlertDialog dialog = builder.create();
         return dialog;
     }
@@ -169,7 +176,7 @@ public class Dialog {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage1(context,str));
         builder.setCustomTitle(title(context,"Opozorilo: vrni oblačilo"));
-        builder.setPositiveButton("VREDU",null);
+        builder.setPositiveButton("V REDU",null);
         AlertDialog dialog = builder.create();
         return dialog;
     }
@@ -179,7 +186,7 @@ public class Dialog {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogMessage1(context,str));
         builder.setCustomTitle(title(context,"Opozorilo: vrni oblačilo"));
-        builder.setPositiveButton("VREDU",null);
+        builder.setPositiveButton("V REDU",null);
         AlertDialog dialog = builder.create();
         return dialog;
     }
@@ -200,6 +207,17 @@ public class Dialog {
         t_view.setText(titleText);
         t_view.setPadding(60, 60, 60, 60);
         t_view.setTextSize(18);
+        s_view.addView(t_view);
+        return s_view;
+    }
+    private static ScrollView dialogMessage1(Context context, Spanned titleText,boolean link){
+        ScrollView s_view = new ScrollView(context);
+        TextView t_view = new TextView(context);
+
+        t_view.setText(titleText);
+        t_view.setPadding(60, 60, 60, 60);
+        t_view.setTextSize(18);
+        t_view.setMovementMethod(LinkMovementMethod.getInstance());
         s_view.addView(t_view);
         return s_view;
     }

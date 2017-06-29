@@ -81,35 +81,6 @@
                             android:layout_marginTop="@dimen/activity_horizontal_margin"
                             android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/textView8"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Design: Maruša"
-                                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="@dimen/normal_font_size"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/textView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Programiranje: Jan, Nejc"
-                                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="@dimen/normal_font_size"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/textView5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Vsebina: Pia, Valentina, Žana, Kristina"
-                                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                                android:textSize="@dimen/normal_font_size"
-                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout

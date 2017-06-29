@@ -77,7 +77,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Oblačila je mogoče izdelati tudi iz fermentiranega čaja s pomočjo mikroorganizmov."
+                                android:text="Oblačila je mogoče izdelati iz fermentiranega čaja s pomočjo mikroorganizmov."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="@dimen/large_font_size"
                                 android:visibility="visible" />
@@ -97,7 +97,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Oblačila se lahko barva tudi z vročim zrakom, kar prihrani med 26 in 283 litri vode na 0,5 kilograma tkanine."
+                                android:text="Oblačila se lahko barva z vročim zrakom, kar prihrani do 283 litri vode na 0,5 kilograma tkanine."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="@dimen/large_font_size"
                                 android:visibility="visible" />
@@ -117,7 +117,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Več o problematiki hitre mode izveš tudi v dokumentarnem filmu The true cost."
+                                android:text="Več o problematiki hitre mode izveš v dokumentarnem filmu The true cost."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="@dimen/large_font_size"
                                 android:visibility="visible" />

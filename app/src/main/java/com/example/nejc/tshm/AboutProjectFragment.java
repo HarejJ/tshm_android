@@ -23,14 +23,14 @@ public class AboutProjectFragment extends Fragment {
                              Bundle savedInstanceState) {
         String text = "V povprečju vsak Slovenec letno zavrže 14 kg oblačil. "
                     +"Ta oblačila končajo na deponijah, kjer razpadajo več kot 100 let in "
-                    +"z nevarnimi kemikalijami onesnažujejo okolje. Vse to pa je zgolj začetek "
+                    +"z nevarnimi kemikalijami onesnažujejo okolje.<br><br>Vse to pa je zgolj začetek "
                     +"začaranega kroga hitre mode. S kemikalijami so prvi v stiku delavci v "
                     +"tekstilnih tovarnah, nato pa jih skupaj s svojimi cenenimi oblačili "
-                    +"oblečeš še ti.  Dokazano je, da nekatere kemikalije povzročajo neplodnost, "
+                    +"oblečeš še ti.<br><br>Dokazano je, da nekatere kemikalije povzročajo neplodnost, "
                     +"motnje v imunskem sistemu in razvoj rakavih obolenj. Z nakupom oblačil hitre"
                     +" mode tako ne ogrožaš le svojega zdravja, temveč glasuješ za suženjski odnos "
                     + "med tekstilnimi multinacionalkami in delavci v azijskih potilnicah "
-                    +"(»sweatshop«). Najpomembneje je, da oblačila kupuješ premišljeno! "
+                    +"(»sweatshop«).<br><br>Najpomembneje je, da oblačila kupuješ premišljeno! "
                     +"Več o problematiki hitre mode si lahko prebereš na naši spletni strani: " +
                      "<a href=\"http://www.kabine-sherinjon.si\">kabine-sherinjon.si</a>";
 

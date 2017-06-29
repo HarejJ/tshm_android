@@ -138,6 +138,9 @@ public class MainActivity extends AppCompatActivity
                             novoGeslo2ET = (EditText) mView.findViewById(R.id.novoGesloET2);
                             Button mButtonPotrdi = (Button) mView.findViewById(R.id.potrdiBTN);
                             Button mButtonPreklici = (Button) mView.findViewById(R.id.prekliciBTN);
+                            mBuilder.setView(mView);
+                            spremeniGeslo =mBuilder.create();
+                            spremeniGeslo.show();
                             mButtonPotrdi.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
