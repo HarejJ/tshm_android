@@ -31,7 +31,8 @@ public class AboutProjectFragment extends Fragment {
                     +" mode tako ne ogrožaš le svojega zdravja, temveč glasuješ za suženjski odnos "
                     + "med tekstilnimi multinacionalkami in delavci v azijskih potilnicah "
                     +"(»sweatshop«). Najpomembneje je, da oblačila kupuješ premišljeno! "
-                    +"Več o problematiki hitre mode si lahko prebereš na naši spletni strani http://www.kabine-sherinjon.com.";
+                    +"Več o problematiki hitre mode si lahko prebereš na naši spletni strani: " +
+                     "<a href=\"http://www.kabine-sherinjon.si\">kabine-sherinjon.si</a>";
 
         View view = inflater.inflate(R.layout.fragment_about_project, container, false);
         WebView webView = (WebView) view.findViewById(R.id.webView);

@@ -80,7 +80,8 @@
     <string name="spremeni_profilno_fotografijo">Spremeni profilno fotografijo</string>
     <string name="spremeni_geslo">Spremeni geslo</string>
     <string name="dopolni_profil">Dopolni profil</string>
-    <string name="zaposleni_otroci">V tekstilni industriji je trenutno zaposlenih okoli 170 miljonov otrok.</string>
-    <string name="pridelava">Za pridelavo 1 kg bombaža se porabi približno 5000 L vode.</string>
+    <string name="link">&lt;a href="http://www.google.com">Google&lt;/a></string>
+    <string name="fact1">Skrčena oblačila lahko vrneš v prvotno velikost z naslednjim <a href="http://1001ideja.si/majice-ki-so-se-pri-pranju-skrcile-lahko-ponovno-raztegnete-na-prvotno-velikost"> trikom</a>.</string>
+
 
 </resources>

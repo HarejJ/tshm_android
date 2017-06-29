@@ -3,6 +3,8 @@ package com.example.nejc.tshm;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +42,16 @@ public class MainFragment extends Fragment {
 
         fragmentTransaction = this.getFragmentManager().beginTransaction();
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        TextView HyperLink = (TextView)view.findViewById(R.id.Title3);
+        HyperLink.setMovementMethod(LinkMovementMethod.getInstance());
+        HyperLink.setText(Html.fromHtml(getResources().getString(R.string.fact1)));
+
+        String a1 = "Skrčena oblačila lahko vrneš v prvotno velikost z naslednjim  <a href=http://1001ideja.si/majice-ki-so-se-pri-pranju-skrcile-lahko-ponovno-raztegnete-na-prvotno-velikost >trikom</a>";
+        TextView link;
+        link = (TextView) view.findViewById(R.id.Title3);
+        link.setMovementMethod(LinkMovementMethod.getInstance());
+        link.setText(Html.fromHtml(a1));
 
         galleryBtn1 = (Button) view.findViewById(R.id.galleryBtn1);
         profileBtn1 = (Button) view.findViewById(R.id.profilbtn1);

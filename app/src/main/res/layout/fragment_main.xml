@@ -69,7 +69,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="horizontal"
-                            android:visibility="visible">
+                            android:visibility="gone">
 
                             <TextView
                                 android:id="@+id/Title1"
@@ -77,9 +77,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="@string/zaposleni_otroci"
+                                android:text="Oblačila je mogoče izdelati tudi iz fermentiranega čaja s pomočjo mikroorganizmov."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="@dimen/xlarge_font_size"
+                                android:textSize="@dimen/large_font_size"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -97,9 +97,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="@string/pridelava"
+                                android:text="Oblačila se lahko barva tudi z vročim zrakom, kar prihrani med 26 in 283 litri vode na 0,5 kilograma tkanine."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="@dimen/xlarge_font_size"
+                                android:textSize="@dimen/large_font_size"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -117,9 +117,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="@string/zivljenska_doba"
+                                android:text="Več o problematiki hitre mode izveš tudi v dokumentarnem filmu The true cost."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="@dimen/xlarge_font_size"
+                                android:textSize="@dimen/large_font_size"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -129,7 +129,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:orientation="horizontal"
-                            android:visibility="gone">
+                            android:visibility="visible">
 
                             <TextView
                                 android:id="@+id/Title3"
@@ -137,10 +137,12 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="@string/pobiralec"
+                                android:text="@string/fact1"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="@dimen/xlarge_font_size"
+                                android:textSize="@dimen/large_font_size"
                                 android:visibility="visible" />
+
+
                         </LinearLayout>
 
                     </LinearLayout>
