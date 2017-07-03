@@ -27,10 +27,10 @@
     <string name="care_item3">Ostali simboli</string>
     <string name="care_item3_item0">Krog je simbol za kemično čiščenje, črka v krogu opredeljuje kemikalijo, s katero lahko oblačilo čistimo.\nČe je krog prečrtan, kemično čiščenje ni dovoljeno.\nTrikotnik je simbol za beljenje. Če je prečrtan, beljenje ni dovoljeno.</string>
 
-    <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti, ki si spreminja svjo odnos do oblačil.</string>
+    <string name="opis_pod_logo">Veseli smo, da se želiš pridružiti skupnosti, ki spreminja svoj odnos do oblačil.</string>
     <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj. Zatem lahko takoj začneš z brskanjem po unikatnih modnih kosih.</string>
 
-    <string name="o_aplikaciji_1">Aplikacija je bila izdelana kot del študentskega projekta \"Po kreativni poti do znanja\" z naslovom \"Temne skrivnosti hitre mode\" v sodelovanju s podjetjem Snaga d.o.o.</string>
+    <string name="o_aplikaciji_1">Aplikacija je bila izdelana kot del študentskega projekta \"Po kreativni poti do znanja\" z naslovom \"Temne skrivnosti hitre mode\" v sodelovanju s podjetjem Snaga d.o.o. .</string>
     <string name="priljubljeni_kosi">Priljubljeni kosi</string>
     <string name="brez_rezerviranih_Oblačil">Žal trenutno še nimaš aktivnih rezervacij oblačil. Skoči na galerijo in si hitro enega rezerviraj.</string>
     <string name="galerija">Galerija</string>
@@ -41,7 +41,7 @@
     <string name="moj_profil">Moj profil</string>
     <string name="nega_obla_il">nega oblačil</string>
     <string name="o_negi">Kabiné Šerinjon je knjižnica oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblek iz Centra ponovne uporabe.\n\nNastal je v okviru projekta Po kreativni poti do znanja in je plod sodelovanja sedmih študentov s treh različnih fakultet Univerze v Ljubljani pod vodstvom pedagoških in delovnih mentorjev.\n\nZa imenom Kabiné Šerinjon se skriva naša želja po spreminjanju odnosa do samoumevnih in vsakodnevnih dobrin.\n\nPredstavljamo pot do nasprotja hitre, surove in množične proizvodnje ter potrošnje oblačil.</string>
-    <string name="zahvala">Posebna zahvala gre predvsem vsem sodelujočim modnim oblikovalcem in mentorjem projekta</string>
+    <string name="zahvala">Posebna zahvala gre predvsem vsem sodelujočim modnim oblikovalcem in mentorjem projekta.</string>
     <string name="dogovor_izposoje">Za izposojo se dogovori s trenutnim imetnikom. Če si oblačilo že prejel to prosim potrdi s klikom na spodnji gumb.</string>
     <string name="st_preostalih_dni">Št. preostalih dni</string>
     <string name="trenutni_imetnik">Juhu si trenutni imetnik oblačila :)</string>

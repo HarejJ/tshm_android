@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.nejc.tshm.MainFragment">
+    tools:context="com.tshm.MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -97,7 +97,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="Oblačila se lahko barva z vročim zrakom, kar prihrani do 283 litri vode na 0,5 kilograma tkanine."
+                                android:text="Oblačila se lahko barva z vročim zrakom, kar prihrani do 283 litrov vode na 0,5 kilograma tkanine."
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="@dimen/large_font_size"
                                 android:visibility="visible" />

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:textSize="@dimen/normal_font_size"
     android:weightSum="1"
-    tools:context="com.example.nejc.tshm.GalleryFragment">
+    tools:context="com.tshm.GalleryFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -17,6 +17,7 @@
         android:weightSum="1" />
 
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/common_google_signin_btn_text_dark_disabled">
