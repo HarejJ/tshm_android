@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity
                                         return;
                                     }
                                     if(passwdMD5.compareTo(user.getPassword())!= 0){
-                                        staroGesloET.setError("trenutno geslo ni pravilno");
+                                        staroGesloET.setError("Trenutno geslo ni pravilno");
                                         return;
                                     }
                                     if(passwd1MD5.compareTo(passwd2MD5)!= 0){
