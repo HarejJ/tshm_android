@@ -1,12 +1,18 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tshm.AboutAPPFragment"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context="com.tshm.AboutAPPFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/crnkasta"
+        android:orientation="horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,12 +20,6 @@
         android:background="@color/crnkasta"
         android:orientation="horizontal"
         android:weightSum="3">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.45"
-            android:orientation="horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,12 +35,6 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:weightSum="3">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.32"
-                    android:orientation="horizontal" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -116,7 +110,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:text="Projekt sofinancirata Republika Slovenija in Evropska unija iz Evropskega socialnega sklada."
+                                android:text="@string/sofinanciranje"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                                 android:textSize="@dimen/normal_font_size"
                                 android:textStyle="bold" />
@@ -132,28 +126,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                app:srcCompat="@drawable/untitled" />
+                                android:src="@drawable/untitled" />
                         </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.45"
-                    android:orientation="horizontal" />
-
             </LinearLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.45"
-            android:orientation="horizontal" />
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

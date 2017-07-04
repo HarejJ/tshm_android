@@ -41,7 +41,10 @@
     <string name="moj_profil">Moj profil</string>
     <string name="nega_obla_il">nega oblačil</string>
     <string name="o_negi">Kabiné Šerinjon je knjižnica oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblek iz Centra ponovne uporabe.\n\nNastal je v okviru projekta Po kreativni poti do znanja in je plod sodelovanja sedmih študentov s treh različnih fakultet Univerze v Ljubljani pod vodstvom pedagoških in delovnih mentorjev.\n\nZa imenom Kabiné Šerinjon se skriva naša želja po spreminjanju odnosa do samoumevnih in vsakodnevnih dobrin.\n\nPredstavljamo pot do nasprotja hitre, surove in množične proizvodnje ter potrošnje oblačil.</string>
+
     <string name="zahvala">Posebna zahvala gre predvsem vsem sodelujočim modnim oblikovalcem in mentorjem projekta.</string>
+    <string name="sofinanciranje">Projekt sofinancirata Republika Slovenija in Evropska unija iz Evropskega socialnega sklada.</string>
+
     <string name="dogovor_izposoje">Za izposojo se dogovori s trenutnim imetnikom. Če si oblačilo že prejel to prosim potrdi s klikom na spodnji gumb.</string>
     <string name="st_preostalih_dni">Št. preostalih dni</string>
     <string name="trenutni_imetnik">Juhu si trenutni imetnik oblačila :)</string>
@@ -69,19 +72,101 @@
     <string name="trenutni_imetnik1">Trenutni imetnik</string>
     <string name="negovati">P.S.: Oblačila ne pozabi oprati in oddati tako lepo negovanega kot si ga prejel</string>
     <string name="predaja_oblacila">Predaja Oblačila</string>
+
     <string name="tip_obleke">Tip obleke</string>
     <string name="ime_oblikovalca">Ime oblikovalca</string>
     <string name="nega_oblacil">Nega oblačil</string>
+    <string name="rezervacija">Rezervacija</string>
+    <string name="trenut_imetnik">Trenutni imetnik</string>
+
     <string name="o_hitri_modi">O hitri modi</string>
     <string name="domov">Domov</string>
     <string name="o_hitri_modi_content">Oblačila spremljajo naš vsakdan, česar se zavedajo tudi podjetja, ki te prepričujejo, da je sreča pogojena z nenehnim kupovanjem novih. Proizvodnja tako imenovane »hitre mode« negativno učinkuje na okolje - v tretjem svetu s pridelovanjem surovin, z uporabo nevarnih (v EU in ZDA prepovedanih) kemikalij, v razvitih državah pa z odpadki, ko oblačila po kratkem času zavržeš.\n\nOblačila hitre mode slabo vplivajo na tvoje zdravje, saj lahko vsebujejo škodljive snovi, za katere je dokazano, da slabijo hormonsko ravnovesje, imunski sistem in pospešujejo nastanek novotvorb. Z nakupom teh oblačil pa ne ogrožaš le svojega zdravja, temveč hkrati podpiraš suženjski odnos med tekstilnimi podjetji in delavci v azijskih potilnicah (»sweatshop«). Najpomembneje je, da oblačila kupuješ premišljeno! Več o problematiki hitre mode si lahko prebereš na naši spletni strani: <a href="http://www.kabine-sherinjon.si/">www.kabine-sherinjon.si.</a></string>
+
+
     <string name="pomoc">Pomoč</string>
+    <string name="pomoc_question0">1. Kaj je Kabiné Šerinjon?</string>
+    <string name="pomoc_anwser0">Kabiné Šerinjon je ime spletne in mobilne platforme, ki omogoča brezplačno izposojo oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblačil iz Centra ponovne uporabe.</string>
+    <string name="pomoc_question1">2. Kdo stoji za tem?</string>
+    <string name="pomoc_anwser1">Sedem študentov iz treh ljubljanskih fakultet, ki s pomočjo pedagoških mentorjev in ljubljanske Snage razkrivamo temno plat hitre mode ter spodbujamo do ljudi in okolja boljše izbire.</string>
+    <string name="pomoc_question2">3. Kako deluje?</string>
+    <string name="pomoc_anwser2">Več o postopku izmenjave in pravilih lahko prebereš v pravilih igre.</string>
+    <string name="pomoc_question3">4. Koliko stane izposoja?</string>
+    <string name="pomoc_anwser3">Izposoja vseh modnih kosov, dodatkov in vintidž oblačil je brezplačna.</string>
+    <string name="pomoc_question4">5. Kakšne so velikosti oblačil?</string>
+    <string name="pomoc_anwser4">Oblačila so na voljo v različnih konfekcijskih številkah, nekaj kosov pa je takšnih, da jih lahko nosijo osebe z različnimi številkami in postavami.</string>
+    <string name="pomoc_question5">6. Kako dolgo imam lahko izposojeno oblačilo/modni dodatek?</string>
+    <string name="pomoc_anwser5">En kos imaš lahko v izposoji največ dva tedna.</string>
+    <string name="pomoc_question6">7. Ali si lahko večkrat izposodim isti kos?</string>
+    <string name="pomoc_anwser6">Seveda!</string>
+    <string name="pomoc_question7">8. Ali si lahko izposodim več kosov naenkrat?</string>
+    <string name="pomoc_anwser7">Za zdaj si lahko vsak uporabnik izposodi le en kos naenkrat.</string>
+    <string name="pomoc_question8">9. Želim si izposoditi kos, kaj naj naredim?</string>
+    <string name="pomoc_anwser8">Ko si v galeriji izbereš želeni kos, je v njegovem opisu tudi podatek, ali je na voljo takoj ali je trenutno izposojen. Če je v izposoji, se vpiši v čakalno vrsto, nato pa stopi v kontakt s trenutnim uporabnikom, da se dogovorita za predajo in prevzem. Kontakt trenutnega uporabnika se ti bo izpisal, ko boš prvi/a v čakalni vrsti.</string>
+    <string name="pomoc_question9">10. Kje in kako prevzamem rezervirano?</string>
+    <string name="pomoc_anwser9">Oblačilo/modni dodatek prejmeš od prejšnjega uporabnika tako, da si najprej izmenjata kontakte ter se nato srečata v živo ali pa si pošljeta izdelek po pošti. Kontakt trenutnega uporabnika se ti bo izpisal, ko boš prvi/a v čakalni vrsti. Priporočamo, da se prejšnji in naslednji uporabnik srečata v živo ter ob prevzemu preverita, da je modni kos nepoškodovan in čist.</string>
+    <string name="pomoc_question10">11. Kako izposojeno predam naprej?</string>
+    <string name="pomoc_anwser10">Tri dni pred iztekom roka za izposojo prejmeš opomnik. Kos, ki ga predaš naprej, mora biti čist (opran) in nepoškodovan. Navodila za vzdrževanje najdeš na etiketi, ki je priložena vsakemu kosu. Odgovornost vsakega uporabnika je, da naprej preda nepoškodovan in čist kos v vrečki, v kateri je izposojen kos tudi dobil, poleg pa mora priložiti tudi etiketo z opisom in navodili za vzdrževanje.</string>
+    <string name="pomoc_question11">12. Kaj naredim, če mi prejšnji uporabnik ne preda oblačila/modnega dodatka?</string>
+    <string name="pomoc_anwser11">Če oblačila/dodatka brez pojasnila ali dogovora s prejšnjim uporabnikom ne prejmeš v 24 urah po izteku pričakovanega roka za izposojo, nas o tem obvesti na elektronski naslov kabine.sherinjon@gmail.com.</string>
+    <string name="pomoc_question12">13. Kaj naredim, če izposojenega kosa ne morem predati naslednjemu uporabniku?</string>
+    <string name="pomoc_anwser12">V primeru, da izposojenega izdelka ne moreš predati naprej prvemu uporabniku v čakalni vrsti, nam v 24 urah po izteku časa izposoje to sporoči na naš e-naslov kabine.sherinjon@gmail.com. Če izdelka v treh dneh po izteku časa izposoje ne predaš prvemu ali drugemu uporabniku v čakalni vrsti, ga v vnaprej dogovorjenem času predaj nam. Če izdelka ne predaš v treh dneh po izteku časa izposoje, ti bomo blokirali uporabniški profil.</string>
+    <string name="pomoc_question13">14. Komu vrnem kos, ki ga po izteku moje izposoje ni nihče rezerviral?</string>
+    <string name="pomoc_anwser13">Prosimo te, da nam v 24 urah po izteku časa izposoje prek elektronske pošte kabine.sherinjon@gmail.com pošlješ obvestilo in oblačilo/dodatek bo prevzela naša ekipa.</string>
+    <string name="pomoc_question14">15. Kaj naredim, če po prevzemu ugotovim, da je kos poškodovan/umazan?</string>
+    <string name="pomoc_anwser14">O tem nas takoj obvesti prek elektronske pošte kabine.sherinjon@gmail.com, hkrati pa stopi v kontakt z oblikovalcem, ki je kos izdelal. Podatke o modnem oblikovalcu in možnosti popravila najdeš na etiketi, priloženi izposojenemu kosu. Ekipa Kabiné Šerinjon ti bo podaljšala čas izposoje tega kosa za en teden. Če izposojenega kosa ne neseš v popravilo, ga moraš predati nam (seveda nas najprej kontaktiraš). Tvoj čas izposoje se v tem primeru ne podaljša.</string>
+    <string name="pomoc_question15">16. Kaj naj naredim, če jaz umažem/poškodujem kos?</string>
+    <string name="pomoc_anwser15">Oblačilo operi skladno z navodili na etiketi. Če to ni rešitev oziroma je kos poškodovan, naredi enako, kot piše v prejšnjem odstavku.</string>
+    <string name="pomoc_question16">17. Kam se lahko obrnem v primeru vprašanj, predlogov, težav ipd.?</string>
+    <string name="pomoc_anwser16">Piši nam na elektronski naslov kabine.sherinjon@gmail.com ali nam pusti sporočilo na našem Instagram profilu @kabine_sherinjon.</string>
+    <string name="pomoc_question17">18. Kako ste dobili kose, ki so na voljo za izposojo?</string>
+    <string name="pomoc_anwser17">Oblačila in modne dodatke so prispevali modni oblikovalci, ki spodbujajo boljšo, trajnostno potrošnjo, vintidž oblačila pa so iz Centra ponovne uporabe.</string>
+    <string name="pomoc_question18">19. Ali lahko v izmenjavo prispevam tudi kakšen svoj kos?</string>
+    <string name="pomoc_anwser18">O tem se dogovarjamo individualno. Piši nam na elektronski naslov kabine.sherinjon@gmail.com ali nam pusti sporočilo na našem Instagram profilu @kabine_sherinjon.</string>
+    <string name="pomoc_question19">20. Ali imate tudi svojo trgovino?</string>
+    <string name="pomoc_anwser19">Za zdaj še ne, če pa te zanima nakup kakšnega kosa iz naše knjižnice, se lahko obrneš neposredno na oblikovalca.</string>
+    <string name="pomoc_question20">21. Sem modni oblikovalec/ka. Ali bi lahko moj izdelek vključili v knjižnico Kabiné Šerinjon?</string>
+    <string name="pomoc_anwser20">Kabiné Šerinjon je ime spletne in mobilne platforme, ki omogoča brezplačno izposojo oblačil in modnih dodatkov slovenskih modnih oblikovalcev ter vintidž oblačil iz Centra ponovne uporabe.</string>
+    <string name="pomoc_question21">22. Ali je aplikacija na voljo tudi za iOS?</string>
+    <string name="pomoc_anwser21">Za zdaj žal še ne, jo pa načrtujemo.</string>
+
     <string name="o_aplikaciji">O aplikaciji</string>
     <string name="odjava">Odjava</string>
+
     <string name="spremeni_profilno_fotografijo">Spremeni profilno fotografijo</string>
     <string name="spremeni_geslo">Spremeni geslo</string>
     <string name="dopolni_profil">Dopolni profil</string>
-    <string name="fact1">Skrčena oblačila lahko vrneš v prvotno velikost z naslednjim <a href="http://1001ideja.si/majice-ki-so-se-pri-pranju-skrcile-lahko-ponovno-raztegnete-na-prvotno-velikost"> trikom</a>.</string>
 
+    <string name="fact0">Več o problematiki hitre mode izveš v dokumentarnem filmu The true cost.</string>
+    <string name="fact1">Skrčena oblačila lahko vrneš v prvotno velikost z naslednjim <a href="http://1001ideja.si/majice-ki-so-se-pri-pranju-skrcile-lahko-ponovno-raztegnete-na-prvotno-velikost"> trikom</a>.</string>
+    <string name="fact2">Oblačila se lahko barva z vročim zrakom, kar prihrani do 283 litrov vode na 0,5 kilograma tkanine.</string>
+    <string name="fact3">Oblačila je mogoče izdelati iz fermentiranega čaja s pomočjo mikroorganizmov.</string>
+
+    <string name="dialog_title0">Težave pri povezavi</string>
+    <string name="dialog_content0">Preverite ali imate internetno povezavo</string>
+    <string name="dialog_title1">Potrditev rezervacije</string>
+    <string name="dialog_content1">Za potrditev rezervacije tega kosa prosim pritisnite VREDU. Trenutno stanje tvoje rezervacije  in podatek o trenutnem imetniku  lahko spremljaš na svojem profilu</string>
+    <string name="dialog_title2">Rezervacija ni mogoča</string>
+    <string name="dialog_content2">Žal imaš rezerviran že nek drug kos.\nKer želimo zagotoviti čim večje kroženje oblačil je možna le 1 rezervacija na enkrat.</string>
+    <string name="dialog_title3">Pozabljeno geslo</string>
+    <string name="dialog_content3">Če si pozabil geslo nas kontaktiraj na:\nkabine.sherinjon@gmail.com.</string>
+    <string name="dialog_title4">Pogoji uporabe</string>
+    <!--<string name="dialog_content4">Tvoje osebne podatke (uporabniško ime, elektronski naslov, kraj bivanja in telefonsko številko)\nbo lahko videl le tisti s katerim boš izvedel/izvedla izmenjavo, ostalim uporabnikom je vidno samo tvoje\nuporabniško ime. Po vnosu resničnih podatkov je potrebno priložiti fotografijo.\nLahko si jo izbereš iz galerije ali narediš sveži 'selfi'.\nVeč o pogojih sodelovanja\nsi lahko prebereš na naši spletni strani.</string>-->
+    <string name="dialog_title5">Profilna slika</string>
+    <string name="dialog_content5">Izberi način vnosa profilne slike.</string>
+    <string name="dialog_title6">Dopolni profil</string>
+    <string name="dialog_content6">Tvoj profil trenutno vsebuje le osnovne podatke, ti pa ne zadostujejo za izposojo kosov. Če si želiš kaj izposoditi, te prosimo, da v glavi menija na levi strani izbereš gumb "Dopolni profil".</string>
+    <string name="dialog_title7">Opozorilo: vrni oblačilo</string>
+    <string name="dialog_content7">Vaša izposoja se bliža koncu prosimo vas, da izberete gumb oddaj oblačilo in se dogovorite o predaji z nasednjim imetnikom</string>
+    <string name="dialog_title8">Opozorilo: vrni oblačilo</string>
+    <string name="dialog_content8">Vaša izposoja se je že končala prosimo vas, da izberete gumb oddaj oblačilo in se dogovorite o predaji z nasednjim imetnikom. Če ne boste vrnili oblačila v 48 urah vam bomo blokirali račun</string>
+    <string name="dialog_title9">Pozabljeno geslo</string>
+    <string name="dialog_content9">Če si pozabil geslo nas kontaktiraj na:\nkabine.sherinjon@gmail.com.</string>
+    <string name="dialog_title10">Kontakti uporabnika</string>
+    <string name="dialog_button0">VREDU</string>
+    <string name="dialog_button1">NAZAJ</string>
+    <string name="dialog_button2">Razumem in sprejmem pogoje</string>
+    <string name="dialog_button3">Fotoaparat</string>
+    <string name="dialog_button4">Galerija</string>
 
 </resources>
