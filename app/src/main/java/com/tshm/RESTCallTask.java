@@ -41,7 +41,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
     private String image;
     private String idObleke;
     private String location;
-    private String birthDay;
+    private String kraj;
     private Activity activity;
     private View view;
 
@@ -76,7 +76,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
      */
 
     RESTCallTask(String activityName, String username, String password, String naslov,
-                 String mail,String telefon,String telefon1, View view) {
+                 String mail,String kraj,String telefon, View view) {
         this.activityName = activityName;
         this.username = username;
         this.password = password;
@@ -84,6 +84,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         this.mail = mail;
         this.phone = telefon;
         this.view = view;
+        this.kraj = kraj;
     }
 
     /*
@@ -407,6 +408,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
         jsonObject.put("Mail", mail);
         jsonObject.put("Stevilka", phone);
         jsonObject.put("Naslov", location);
+        jsonObject.put("Kraj", kraj);
         return jsonObject;
     }
 
@@ -613,7 +615,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
     private void dressDetailResponse (String result) throws JSONException {
         String[] res = result.split("#");
         JSONObject jsonObject = new JSONObject(res[1]);
-        String[] dress = new String[9];
+        String[] dress = new String[10];
         if (Integer.parseInt(res[0]) == 200) {
             dress[0]=jsonObject.getString("tip");
             dress[1]=jsonObject.getString("velikost");
@@ -624,6 +626,7 @@ class RESTCallTask extends AsyncTask<String, Void, String> {
             dress[6]=jsonObject.getString("spol");
             dress[7]=jsonObject.getString("oznaka");
             dress[8] = jsonObject.getString("priljubljena");
+            dress[9] = jsonObject.getString("cena");
             delegate.dressDetail(dress);
         }
     }

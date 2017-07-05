@@ -1,9 +1,11 @@
 package com.tshm;
 
 
+import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,15 +15,19 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.ButtonBarLayout;
+import android.support.v7.widget.PopupMenu;
 import android.text.Layout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
@@ -31,7 +37,10 @@ import android.widget.Toast;
 import com.google.android.gms.plus.model.people.Person;
 
 import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -43,13 +52,20 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
     private User user;
     private int id;
-
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+    EditText telefonET,mailET,naslovET,krajET;
+    ImageView changeProfilImage;
+    AlertDialog spremeniGeslo, dopolniPodatke;
+    private EditText novoGeslo1ET, novoGeslo2ET, staroGesloET;
     private static ArrayList<Dress> clothes = new ArrayList<>();
     private static ArrayList<Integer> imaggesIds = new ArrayList<Integer>();
     private RESTCallTask restTask;
     private AsyncResponse asyncResponse;
     private Context context;
-    private ImageView oblekaRezervacija;
+    String passwd1MD5;
+    View view;
+    private ImageView oblekaRezervacija,menu_profil;
     private LinearLayout images;
     private TextView designerRezervacija,tipRezervacija,spol_velikostRezervacija;
     private TextView userName,name,mail,statusTw,popularTw,cakalnaVrsta,trenutniUporabnik, stDniTw;
@@ -69,7 +85,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
         fragmentTransaction = this.getFragmentManager().beginTransaction();
 
-        View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
+        view = inflater.inflate(R.layout.fragment_user_profile, container, false);
         images = (LinearLayout) view.findViewById(R.id.priljubljene);
         withoutReservation =(LinearLayout) view.findViewById(R.id.brezRezervacije);
         reservation = (LinearLayout) view.findViewById(R.id.Rezervacija);
@@ -83,7 +99,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         galleryBtn = (Button) view.findViewById(R.id.galleryBtn);
         statusBtn = (Button) view.findViewById(R.id.status);
         popularBtn = (Button) view.findViewById(R.id.popular);
-
+        menu_profil = (ImageView)view.findViewById(R.id.menu_profil);
         stDniTw = (TextView)view.findViewById(R.id.stDniTw);
         oblekaRezervacija = (ImageView)view.findViewById(R.id.SlikaRezervacja);
         designerRezervacija = (TextView) view.findViewById(R.id.OblikovalecRezervacija);
@@ -129,6 +145,7 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
         sprejemOblacila.setOnClickListener(onClickListener);
         oddajaOblacila.setOnClickListener(onClickListener);
         deleteReservation.setOnClickListener(onClickListener);
+        menu_profil.setOnClickListener(onClickListener);
         context = getContext();
         asyncResponse = this;
         oblekaRezervacija.setOnClickListener(onClickListener);
@@ -296,6 +313,10 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
                         Dialog.networkErrorDialog(context).show();
                     }
                     break;
+                }
+                case R.id.menu_profil:
+                {
+                    openMenu();
                 }
                 default:
                     for (int i = 0; i<imaggesIds.size(); i++){
@@ -509,13 +530,38 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void spremeniGeslo() {
+        editor = pref.edit();
+        String userName = pref.getString("username","");
+        String password = pref.getString("password","");
+        if(!(userName.equals("") && userName.equals(""))){
+            editor.putString("password",passwd1MD5);
+            editor.apply();
+            editor.commit();
+        }
+
+        user.setPassword(passwd1MD5);
+        spremeniGeslo.dismiss();
+        CharSequence text = "Geslo spremenjeno";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
     }
 
     @Override
     public void spremeniPodatke() {
+        user.setMail(mailET.getText().toString());
+        user.setPhone(telefonET.getText().toString());
+        CharSequence text = "Tvoji osebni podatki so bili spremenjeni.";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        dopolniPodatke.dismiss();
 
     }
+
 
     private void setImage(ArrayList<Dress> output){
         imaggesIds.clear();
@@ -590,4 +636,181 @@ public class UserProfileFragment extends Fragment implements AsyncResponse {
 
     }
 
+    private void openMenu(){
+        final MainActivity mainActivity =  MainActivity.mainActivity;
+        PopupMenu popup = new PopupMenu(mainActivity, menu_profil);
+        popup.getMenuInflater().inflate(R.menu.poupup_menu_image, popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId();
+                if(id == R.id.spremeniSliko){
+                    if(NetworkUtils.isNetworkConnected(context))
+                        Dialog.vnesiSliko(context,mainActivity).show();
+                    else
+                        Dialog.networkErrorDialog(context).show();
+                }
+                else if(id == R.id.spremeniGeslo){
+                    AlertDialog.Builder mBuilder = new AlertDialog.Builder(mainActivity);
+                    View mView = mainActivity.getLayoutInflater().inflate(R.layout.dailog_change_password,null);
+                    staroGesloET = (EditText) mView.findViewById(R.id.staroGesloET);
+                    novoGeslo1ET = (EditText) mView.findViewById(R.id.novoGesloET1);
+                    novoGeslo2ET = (EditText) mView.findViewById(R.id.novoGesloET2);
+                    Button mButtonPotrdi = (Button) mView.findViewById(R.id.potrdiBTN);
+                    Button mButtonPreklici = (Button) mView.findViewById(R.id.prekliciBTN);
+                    mBuilder.setView(mView);
+                    spremeniGeslo =mBuilder.create();
+                    spremeniGeslo.show();
+                    mButtonPotrdi.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            boolean vneseniPodatki = true;
+                            if(staroGesloET.length() == 0){
+                                staroGesloET.setError("Vnesite trenutno geslo");
+                                vneseniPodatki =false;
+                            }
+                            if(novoGeslo1ET.length() == 0){
+                                novoGeslo1ET.setError("Vnesite novo geslo");
+                                vneseniPodatki =false;
+                            }
+                            if(novoGeslo2ET.length() == 0){
+                                novoGeslo2ET.setError("Vnesite novo geslo");
+                                vneseniPodatki =false;
+                            }
+                            if(!vneseniPodatki)
+                                return;
+                            String staroGeslo = staroGesloET.getText().toString();
+                            String novoGeslo1 = novoGeslo1ET.getText().toString();
+                            String novoGeslo2 = novoGeslo2ET.getText().toString();
+
+                            String passwdMD5 = null;
+                            passwd1MD5 = null;
+                            String passwd2MD5 = null;
+                            MD5 hash = new MD5();
+                            //šifriranje
+                            try {
+                                passwdMD5 = hash.md5(staroGeslo);
+                                passwd1MD5 = hash.md5(novoGeslo1);
+                                passwd2MD5 = hash.md5(novoGeslo2);
+                            } catch (NoSuchAlgorithmException e) {
+                                novoGeslo2ET.setText("Težava pri šifriranju gesla");
+                                return;
+                            }
+                            if(passwdMD5.compareTo(user.getPassword())!= 0){
+                                staroGesloET.setError("Trenutno geslo ni pravilno");
+                                return;
+                            }
+                            if(passwd1MD5.compareTo(passwd2MD5)!= 0){
+                                novoGeslo2ET.setError("Novi gesli nista enaki");
+                                return;
+                            }
+
+                            RESTCallTask restTask = new RESTCallTask("spremeniGeslo", user.getUsername(),
+                                    passwdMD5,passwd1MD5,passwd2MD5,passwd2MD5, view);
+                            restTask.delegate = asyncResponse;
+                            restTask.execute("POST", String.format("spremeniGeslo"));
+
+                        }
+                    });
+                    mButtonPreklici.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            spremeniGeslo.dismiss();
+                        }
+                    });
+                }
+                else if(id == R.id.dopolniProfil){
+                    AlertDialog.Builder mBuilder = new AlertDialog.Builder(mainActivity);
+                    View mView = mainActivity.getLayoutInflater().inflate(R.layout.dialog_add_user_data,null);
+                    telefonET = (EditText) mView.findViewById(R.id.telET);
+                    mailET = (EditText) mView.findViewById(R.id.mailET);
+                    naslovET = (EditText) mView.findViewById(R.id.nasET);
+                    krajET = (EditText) mView.findViewById(R.id.krajET);
+                    mBuilder.setView(mView);
+                    dopolniPodatke =mBuilder.create();
+                    dopolniPodatke.show();
+                    Button mButtonPotrdi = (Button) mView.findViewById(R.id.PotrdiBtn);
+                    Button mButtonPreklici = (Button) mView.findViewById(R.id.PrekliciBtn);
+
+                    mButtonPreklici.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dopolniPodatke.dismiss();
+                        }
+                    });
+                    mButtonPotrdi.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            boolean vneseniPodatki = true;
+                            if(telefonET.length() == 0){
+                                telefonET.setError("Vnesite telefonsko številko");
+                                vneseniPodatki =false;
+                            }
+                            if(mailET.length() == 0){
+                                mailET.setError("Vnesite elektronsko pošto");
+                                vneseniPodatki =false;
+                            }
+                            if(naslovET.length() == 0){
+                                naslovET.setError("Vnesite naslov");
+                                vneseniPodatki =false;
+                            }
+                            if(krajET.length() == 0){
+                                krajET.setError("Vnesite kraj");
+                                vneseniPodatki =false;
+                            }
+                            if(!vneseniPodatki)
+                                return;
+                            String naslov = naslovET.getText().toString();
+                            String mail = mailET.getText().toString();
+                            String telefon = telefonET.getText().toString();
+                            String kraj = krajET.getText().toString();
+
+                            if(!validatedNumber(telefon)){
+                                telefonET.setError("Telefonska številka je nepravilna");
+                                return;
+                            }
+                            if(!emailValidator(mail)){
+                                mailET.setError("e-mail je nepravilen");
+                                return;
+                            }
+                            RESTCallTask restTask = new RESTCallTask("spremeniPodatke", user.getUsername(),
+                                    user.getPassword(),naslov,mail,kraj,telefon, view);
+                            restTask.delegate = asyncResponse;
+                            restTask.execute("POST", String.format("spremeniPodatke"));
+
+                        }
+                    });
+                }
+                return true;
+            }
+        });
+        popup.show();
+    }
+
+    //pravilnost vnešene telefonske številke
+    private boolean validatedNumber(String phone){
+        if(phone.charAt(0) == '+') {
+            if(phone.length() != 12)
+                return false;
+            for (int i = 0; i<phone.length(); i++)
+                if(!(phone.charAt(0) >= '0') && !(phone.charAt(0) <= '9'))
+                    return false;
+            return true;
+        }
+        else if(phone.charAt(0) >= '0' && phone.charAt(0) <= '9'){
+            if(phone.length() != 9)
+                return false;
+            return true;
+
+        }
+        return false;
+    }
+    public boolean emailValidator(String email)
+    {
+        Pattern pattern;
+        Matcher matcher;
+        final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 }

@@ -28,15 +28,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.3"
+                android:layout_height="0dp"
+                android:layout_weight="1.55"
+                android:elevation="0dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageDress"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
                     android:src="@drawable/shirt1" />
 
             </LinearLayout>
@@ -44,7 +44,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.7"
+                android:layout_weight="0.45"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -128,13 +128,13 @@
                                 android:gravity="center_vertical"
                                 android:text="Ime oblikovalca"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="@dimen/large_font_size" />
+                                android:textSize="@dimen/middle_font_size" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
+                            android:layout_weight="1.05"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
@@ -142,27 +142,54 @@
                                 android:id="@+id/tipObleke"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="top"
                                 android:layout_weight="1"
                                 android:text="Srajca"
                                 android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="@dimen/normal_font_size" />
+                                android:textSize="@dimen/small_font_size" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="bottom|center"
-                            android:layout_weight="1.1"
-                            android:orientation="horizontal">
+                            android:layout_weight="1.05"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
-                            <TextView
-                                android:id="@+id/spol_velikost"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="unisex, velikost M"
-                                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                                android:textSize="@dimen/small_font_size" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.75"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/spol_velikost"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="top"
+                                    android:layout_weight="1"
+                                    android:text="unisex, velikost M"
+                                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                    android:textSize="@dimen/small_font_size" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.25"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/VrednostTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="Vrednost: 0€"
+                                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                                    android:textSize="@dimen/small_font_size" />
+                            </LinearLayout>
+
                         </LinearLayout>
 
                     </LinearLayout>

@@ -4,10 +4,13 @@ package com.tshm;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.ArrayMap;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,18 +28,21 @@ import java.util.ArrayList;
 public class GalleryFragment extends Fragment implements AsyncResponse {
     private RESTCallTask restTask;
     private static ArrayList<Dress> clothes = new ArrayList<>();
+    private static ArrayMap<String,Bitmap> dressImage = new ArrayMap<>();
     private static ArrayList<Integer> imaggesIds = new ArrayList<Integer>();
     private View view;
     private Context context;
     private User user;
     AsyncResponse asyncResponse;
     private int id;
-    private LinearLayout images;
+    private static LinearLayout images;
+    private static boolean loaded = false;
     private android.support.v4.app.FragmentTransaction fragmentTransaction;
 
     public GalleryFragment() {
         // Required empty public constructor
     }
+
 
 
     @Override
@@ -129,6 +135,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
         clothes.get(id).setCakalnaVrsta(Integer.parseInt(dressDeatil[5]));
         clothes.get(id).setSpol(dressDeatil[6]);
         clothes.get(id).setOznaka(dressDeatil[7]);
+        clothes.get(id).setCena(dressDeatil[9]);
         clothes.get(id).setPriljubljena(Integer.valueOf(dressDeatil[8])>0 ? true:false);
 
 
@@ -173,6 +180,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
 
 
     private void setImage(ArrayList<Dress> output){
+        loaded = true;
         imaggesIds.clear();
         int size=0;
         int count =1;
@@ -195,9 +203,12 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
             left.setGravity(count%2 ==0 ? Gravity.RIGHT : Gravity.LEFT);
             parmsImage.height = (int) (Resources.getSystem().getDisplayMetrics().widthPixels/1.6);
             parmsImage.width = (int) (left.getWidth());
-            //image
 
-            BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(dress.getSlika()));
+            //image
+            if(!dressImage.containsKey(dress.getId_obleka()))
+                dressImage.put(dress.getId_obleka(),ImageUtil.convert(dress.getSlika()));
+
+            BitmapDrawable background = new BitmapDrawable(dressImage.get(dress.getId_obleka()));
             image.setBackground(background);
             image.setId(id);
             image.setLayoutParams(parmsImage);
@@ -224,6 +235,7 @@ public class GalleryFragment extends Fragment implements AsyncResponse {
                 line.setLayoutParams(paramsLine);
                 line.setWeightSum(2);
             }
+            background=null;
         }
         if(count % 3 != 0){
             BitmapDrawable background = new BitmapDrawable(ImageUtil.convert(output.get(0).getSlika()));

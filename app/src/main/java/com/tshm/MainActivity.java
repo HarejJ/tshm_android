@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity
     Context context;
     View view;
     AsyncResponse asyncResponse;
-    EditText staroGesloET,novoGeslo1ET,novoGeslo2ET,mailET,naslovET,telefonET;
+    EditText staroGesloET,novoGeslo1ET,novoGeslo2ET,mailET,naslovET,telefonET, krajET;
     AlertDialog spremeniGeslo;
     AlertDialog dopolniPodatke;
     CircleImageView profilImage;
-    MainActivity mainActivity;
+    public static MainActivity mainActivity;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private  static final int PICK_IMAGE = 100;
     android.support.v4.app.FragmentTransaction fragmentTransaction;
@@ -205,6 +205,7 @@ public class MainActivity extends AppCompatActivity
                             telefonET = (EditText) mView.findViewById(R.id.telET);
                             mailET = (EditText) mView.findViewById(R.id.mailET);
                             naslovET = (EditText) mView.findViewById(R.id.nasET);
+                            krajET = (EditText) mView.findViewById(R.id.krajET);
                             mBuilder.setView(mView);
                             dopolniPodatke =mBuilder.create();
                             dopolniPodatke.show();
@@ -233,21 +234,26 @@ public class MainActivity extends AppCompatActivity
                                         naslovET.setError("Vnesite naslov");
                                         vneseniPodatki =false;
                                     }
+                                    if(krajET.length() == 0){
+                                        krajET.setError("Vnesite kraj");
+                                        vneseniPodatki =false;
+                                    }
                                     if(!vneseniPodatki)
                                         return;
                                     String naslov = naslovET.getText().toString();
                                     String mail = mailET.getText().toString();
                                     String telefon = telefonET.getText().toString();
+                                    String kraj = krajET.getText().toString();
                                     if(!validatedNumber(telefon)){
                                         telefonET.setError("Telefonska številka je nepravilna");
                                         return;
                                     }
                                     if(!emailValidator(mail)){
-                                        mailET.setError("e-mail je nepraviln");
+                                        mailET.setError("e-mail je nepravilen");
                                         return;
                                     }
                                     RESTCallTask restTask = new RESTCallTask("spremeniPodatke", user.getUsername(),
-                                            user.getPassword(),naslov,mail,telefon,telefon, view);
+                                            user.getPassword(),naslov,mail,kraj,telefon, view);
                                     restTask.delegate = asyncResponse;
                                     restTask.execute("POST", String.format("spremeniPodatke"));
 

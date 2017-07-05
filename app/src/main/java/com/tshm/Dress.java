@@ -1,5 +1,7 @@
 package com.tshm;
 
+import android.graphics.Bitmap;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -7,6 +9,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Dress implements Serializable {
+    public String getCena() {
+        return cena;
+    }
+
+    public void setCena(String cena) {
+        this.cena = cena;
+    }
+
     private String id_obleka;
     private String slika;
     private String tip;
@@ -19,10 +29,11 @@ public class Dress implements Serializable {
     private int steviloDni;
     private boolean priljubljena;
     private String oznaka;
+    private String cena;
 
     Dress(String id_obleka, String slika, String tip, String velikost, String Oblikovalec,
           String slikaOblikovalca, String trenutniIzposojevalec, String rezervacije, String priljubljena,
-          String datumIzposoje,String spol, String oznaka) {
+          String datumIzposoje, String spol, String oznaka) {
         this.id_obleka = id_obleka;
         this.slika = slika;
         this.tip = tip;

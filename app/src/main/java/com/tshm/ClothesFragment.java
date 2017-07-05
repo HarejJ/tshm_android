@@ -28,6 +28,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
     private ImageView picture, favoriteSign, oznake,oblikovalec;
     private Button clothesCareTB, reservationTB, reservationB, clothesCareB;
     private TextView clothesCare, reservation, imeOblikovalca, tipObleke, spol_velikost, trenutniImetnik, cakalnaVrsta;
+    private TextView cena;
     private RESTCallTask restTask;
     private AsyncResponse asyncResponse;
     Dress dress;
@@ -66,7 +67,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         spol_velikost = (TextView) view.findViewById(R.id.spol_velikost);
         trenutniImetnik = (TextView) view.findViewById(R.id.ownerTV);
         cakalnaVrsta = (TextView) view.findViewById(R.id.queueTV);
-
+        cena = (TextView) view.findViewById(R.id.VrednostTV);
 
         linearLayoutReservation = (LinearLayout) view.findViewById(R.id.LinearLayoutReservation);
         linearLayoutClothesCare = (LinearLayout) view.findViewById(R.id.LinearLayoutClothesCare);
@@ -80,6 +81,7 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
         trenutniImetnik.setText(dress.getTrenutniImetnik());
         oblikovalec.setImageBitmap(ImageUtil.convert(dress.getSlikaOblikovalca()));
         cakalnaVrsta.setText(String.valueOf(dress.getCakalnaVrsta()));
+        cena.setText("Vrednost: "+dress.getCena()+"€");
 
         clothesCareTB.setOnClickListener(onClickListener);
         reservationTB.setOnClickListener(onClickListener);
