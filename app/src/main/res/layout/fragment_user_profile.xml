@@ -924,8 +924,8 @@
                                         android:layout_height="match_parent"
                                         android:layout_gravity="bottom"
                                         android:layout_weight="1"
-                                        android:background="@color/colorPrimaryTransparent"
                                         android:text="@string/prekliCi_rezervacijo"
+                                        android:background="@color/colorPrimaryDark"
                                         android:textColor="@color/common_google_signin_btn_text_dark_default"
                                         android:textSize="@dimen/button_font_size" />
                                 </LinearLayout>
