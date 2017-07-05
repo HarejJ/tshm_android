@@ -141,13 +141,15 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
                         restTask.execute("POST", String.format("odstraniPriljubljeno"));
 
                         dress.setPriljubljena(false);
+                        Toast.makeText(context,getString(R.string.toast0),Toast.LENGTH_SHORT).show();
                         favoriteSign.setImageResource(R.drawable.unlike);
                     } else {
                         restTask = new RESTCallTask("dodajPriljubljeno", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
                         restTask.delegate = asyncResponse;
                         restTask.execute("POST", String.format("dodajPriljubljeno"));
+
                         dress.setPriljubljena(true);
-                        Toast.makeText(context,"Dodano med priljubljene kose",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,getString(R.string.toast1),Toast.LENGTH_SHORT).show();
                         favoriteSign.setImageResource(R.drawable.like);
                     }
                     break;

@@ -31,8 +31,11 @@
     <string name="opis_pod_vstopi">Za začetek se prosim vpiši ali registriraj. Zatem lahko takoj začneš z brskanjem po unikatnih modnih kosih.</string>
 
     <string name="o_aplikaciji_1">Aplikacija je bila izdelana kot del študentskega projekta \"Po kreativni poti do znanja\" z naslovom \"Temne skrivnosti hitre mode\" v sodelovanju s podjetjem Snaga d.o.o. .</string>
+
     <string name="priljubljeni_kosi">Priljubljeni kosi</string>
-    <string name="brez_rezerviranih_Oblačil">Žal trenutno še nimaš aktivnih rezervacij oblačil. Skoči na galerijo in si hitro enega rezerviraj.</string>
+    <string name="brez_rezerviranih_Oblačil">Trenutno nimaš rezerviranega nobenega kosa. Skoči na galerijo in si hitro enega izberi.</string>
+    <string name="brez_priljubljenih">Trenutno nimaš nobenega priljubljenega kosa. V galeriji si jih lahko izbereš s klikom na srček in si tako ustvariš seznam sebi najljubših kosov.</string>
+
     <string name="galerija">Galerija</string>
     <string name="status_rezervacije">Status rezervacije</string>
     <string name="zivljenska_doba">Povprečna življenjska doba oblačil hitre mode znaša manj kot 2 leti.</string>
@@ -45,9 +48,9 @@
     <string name="zahvala">Posebna zahvala gre predvsem vsem sodelujočim modnim oblikovalcem in mentorjem projekta.</string>
     <string name="sofinanciranje">Projekt sofinancirata Republika Slovenija in Evropska unija iz Evropskega socialnega sklada.</string>
 
-    <string name="dogovor_izposoje">Za izposojo se dogovori s trenutnim imetnikom. Če si oblačilo že prejel to prosim potrdi s klikom na spodnji gumb.</string>
+    <string name="dogovor_izposoje">Za izposojo se dogovori s trenutnim imetnikom. Če si oblačilo že prejel, to prosim potrdi s klikom na spodnji gumb.</string>
     <string name="st_preostalih_dni">Št. preostalih dni</string>
-    <string name="trenutni_imetnik">Juhu si trenutni imetnik oblačila :)</string>
+    <string name="trenutni_imetnik">Juhu, si trenutni imetnik oblačila :)</string>
     <string name="zapomni_si_me">Zapomni si me</string>
     <string name="ime">Ime</string>
     <string name="priimek">Priimek</string>
@@ -64,13 +67,13 @@
     <string name="oblacilo_sprejeto">Oblačilo sprejeto</string>
     <string name="kontakt">Kontakt trenutnega imetnika</string>
     <string name="oblacilo_oddano">Oblačilo oddano</string>
-    <string name="predano_oblacilo">Če si oblačilo že predal naslednjemu uporabniku to prosim potrdi s klikom na spodnji gumb</string>
+    <string name="predano_oblacilo">Če si oblačilo že predal naslednjemu uporabniku, to prosim potrdi s klikom na spodnji gumb.</string>
     <string name="kontaktni_podatki_prejemnika">Kontaktni podatki prejemnika</string>
-    <string name="zbrisi_rezervacijo">Zbriši rezervacijo</string>
+    <string name="zbrisi_rezervacijo">Izbriši rezervacijo</string>
     <string name="cakalna_vrsta">Čakalna vrsta</string>
     <string name="uporabnik">Uporabnik</string>
     <string name="trenutni_imetnik1">Trenutni imetnik</string>
-    <string name="negovati">P.S.: Oblačila ne pozabi oprati in oddati tako lepo negovanega kot si ga prejel</string>
+    <string name="negovati">P.S.: Oblačila ne pozabi oprati in oddati tako lepo negovanega, kot si ga prejel.</string>
     <string name="predaja_oblacila">Predaja Oblačila</string>
 
     <string name="tip_obleke">Tip obleke</string>
@@ -102,7 +105,7 @@
     <string name="pomoc_question7">8. Ali si lahko izposodim več kosov naenkrat?</string>
     <string name="pomoc_anwser7">Za zdaj si lahko vsak uporabnik izposodi le en kos naenkrat.</string>
     <string name="pomoc_question8">9. Želim si izposoditi kos, kaj naj naredim?</string>
-    <string name="pomoc_anwser8">Ko si v galeriji izbereš želeni kos, je v njegovem opisu tudi podatek, ali je na voljo takoj ali je trenutno izposojen. Če je v izposoji, se vpiši v čakalno vrsto, nato pa stopi v kontakt s trenutnim uporabnikom, da se dogovorita za predajo in prevzem. Kontakt trenutnega uporabnika se ti bo izpisal, ko boš prvi/a v čakalni vrsti.</string>
+    <string name="pomoc_anwser8">Za izposojo kateregakoli kosa iz galerije moraš najprej dopolniti svoj uporabniški profil. To narediš, tako da v spustnem meniju desno od tvoje profilne fotografije izbereš možnost \"Dopolni profil\".\n\nKo si v galeriji izbereš želeni kos, je v njegovem opisu tudi podatek, ali je na voljo takoj ali je trenutno izposojen. Če je v izposoji, se vpiši v čakalno vrsto, nato pa stopi v kontakt s trenutnim uporabnikom, da se dogovorita za predajo in prevzem. Kontakt trenutnega uporabnika se ti bo izpisal, ko boš prvi/a v čakalni vrsti.</string>
     <string name="pomoc_question9">10. Kje in kako prevzamem rezervirano?</string>
     <string name="pomoc_anwser9">Oblačilo/modni dodatek prejmeš od prejšnjega uporabnika tako, da si najprej izmenjata kontakte ter se nato srečata v živo ali pa si pošljeta izdelek po pošti. Kontakt trenutnega uporabnika se ti bo izpisal, ko boš prvi/a v čakalni vrsti. Priporočamo, da se prejšnji in naslednji uporabnik srečata v živo ter ob prevzemu preverita, da je modni kos nepoškodovan in čist.</string>
     <string name="pomoc_question10">11. Kako izposojeno predam naprej?</string>
@@ -138,7 +141,7 @@
     <string name="dopolni_profil">Dopolni profil</string>
 
     <string name="fact0">Več o problematiki hitre mode izveš v dokumentarnem filmu The true cost.</string>
-    <string name="fact1">Skrčena oblačila lahko vrneš v prvotno velikost z naslednjim <a href="http://1001ideja.si/majice-ki-so-se-pri-pranju-skrcile-lahko-ponovno-raztegnete-na-prvotno-velikost"> trikom</a>.</string>
+    <string name="fact1">Skrčena oblačila lahko vrneš v prvotno velikost z naslednjim <a href="http://1001ideja.si/majice-ki-so-se-pri-pranju-skrcile-lahko-ponovno-raztegnete-na-prvotno-velikost">trikom</a>.</string>
     <string name="fact2">Oblačila se lahko barva z vročim zrakom, kar prihrani do 283 litrov vode na 0,5 kilograma tkanine.</string>
     <string name="fact3">Oblačila je mogoče izdelati iz fermentiranega čaja s pomočjo mikroorganizmov.</string>
 
@@ -147,7 +150,7 @@
     <string name="dialog_title1">Potrditev rezervacije</string>
     <string name="dialog_content1">Za potrditev rezervacije tega kosa prosim pritisnite VREDU. Trenutno stanje tvoje rezervacije  in podatek o trenutnem imetniku  lahko spremljaš na svojem profilu</string>
     <string name="dialog_title2">Rezervacija ni mogoča</string>
-    <string name="dialog_content2">Žal imaš rezerviran že nek drug kos.\nKer želimo zagotoviti čim večje kroženje oblačil je možna le 1 rezervacija na enkrat.</string>
+    <string name="dialog_content2">Trenutno imaš rezerviran že nek drug kos. Ker želimo zagotoviti izposojo čim večjemu krogu uporabnikov, je možna le ena rezervacija na enkrat.</string>
     <string name="dialog_title3">Pozabljeno geslo</string>
     <string name="dialog_content3">Če si pozabil geslo nas kontaktiraj na:\nkabine.sherinjon@gmail.com.</string>
     <string name="dialog_title4">Pogoji uporabe</string>
@@ -156,17 +159,20 @@
     <string name="dialog_content5">Izberi način vnosa profilne slike.</string>
     <string name="dialog_title6">Dopolni profil</string>
     <string name="dialog_content6">Tvoj profil trenutno vsebuje le osnovne podatke, ti pa ne zadostujejo za izposojo kosov. Če si želiš kaj izposoditi, te prosimo, da v glavi menija na levi strani izbereš gumb "Dopolni profil".</string>
-    <string name="dialog_title7">Opozorilo: vrni oblačilo</string>
-    <string name="dialog_content7">Vaša izposoja se bliža koncu prosimo vas, da izberete gumb oddaj oblačilo in se dogovorite o predaji z nasednjim imetnikom</string>
-    <string name="dialog_title8">Opozorilo: vrni oblačilo</string>
-    <string name="dialog_content8">Vaša izposoja se je že končala prosimo vas, da izberete gumb oddaj oblačilo in se dogovorite o predaji z nasednjim imetnikom. Če ne boste vrnili oblačila v 48 urah vam bomo blokirali račun</string>
+    <string name="dialog_title7">Opozorilo: Vrni oblačilo</string>
+    <string name="dialog_content7">Tvoja izposoja se bliža koncu. Prosimo te, da izbereš gumb "Oddaj oblačilo" in se dogovoriš o predaji z naslednjim uporabnikom.</string>
+    <string name="dialog_title8">Opozorilo: Vrni oblačilo</string>
+    <string name="dialog_content8">Tvoja izposoja se je že končala. Prosimo te, da izbereš gumb "Oddaj oblačilo" in se dogovoriš o predaji z naslednjim imetnikom. Če kosa ne boš predal ali vrnil v roku 48ur, bo tvoj uporabniški profil deaktiviran!\n\nV kolikor imaš pri predaji/vrnitvi kosa težave, nam to čim prej sporoči na: kabine.sherinjon@gmail.com.</string>
     <string name="dialog_title9">Pozabljeno geslo</string>
     <string name="dialog_content9">Če si pozabil geslo nas kontaktiraj na:\nkabine.sherinjon@gmail.com.</string>
     <string name="dialog_title10">Kontakti uporabnika</string>
-    <string name="dialog_button0">VREDU</string>
+    <string name="dialog_button0">V REDU</string>
     <string name="dialog_button1">NAZAJ</string>
     <string name="dialog_button2">Razumem in sprejmem pogoje</string>
     <string name="dialog_button3">Fotoaparat</string>
     <string name="dialog_button4">Galerija</string>
+
+    <string name="toast0">Odstranjeno iz priljubljenih kosov.</string>
+    <string name="toast1">Dodano med priljubljene kose.</string>
 
 </resources>
