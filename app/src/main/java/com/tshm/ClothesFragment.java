@@ -137,22 +137,31 @@ public class ClothesFragment extends Fragment implements AsyncResponse {
                     break;
                 case R.id.favoriteDress:
                     if (dress.isPriljubljena()) {
+                        if(NetworkUtils.isNetworkConnected(context)) {
+                            restTask = new RESTCallTask("odstraniPriljubljeno", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
+                            restTask.delegate = asyncResponse;
+                            restTask.execute("POST", String.format("odstraniPriljubljeno"));
 
-                        restTask = new RESTCallTask("odstraniPriljubljeno", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
-                        restTask.delegate = asyncResponse;
-                        restTask.execute("POST", String.format("odstraniPriljubljeno"));
+                            dress.setPriljubljena(false);
+                            Toast.makeText(context, getString(R.string.toast0), Toast.LENGTH_SHORT).show();
+                            favoriteSign.setImageResource(R.drawable.unlike);
+                        }
+                        else
+                            Dialog.networkErrorDialog(context).show();
+                        break;
 
-                        dress.setPriljubljena(false);
-                        Toast.makeText(context,getString(R.string.toast0),Toast.LENGTH_SHORT).show();
-                        favoriteSign.setImageResource(R.drawable.unlike);
                     } else {
-                        restTask = new RESTCallTask("dodajPriljubljeno", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
-                        restTask.delegate = asyncResponse;
-                        restTask.execute("POST", String.format("dodajPriljubljeno"));
+                        if(NetworkUtils.isNetworkConnected(context)) {
+                            restTask = new RESTCallTask("dodajPriljubljeno", user.getUsername(), user.getPassword(), dress.getId_obleka(), view);
+                            restTask.delegate = asyncResponse;
+                            restTask.execute("POST", String.format("dodajPriljubljeno"));
 
-                        dress.setPriljubljena(true);
-                        Toast.makeText(context,getString(R.string.toast1),Toast.LENGTH_SHORT).show();
-                        favoriteSign.setImageResource(R.drawable.like);
+                            dress.setPriljubljena(true);
+                            Toast.makeText(context, getString(R.string.toast1), Toast.LENGTH_SHORT).show();
+                            favoriteSign.setImageResource(R.drawable.like);
+                        }
+                        else
+                            Dialog.networkErrorDialog(context).show();
                     }
                     break;
             }

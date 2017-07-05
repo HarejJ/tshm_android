@@ -184,11 +184,15 @@ public class MainActivity extends AppCompatActivity
                                         novoGeslo2ET.setError("Novi gesli nista enaki");
                                         return;
                                     }
-
-                                    RESTCallTask restTask = new RESTCallTask("spremeniGeslo", user.getUsername(),
-                                            passwdMD5,passwd1MD5,passwd2MD5,passwd2MD5, view);
-                                    restTask.delegate = asyncResponse;
-                                    restTask.execute("POST", String.format("spremeniGeslo"));
+                                    if(NetworkUtils.isNetworkConnected(context))
+                                    {
+                                        RESTCallTask restTask = new RESTCallTask("spremeniGeslo", user.getUsername(),
+                                                passwdMD5,passwd1MD5,passwd2MD5,passwd2MD5, view);
+                                        restTask.delegate = asyncResponse;
+                                        restTask.execute("POST", String.format("spremeniGeslo"));
+                                    }
+                                    else
+                                        Dialog.networkErrorDialog(context).show();
 
                                 }
                             });
@@ -252,10 +256,15 @@ public class MainActivity extends AppCompatActivity
                                         mailET.setError("e-mail je nepravilen");
                                         return;
                                     }
-                                    RESTCallTask restTask = new RESTCallTask("spremeniPodatke", user.getUsername(),
-                                            user.getPassword(),naslov,mail,kraj,telefon, view);
-                                    restTask.delegate = asyncResponse;
-                                    restTask.execute("POST", String.format("spremeniPodatke"));
+                                    if(NetworkUtils.isNetworkConnected(context)){
+                                        RESTCallTask restTask = new RESTCallTask("spremeniPodatke", user.getUsername(),
+                                                user.getPassword(),naslov,mail,kraj,telefon, view);
+                                        restTask.delegate = asyncResponse;
+                                        restTask.execute("POST", String.format("spremeniPodatke"));
+                                    }
+                                    else
+                                        Dialog.networkErrorDialog(context).show();
+
 
                                 }
                             });
@@ -408,9 +417,15 @@ public class MainActivity extends AppCompatActivity
                 newImage=ImageUtil.convert(bitmap);
                 user.setImage(newImage);
                 profilImage.setImageBitmap(ImageUtil.convert(newImage));
-                RESTCallTask restTask = new RESTCallTask(mainActivity, "changeImage", user.getUsername(),
-                        user.getPassword(),newImage, view);
-                restTask.execute("POST", String.format("changeImage"));
+                if(NetworkUtils.isNetworkConnected(context))
+                {
+                    RESTCallTask restTask = new RESTCallTask(mainActivity, "changeImage", user.getUsername(),
+                            user.getPassword(),newImage, view);
+                    restTask.execute("POST", String.format("changeImage"));
+                }
+                else
+                    Dialog.networkErrorDialog(context).show();
+
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -426,9 +441,15 @@ public class MainActivity extends AppCompatActivity
             newImage=ImageUtil.convert(imageBitmap);
             user.setImage(newImage);
             profilImage.setImageBitmap(ImageUtil.convert(newImage));
-            RESTCallTask restTask = new RESTCallTask(mainActivity, "changeImage", user.getUsername(),
-                    user.getPassword(),newImage,view);
-            restTask.execute("POST", String.format("changeImage"));
+            if(NetworkUtils.isNetworkConnected(context))
+            {
+                RESTCallTask restTask = new RESTCallTask(mainActivity, "changeImage", user.getUsername(),
+                        user.getPassword(),newImage,view);
+                restTask.execute("POST", String.format("changeImage"));
+            }
+            else
+                Dialog.networkErrorDialog(context).show();
+
 
         }
     }
