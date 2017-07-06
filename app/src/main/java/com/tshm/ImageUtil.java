@@ -14,8 +14,9 @@ public class ImageUtil {
                 base64Str.substring(base64Str.indexOf(",")  + 1),
                 Base64.DEFAULT
         );
-
-        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        decodedBytes = null;
+        return bitmap;
     }
     // pretvori bitmap v base64 string
     public static String convert(Bitmap bitmap)
